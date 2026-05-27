@@ -532,6 +532,112 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 
   .overview-strip { padding: 1.5rem; }
 }
+
+/* ── HAMBURGER MENU ──────────────── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+  z-index: 1100;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(250,247,242,0.98);
+  backdrop-filter: blur(20px);
+  z-index: 1050;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 300;
+  color: var(--ink); text-decoration: none;
+  padding: 0.75rem 2rem;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+  text-align: center;
+}
+.mobile-menu a:hover { color: var(--sage); }
+.mobile-menu .mobile-book {
+  margin-top: 1.5rem;
+  background: var(--sage); color: white !important;
+  padding: 0.85rem 2.5rem; border-radius: 99px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem !important; font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links { display: none !important; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 2.5rem 1.25rem; }
+  .services-section { padding: 2.5rem 1.25rem; }
+  .how-section { padding: 2.5rem 1.25rem; }
+  .pricing-section { padding: 2.5rem 1.25rem; }
+  .about-section { padding: 2.5rem 1.25rem; gap: 1.5rem; }
+  .cta-section { padding: 2.5rem 1.25rem; }
+  .intro-section { padding: 2.5rem 1.25rem; gap: 1.5rem; }
+  .creds-strip { padding: 2rem 1.25rem; }
+  .why-section { padding: 2.5rem 1.25rem; }
+  .philosophy-section { padding: 2.5rem 1.25rem; }
+  .expect-section { padding: 2.5rem 1.25rem; }
+  .service-block { padding: 2.5rem 1.25rem; gap: 1.5rem; }
+  .labs-section { padding: 2.5rem 1.25rem; }
+  .visits-section { padding: 2.5rem 1.25rem; }
+  .scope-section { padding: 2.5rem 1.25rem; }
+  .faq-layout { padding: 1.5rem 1.25rem; }
+  .articles-section { padding: 2.5rem 1.25rem; }
+  .book-side { padding: 2.5rem 1.25rem; }
+  .contact-side { padding: 2.5rem 1.25rem; }
+  .expect-strip { padding: 2rem 1.25rem; }
+  .pricing-reminder { padding: 2rem 1.25rem; }
+  footer { padding: 2.5rem 1.25rem 1.5rem; }
+
+  .section-title { font-size: 1.6rem; margin-bottom: 0.75rem; }
+  .section-sub { font-size: 0.92rem; margin-bottom: 1.5rem; }
+  .hero-h1 { font-size: 2rem; }
+  .page-hero h1 { font-size: 2rem; }
+
+  .services-grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; gap: 1rem; }
+  .labs-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+  .creds-strip { grid-template-columns: 1fr; gap: 1rem; }
+  .expect-strip { grid-template-columns: 1fr; gap: 1rem; }
+  .pricing-reminder { grid-template-columns: 1fr 1fr; }
+
+  .hero-stat { padding: 1rem 1.25rem; }
+  .wc-card { padding: 1rem 1.25rem; }
+  .service-card { padding: 1.25rem; }
+  .price-card { padding: 1.75rem 1.25rem; }
+  .lab-card { padding: 1.25rem; }
+  .phil-card { padding: 1.5rem; }
+  .expect-card { padding: 1.25rem 1.25rem; }
+  .book-detail { padding: 0.75rem 1rem; }
+}
 </style>
 </head>
 <body>
@@ -547,6 +653,19 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html" class="nav-cta">Book a Visit</a></li>
   </ul>
+
+  <!-- Mobile Menu -->
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html" onclick="closeMenu()">Home</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="services.html" onclick="closeMenu()">Services</a>
+    <a href="faq.html" onclick="closeMenu()">FAQ</a>
+    <a href="resources.html" onclick="closeMenu()">Resources</a>
+    <a href="contact.html" class="mobile-book" onclick="closeMenu()">Book a Visit</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -819,6 +938,19 @@ window.addEventListener('scroll', () => {
   document.getElementById('navbar').style.boxShadow =
     window.scrollY > 20 ? '0 4px 24px rgba(26,26,46,0.08)' : 'none';
 });
+
+function toggleMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn = document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+}
+function closeMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow = '';
+}
 </script>
 </body>
 </html>
