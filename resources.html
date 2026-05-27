@@ -30,9 +30,9 @@ body {
 
 /* ── NAV ─────────────────────────── */
 nav {
-  position: fixed; top: 0; width: 100%; z-index: 1000;
+  position: fixed; top: 0; width: 100%; z-index: 1500;
   padding: 1.25rem 3rem;
-  display: flex; justify-content: space-between; align-items: center;
+  display: flex; justify-content: space-between; align-items: center; position: relative;
   background: rgba(250,247,242,0.93);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(122,158,135,0.15);
@@ -430,7 +430,8 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   padding: 4px;
   background: none;
   border: none;
-  z-index: 1100;
+  z-index: 2000;
+  position: relative;
 }
 .hamburger span {
   display: block;
@@ -450,7 +451,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(250,247,242,0.98);
   backdrop-filter: blur(20px);
-  z-index: 1050;
+  z-index: 1999;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -845,13 +846,22 @@ window.addEventListener('scroll', () => {
 function toggleMenu() {
   const menu = document.getElementById('mobile-menu');
   const btn = document.getElementById('hamburger');
-  menu.classList.toggle('open');
-  btn.classList.toggle('open');
-  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  const isOpen = menu.classList.contains('open');
+  if (isOpen) {
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    document.body.style.overflow = '';
+  } else {
+    menu.classList.add('open');
+    btn.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
 }
 function closeMenu() {
-  document.getElementById('mobile-menu').classList.remove('open');
-  document.getElementById('hamburger').classList.remove('open');
+  const menu = document.getElementById('mobile-menu');
+  const btn = document.getElementById('hamburger');
+  if (menu) menu.classList.remove('open');
+  if (btn) btn.classList.remove('open');
   document.body.style.overflow = '';
 }
 </script>
