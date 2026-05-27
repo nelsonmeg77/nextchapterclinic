@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About, The Next Chapter Clinic</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a2e;
+  --sage: #7a9e87;
+  --sage-dark: #5d8a6e;
+  --sage-light: #b8d4c0;
+  --sage-pale: #eef5f0;
+  --blush: #e8c4b0;
+  --blush-deep: #c9896e;
+  --cream: #faf7f2;
+  --warm-white: #fff9f4;
+  --text: #2d2d3a;
+  --muted: #7a7a8a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ── NAV ─────────────────────────── */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  padding: 1.25rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(250,247,242,0.93);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(122,158,135,0.15);
+  transition: box-shadow 0.3s;
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 600;
+  color: var(--ink); letter-spacing: 0.02em;
+  text-decoration: none;
+}
+.nav-logo span { color: var(--sage); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: var(--muted);
+  font-size: 0.82rem; letter-spacing: 0.08em;
+  text-transform: uppercase; font-weight: 400;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--sage); }
+.nav-cta {
+  background: var(--sage); color: white !important;
+  padding: 0.6rem 1.4rem; border-radius: 99px;
+  font-size: 0.8rem !important; letter-spacing: 0.06em;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--sage-dark) !important; }
+
+/* ── PAGE HERO ───────────────────── */
+.page-hero {
+  background: var(--ink);
+  padding: 10rem 5rem 6rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: end;
+  position: relative; overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute; top: -100px; right: -100px;
+  width: 450px; height: 450px; border-radius: 50%;
+  background: rgba(122,158,135,0.08);
+}
+.page-hero::after {
+  content: '';
+  position: absolute; bottom: -80px; left: 30%;
+  width: 280px; height: 280px; border-radius: 50%;
+  background: rgba(232,196,176,0.06);
+}
+.hero-eyebrow {
+  font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--sage-light); font-weight: 400; margin-bottom: 1.25rem;
+}
+.page-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+  font-weight: 300; line-height: 1.1; color: white;
+  position: relative; z-index: 1;
+}
+.page-hero h1 em { font-style: italic; color: var(--blush); }
+.hero-right-text {
+  position: relative; z-index: 1;
+  padding-bottom: 0.5rem;
+}
+.hero-right-text p {
+  font-size: 1.1rem; line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+  border-left: 2px solid var(--sage);
+  padding-left: 1.5rem;
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+}
+
+/* ── PHOTO + INTRO ───────────────── */
+.intro-section {
+  display: grid; grid-template-columns: 400px 1fr;
+  gap: 5rem; padding: 6rem 5rem; align-items: start;
+}
+.photo-block { position: sticky; top: 100px; }
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: var(--sage-pale);
+  border-radius: 20px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  border: 2px dashed var(--sage-light);
+  gap: 1rem; color: var(--muted);
+  font-size: 0.88rem; text-align: center;
+  padding: 2rem;
+}
+.photo-placeholder .photo-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--sage-pale);
+  border: 2px dashed var(--sage-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem;
+}
+.photo-placeholder span { color: var(--sage); font-weight: 500; }
+.photo-name {
+  margin-top: 1.25rem; text-align: center;
+}
+.photo-name strong {
+  display: block; font-size: 1.1rem; font-weight: 500; color: var(--ink);
+  font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+}
+.photo-name span { font-size: 0.82rem; color: var(--muted); letter-spacing: 0.06em; }
+
+.intro-content { padding-top: 0.5rem; }
+.intro-content .section-tag {
+  font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--sage); font-weight: 500; margin-bottom: 1rem;
+  display: block;
+}
+.intro-content h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-weight: 300; line-height: 1.25; color: var(--ink);
+  margin-bottom: 2rem;
+}
+.intro-content p {
+  font-size: 1rem; line-height: 1.85; color: var(--muted);
+  margin-bottom: 1.4rem;
+}
+.intro-content p strong { color: var(--text); font-weight: 500; }
+.intro-content p.lead {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem; line-height: 1.7; color: var(--text);
+  font-weight: 300; font-style: italic;
+  border-left: 3px solid var(--sage-light);
+  padding-left: 1.5rem; margin-bottom: 2rem;
+}
+
+/* ── CREDENTIALS STRIP ───────────── */
+.creds-strip {
+  background: var(--ink); padding: 4rem 5rem;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+}
+.cred-item {
+  opacity: 0; transform: translateY(20px); transition: all 0.5s ease;
+}
+.cred-item.visible { opacity: 1; transform: translateY(0); }
+.cred-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: rgba(122,158,135,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; margin-bottom: 1rem;
+}
+.cred-item h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-weight: 400; color: white;
+  margin-bottom: 0.4rem;
+}
+.cred-item p { font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.5; }
+
+/* ── WHY I BUILT THIS ─────────────── */
+.why-section {
+  padding: 6rem 5rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+}
+.why-visual {
+  background: var(--sage-pale); border-radius: 24px;
+  padding: 3.5rem; position: relative; overflow: hidden;
+}
+.why-visual::before {
+  content: '';
+  position: absolute; bottom: -40px; right: -40px;
+  width: 180px; height: 180px; border-radius: 50%;
+  background: rgba(122,158,135,0.2);
+}
+.stat-highlight {
+  text-align: center; margin-bottom: 2.5rem; position: relative; z-index: 1;
+}
+.stat-highlight strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem; font-weight: 300; color: var(--sage-dark);
+  line-height: 1;
+}
+.stat-highlight span { font-size: 0.9rem; color: var(--muted); }
+.why-points { display: flex; flex-direction: column; gap: 1rem; position: relative; z-index: 1; }
+.why-point {
+  background: white; border-radius: 12px; padding: 1rem 1.25rem;
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  box-shadow: 0 2px 12px rgba(26,26,46,0.05);
+}
+.why-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--sage); margin-top: 0.35rem; flex-shrink: 0;
+}
+.why-point p { font-size: 0.9rem; line-height: 1.6; color: var(--text); }
+
+.why-content .section-tag {
+  font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--sage); font-weight: 500; margin-bottom: 1rem; display: block;
+}
+.why-content h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-weight: 300; line-height: 1.25; color: var(--ink); margin-bottom: 2rem;
+}
+.why-content p {
+  font-size: 1rem; line-height: 1.85; color: var(--muted); margin-bottom: 1.4rem;
+}
+.why-content p strong { color: var(--text); font-weight: 500; }
+
+/* ── MY PHILOSOPHY ───────────────── */
+.philosophy-section {
+  background: var(--ink); padding: 6rem 5rem;
+}
+.philosophy-section .section-tag {
+  font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--sage-light); font-weight: 500; margin-bottom: 1rem; display: block;
+}
+.philosophy-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-weight: 300; color: white; margin-bottom: 3rem;
+}
+.philosophy-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+}
+.phil-card {
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px; padding: 2rem;
+  background: rgba(255,255,255,0.03);
+  opacity: 0; transform: translateY(20px); transition: all 0.5s ease;
+}
+.phil-card.visible { opacity: 1; transform: translateY(0); }
+.phil-card:hover { background: rgba(122,158,135,0.08); border-color: rgba(122,158,135,0.2); }
+.phil-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem; font-weight: 300; color: rgba(122,158,135,0.4);
+  line-height: 1; margin-bottom: 1rem;
+}
+.phil-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 400; color: white;
+  margin-bottom: 0.75rem;
+}
+.phil-card p { font-size: 0.88rem; line-height: 1.7; color: rgba(255,255,255,0.45); }
+
+/* ── WHAT TO EXPECT ──────────────── */
+.expect-section {
+  background: var(--sage-pale); padding: 6rem 5rem;
+}
+.expect-section .section-tag {
+  font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--sage); font-weight: 500; margin-bottom: 1rem; display: block;
+}
+.expect-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-weight: 300; color: var(--ink); margin-bottom: 3rem;
+}
+.expect-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 900px;
+}
+.expect-card {
+  background: white; border-radius: 16px; padding: 1.75rem 2rem;
+  display: flex; gap: 1.25rem; align-items: flex-start;
+  box-shadow: 0 2px 16px rgba(26,26,46,0.05);
+  opacity: 0; transform: translateY(20px); transition: all 0.5s ease;
+}
+.expect-card.visible { opacity: 1; transform: translateY(0); }
+.expect-icon {
+  font-size: 1.5rem; flex-shrink: 0; margin-top: 0.1rem;
+}
+.expect-card h4 { font-size: 1rem; font-weight: 500; color: var(--ink); margin-bottom: 0.4rem; }
+.expect-card p { font-size: 0.88rem; line-height: 1.6; color: var(--muted); }
+
+/* ── CTA ─────────────────────────── */
+.cta-section {
+  background: linear-gradient(135deg, var(--sage-dark) 0%, var(--ink) 100%);
+  padding: 6rem 5rem; text-align: center;
+}
+.cta-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300; color: white; margin-bottom: 1rem;
+}
+.cta-section p { font-size: 1rem; color: rgba(255,255,255,0.6); margin-bottom: 2.5rem; }
+.btn-white {
+  display: inline-block; background: white; color: var(--ink);
+  padding: 1rem 2.5rem; border-radius: 99px;
+  font-size: 0.95rem; font-weight: 500; text-decoration: none;
+  letter-spacing: 0.04em; transition: all 0.2s;
+}
+.btn-white:hover { background: var(--cream); transform: translateY(-2px); }
+
+/* ── FOOTER ───────────────────────── */
+footer {
+  background: var(--ink); padding: 4rem 5rem 2rem;
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 600; color: white; margin-bottom: 0.75rem;
+}
+.footer-brand span { color: var(--sage); }
+footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height: 1.7; }
+.footer-col h5 {
+  font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-bottom: 1.25rem; font-weight: 500;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.75rem; }
+.footer-col ul a {
+  text-decoration: none; font-size: 0.88rem;
+  color: rgba(255,255,255,0.5); transition: color 0.2s;
+}
+.footer-col ul a:hover { color: var(--sage-light); }
+.footer-bottom {
+  background: #111827; padding: 1.5rem 5rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+/* ── ANIMATIONS ──────────────────── */
+.fade-up {
+  opacity: 0; transform: translateY(24px); transition: all 0.6s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">The Next Chapter <span>Clinic</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#who">Who We Serve</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="index.html#how">How It Works</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="contact.html" class="nav-cta">Book a Visit</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div>
+    <p class="hero-eyebrow">About Your Provider</p>
+    <h1>Care that starts with<br><em>actually listening.</em></h1>
+  </div>
+  <div class="hero-right-text">
+    <p>Every woman goes through this. Yet so many arrive at this stage of life with no idea what to expect, and nowhere near enough support to navigate it. That gap between how universal this experience is and how little help most women actually get — that's what this practice is about.</p>
+  </div>
+</section>
+
+<!-- PHOTO + INTRO -->
+<section class="intro-section">
+  <div class="photo-block">
+    <img
+      src="headshot.jpeg"
+      alt="Megan Nelson, CNM, MSCP — The Next Chapter Clinic"
+      style="width:100%; border-radius:20px; display:block; object-fit:cover; aspect-ratio:3/4;"
+    >
+    <div class="photo-name">
+      <strong>Megan Nelson, CNM, MSCP</strong>
+      <span>CERTIFIED NURSE MIDWIFE · MENOPAUSE SPECIALIST</span>
+    </div>
+  </div>
+
+  <div class="intro-content">
+    <span class="section-tag">My Story</span>
+    <h2>A CNM who recognized a gap<br>and decided to fill it.</h2>
+
+    <p>I've spent my career in women's health, first as a Labor and Delivery RN in the Metro Detroit area, then as a <strong>Certified Nurse Midwife</strong> in full-scope practice. I love this work, and I continue to practice as a CNM alongside running The Next Chapter Clinic.</p>
+
+    <p>Over time I noticed something that I kept coming back to: women going through perimenopause and menopause had so many questions, so many symptoms, and so much to discuss, but a standard appointment simply doesn't leave enough time to cover it all. There's the history, the education, the treatment options, the lifestyle piece. You can't do any of it justice in 10 or 20 minutes.</p>
+
+    <p>That gap in time, and in dedicated menopause education, is what The Next Chapter Clinic is built to close. <strong>When menopause care is the only thing on the schedule, there's finally enough room to do it right.</strong> Longer visits, real conversations, and a care plan that's built around the whole picture, not just the presenting complaint.</p>
+
+    <p>I hold both my CNM certification and the <strong>Menopause Society Certified Practitioner (MSCP)</strong> designation, the gold standard credential in menopause care, held by a small fraction of providers nationwide. I don't just understand menopause. I specialize in it. It is the entire focus of this practice.</p>
+
+    <p>If you've felt brushed off, rushed, or told your symptoms are "just part of getting older", I want you to know that you deserve better. And I'm here to provide it.</p>
+  </div>
+</section>
+
+<!-- CREDENTIALS STRIP -->
+<div class="creds-strip">
+  <div class="cred-item" id="cr1">
+    <div class="cred-icon">🎓</div>
+    <h4>Certified Nurse Midwife</h4>
+    <p>Graduate-level CNM training with full-scope women's health practice authority</p>
+  </div>
+  <div class="cred-item" id="cr2">
+    <div class="cred-icon">⭐</div>
+    <h4>MSCP Certified</h4>
+    <p>Menopause Society Certified Practitioner, the gold standard in menopause care, held by few providers</p>
+  </div>
+  <div class="cred-item" id="cr3">
+    <div class="cred-icon">🏥</div>
+    <h4>L&D Background</h4>
+    <p>Prior experience as a Labor & Delivery RN, a deep foundation in women's health across all life stages</p>
+  </div>
+  <div class="cred-item" id="cr4">
+    <div class="cred-icon">📱</div>
+    <h4>Telehealth-Only Practice</h4>
+    <p>Purposefully built as a virtual practice so women can access specialized care from anywhere</p>
+  </div>
+</div>
+
+<!-- WHY I BUILT THIS -->
+<section class="why-section">
+  <div class="why-visual">
+    <div class="stat-highlight">
+      <strong>75M</strong>
+      <span>Women in the US currently in perimenopause or menopause</span>
+    </div>
+    <div class="why-points">
+      <div class="why-point">
+        <span class="why-dot"></span>
+        <p>Most receive fewer than <strong>3 hours</strong> of menopause training during medical or nursing school</p>
+      </div>
+      <div class="why-point">
+        <span class="why-dot"></span>
+        <p>The average menopause-related appointment lasts <strong>less than 7 minutes</strong></p>
+      </div>
+      <div class="why-point">
+        <span class="why-dot"></span>
+        <p>Nearly <strong>73% of women</strong> report their menopause symptoms were never addressed by a provider</p>
+      </div>
+      <div class="why-point">
+        <span class="why-dot"></span>
+        <p>There are <strong>almost no</strong> independent menopause specialists serving women virtually</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="why-content">
+    <span class="section-tag">Why This Practice Exists</span>
+    <h2>The gap in women's healthcare is real. And it's fixable.</h2>
+    <p>Menopause affects every woman, yet it remains one of the most undertreated conditions in medicine. Women are routinely told their symptoms are "normal," handed a pamphlet, and sent home. Meanwhile, <strong>effective, evidence-based treatments exist</strong> that most women never even hear about.</p>
+    <p>The Next Chapter Clinic exists because women deserve access to a provider who has made menopause their entire specialty, not a side note between OB and GYN appointments.</p>
+    <p>Longer visits. Real conversations. A care plan built around you. <strong>That's not a luxury, it's what good care looks like.</strong></p>
+  </div>
+</section>
+
+<!-- MY PHILOSOPHY -->
+<section class="philosophy-section">
+  <span class="section-tag">My Philosophy</span>
+  <h2>How I approach your care.</h2>
+  <div class="philosophy-grid">
+    <div class="phil-card" id="ph1">
+      <div class="phil-num">01</div>
+      <h3>Evidence-Based, Not Fear-Based</h3>
+      <p>Hormone therapy has been misunderstood for decades. I practice using current evidence, not outdated fears, and I'll take the time to explain the real data so you can make an informed choice.</p>
+    </div>
+    <div class="phil-card" id="ph2">
+      <div class="phil-num">02</div>
+      <h3>Your Symptoms Are Real</h3>
+      <p>Hot flashes, brain fog, sleep disruption, mood changes, these are not imagined and they are not something you just have to endure. Every symptom you experience deserves to be taken seriously and addressed.</p>
+    </div>
+    <div class="phil-card" id="ph3">
+      <div class="phil-num">03</div>
+      <h3>Individualized, Always</h3>
+      <p>There is no one-size-fits-all approach to menopause care. Your history, your symptoms, your values, and your goals all shape your care plan. I treat the whole person, not just the hormone levels.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT TO EXPECT -->
+<section class="expect-section">
+  <span class="section-tag">Working With Me</span>
+  <h2>What your experience will look like.</h2>
+  <div class="expect-grid">
+    <div class="expect-card" id="ex1">
+      <div class="expect-icon">⏱️</div>
+      <div>
+        <h4>Real Time Together</h4>
+        <p>Your initial visit is 60–90 minutes. Follow-ups are 30 minutes. This is not a rushed 10-minute appointment, there is actual time to talk through everything.</p>
+      </div>
+    </div>
+    <div class="expect-card" id="ex2">
+      <div class="expect-icon">🏠</div>
+      <div>
+        <h4>From Your Home</h4>
+        <p>100% telehealth, no driving, no waiting rooms, no scheduling around work. Book on Tuesday, Wednesday, or Sunday mornings at a time that works for you.</p>
+      </div>
+    </div>
+    <div class="expect-card" id="ex3">
+      <div class="expect-icon">💬</div>
+      <div>
+        <h4>A Provider Who Remembers You</h4>
+        <p>You will always see the same provider. I know your history, your goals, and your story, you will never have to re-explain yourself at every visit.</p>
+      </div>
+    </div>
+    <div class="expect-card" id="ex4">
+      <div class="expect-icon">🔬</div>
+      <div>
+        <h4>Comprehensive Lab Work</h4>
+        <p>I order labs through Labcorp and Quest, billed directly to your insurance or available at self-pay rates. Results reviewed and explained in full.</p>
+      </div>
+    </div>
+    <div class="expect-card" id="ex5">
+      <div class="expect-icon">💳</div>
+      <div>
+        <h4>Transparent Pricing</h4>
+        <p>Cash-pay with no insurance surprises. HSA and FSA cards accepted. You know exactly what you'll pay before you book, always.</p>
+      </div>
+    </div>
+    <div class="expect-card" id="ex6">
+      <div class="expect-icon">📋</div>
+      <div>
+        <h4>A Plan You Actually Understand</h4>
+        <p>You leave every visit with a clear, written care plan, prescriptions sent to your pharmacy, lab orders ready, and answers to every question you came in with.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready to feel like yourself again?</h2>
+  <p>Book a telehealth visit with a provider who specializes in exactly what you're going through.</p>
+  <a href="index.html#book" class="btn-white">Book Your First Visit →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">The Next Chapter <span>Clinic</span></div>
+    <p>Telehealth menopause care for women across the country. Led by a Certified Nurse Midwife and Menopause Society Certified Practitioner who believes the best is still ahead of you.</p>
+  </div>
+  <div class="footer-col">
+    <h5>Navigate</h5>
+    <ul>
+      <li><a href="index.html#who">Who We Serve</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="index.html#how">How It Works</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#book">Book a Visit</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h5>Resources</h5>
+    <ul>
+      <li><a href="resources.html">Understanding Menopause</a></li>
+      <li><a href="resources.html">Is HRT Right for Me?</a></li>
+      <li><a href="resources.html">Perimenopause Guide</a></li>
+      <li><a href="faq.html">Patient FAQ</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2025 The Next Chapter Clinic · Telehealth Practice · HIPAA Compliant</p>
+  <p>Privacy Policy · Terms of Use · Accessibility</p>
+</div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => {
+    if (el.isIntersecting) el.target.classList.add('visible');
+  });
+}, { threshold: 0.12 });
+
+['cr1','cr2','cr3','cr4',
+ 'ph1','ph2','ph3',
+ 'ex1','ex2','ex3','ex4','ex5','ex6'
+].forEach((id, i) => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.style.transitionDelay = (i % 3) * 100 + 'ms';
+    observer.observe(el);
+  }
+});
+
+document.querySelectorAll('.fade-up').forEach((el, i) => {
+  el.style.transitionDelay = i * 80 + 'ms';
+  observer.observe(el);
+});
+
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').style.boxShadow =
+    window.scrollY > 20 ? '0 4px 24px rgba(26,26,46,0.08)' : 'none';
+});
+</script>
+</body>
+</html>

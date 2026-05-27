@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Next Chapter Clinic, Menopause Telehealth for Women</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a2e;
+  --sage: #7a9e87;
+  --sage-dark: #5d8a6e;
+  --sage-light: #b8d4c0;
+  --sage-pale: #eef5f0;
+  --blush: #e8c4b0;
+  --blush-deep: #c9896e;
+  --cream: #faf7f2;
+  --warm-white: #fff9f4;
+  --text: #2d2d3a;
+  --muted: #7a7a8a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ── NAV ─────────────────────────── */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  padding: 1.25rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(250,247,242,0.93);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(122,158,135,0.15);
+  transition: box-shadow 0.3s;
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 600;
+  color: var(--ink); letter-spacing: 0.02em;
+}
+.nav-logo span { color: var(--sage); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: var(--muted);
+  font-size: 0.82rem; letter-spacing: 0.08em;
+  text-transform: uppercase; font-weight: 400;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--sage); }
+.nav-cta {
+  background: var(--sage); color: white !important;
+  padding: 0.6rem 1.4rem; border-radius: 99px;
+  font-size: 0.8rem !important; letter-spacing: 0.06em;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--sage-dark) !important; }
+
+/* ── HERO ─────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  padding-top: 80px;
+}
+.hero-left {
+  background: var(--ink);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 6rem 4rem 6rem 5rem;
+  position: relative; overflow: hidden;
+}
+.hero-left::before {
+  content: '';
+  position: absolute; top: -80px; right: -80px;
+  width: 320px; height: 320px; border-radius: 50%;
+  background: rgba(122,158,135,0.12);
+}
+.hero-left::after {
+  content: '';
+  position: absolute; bottom: -60px; left: -60px;
+  width: 220px; height: 220px; border-radius: 50%;
+  background: rgba(232,196,176,0.08);
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--sage-light); font-weight: 400; margin-bottom: 1.5rem;
+}
+.hero-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.6rem, 4vw, 3.8rem);
+  font-weight: 300; line-height: 1.12;
+  color: white; margin-bottom: 1.5rem;
+}
+.hero-h1 em { font-style: italic; color: var(--blush); }
+.hero-sub {
+  font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,0.65);
+  max-width: 400px; margin-bottom: 2.5rem;
+}
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--sage); color: white;
+  padding: 0.9rem 2rem; border-radius: 99px;
+  font-size: 0.9rem; font-weight: 400; text-decoration: none;
+  letter-spacing: 0.04em; transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--sage-dark); }
+.btn-outline {
+  border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.7);
+  padding: 0.9rem 2rem; border-radius: 99px;
+  font-size: 0.9rem; text-decoration: none; letter-spacing: 0.04em;
+  transition: all 0.2s;
+}
+.btn-outline:hover { border-color: white; color: white; }
+
+.hero-right {
+  background: var(--sage-pale);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 6rem 5rem 6rem 4rem; gap: 1.5rem;
+}
+.hero-stat {
+  background: white;
+  border-radius: 16px; padding: 1.5rem 1.75rem;
+  display: flex; align-items: center; gap: 1.25rem;
+  box-shadow: 0 4px 24px rgba(26,26,46,0.06);
+  opacity: 0; transform: translateX(30px);
+  transition: all 0.6s ease;
+}
+.hero-stat.visible { opacity: 1; transform: translateX(0); }
+.stat-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: var(--sage-pale);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; flex-shrink: 0;
+}
+.stat-text strong {
+  display: block; font-size: 1.4rem; font-weight: 500;
+  color: var(--ink); font-family: 'Cormorant Garamond', serif;
+}
+.stat-text span { font-size: 0.85rem; color: var(--muted); }
+
+/* ── WHO WE SERVE ─────────────────── */
+.section { padding: 6rem 5rem; }
+.section-tag {
+  font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--sage); font-weight: 500; margin-bottom: 1rem;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 300; line-height: 1.2;
+  color: var(--ink); margin-bottom: 1rem;
+}
+.section-sub {
+  font-size: 1rem; line-height: 1.7; color: var(--muted);
+  max-width: 560px; margin-bottom: 3rem;
+}
+
+.wc-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
+  max-width: 800px;
+}
+.wc-card {
+  background: white; border-radius: 16px; padding: 1.5rem 1.75rem;
+  border-left: 3px solid var(--sage-light);
+  box-shadow: 0 2px 16px rgba(26,26,46,0.05);
+  opacity: 0; transform: translateY(20px); transition: all 0.5s ease;
+}
+.wc-card.visible { opacity: 1; transform: translateY(0); }
+.wc-card p { font-size: 0.95rem; line-height: 1.6; color: var(--text); }
+
+/* ── SERVICES ─────────────────────── */
+.services-section {
+  background: var(--ink); padding: 6rem 5rem;
+}
+.services-section .section-tag { color: var(--sage-light); }
+.services-section .section-title { color: white; }
+.services-section .section-sub { color: rgba(255,255,255,0.5); }
+
+.services-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.25rem;
+  margin-top: 1rem;
+}
+.service-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px; padding: 2rem 1.5rem;
+  opacity: 0; transform: translateY(20px); transition: all 0.5s ease;
+}
+.service-card.visible { opacity: 1; transform: translateY(0); }
+.service-card:hover { background: rgba(122,158,135,0.1); border-color: rgba(122,158,135,0.3); }
+.service-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+.service-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 400; color: white;
+  margin-bottom: 0.75rem;
+}
+.service-card p { font-size: 0.88rem; line-height: 1.6; color: rgba(255,255,255,0.5); }
+
+/* ── HOW IT WORKS ─────────────────── */
+.how-section {
+  background: var(--sage-pale); padding: 6rem 5rem;
+}
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 1rem; }
+.step {
+  text-align: center;
+  opacity: 0; transform: translateY(20px); transition: all 0.5s ease;
+}
+.step.visible { opacity: 1; transform: translateY(0); }
+.step-num {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--sage); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; margin: 0 auto 1.25rem;
+}
+.step h3 {
+  font-size: 1rem; font-weight: 500; color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.step p { font-size: 0.88rem; line-height: 1.6; color: var(--muted); }
+
+/* ── PRICING ─────────────────────── */
+.pricing-section { padding: 6rem 5rem; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.price-card {
+  border: 1px solid rgba(122,158,135,0.2);
+  border-radius: 20px; padding: 2.5rem 2rem;
+  background: white; text-align: center;
+  box-shadow: 0 4px 24px rgba(26,26,46,0.05);
+  opacity: 0; transform: translateY(20px); transition: all 0.5s ease;
+}
+.price-card.visible { opacity: 1; transform: translateY(0); }
+.price-card.featured {
+  background: var(--ink); border-color: transparent;
+  transform: translateY(-8px) scale(1.02);
+}
+.price-card.featured.visible { transform: translateY(-8px) scale(1.02); }
+.price-icon { font-size: 2rem; margin-bottom: 1rem; }
+.price-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 400; color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.price-card.featured h3 { color: white; }
+.price-amount {
+  font-size: 2.2rem; font-weight: 500; color: var(--sage);
+  font-family: 'Cormorant Garamond', serif;
+  margin: 0.75rem 0;
+}
+.price-card.featured .price-amount { color: var(--blush); }
+.price-duration { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.5rem; }
+.price-card.featured .price-duration { color: rgba(255,255,255,0.4); }
+.price-features { list-style: none; text-align: left; margin-bottom: 2rem; }
+.price-features li {
+  font-size: 0.88rem; color: var(--muted); padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(122,158,135,0.12);
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.price-card.featured .price-features li { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.08); }
+.price-features li::before { content: '✓'; color: var(--sage); font-weight: 500; }
+.price-card.featured .price-features li::before { color: var(--sage-light); }
+.btn-book {
+  display: block; background: var(--sage); color: white;
+  padding: 0.85rem 1.5rem; border-radius: 99px;
+  font-size: 0.88rem; text-decoration: none; letter-spacing: 0.04em;
+  text-align: center; transition: background 0.2s;
+}
+.btn-book:hover { background: var(--sage-dark); }
+.price-card.featured .btn-book { background: var(--blush-deep); }
+.price-card.featured .btn-book:hover { background: #b5775a; }
+.hsa-note {
+  text-align: center; font-size: 0.82rem; color: var(--muted);
+  margin-top: 1.5rem;
+}
+.hsa-note strong { color: var(--sage); }
+
+/* ── ABOUT ────────────────────────── */
+.about-section {
+  background: var(--cream); padding: 6rem 5rem;
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center;
+}
+.about-badge {
+  display: inline-block; background: var(--sage-pale);
+  border: 1px solid var(--sage-light);
+  color: var(--sage-dark); font-size: 0.75rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.4rem 1rem; border-radius: 99px;
+  margin-bottom: 1.5rem;
+}
+.about-section p {
+  font-size: 1rem; line-height: 1.8; color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+.about-section p strong { color: var(--ink); font-weight: 500; }
+.about-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem;
+}
+.about-stat {
+  background: white; border-radius: 12px; padding: 1.25rem;
+  text-align: center; box-shadow: 0 2px 12px rgba(26,26,46,0.05);
+}
+.about-stat strong {
+  display: block; font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; color: var(--sage); font-weight: 400;
+}
+.about-stat span { font-size: 0.78rem; color: var(--muted); }
+.about-visual {
+  background: var(--ink); border-radius: 24px; padding: 3rem;
+  position: relative; overflow: hidden;
+}
+.about-visual::before {
+  content: '';
+  position: absolute; top: -60px; right: -60px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: rgba(122,158,135,0.15);
+}
+.about-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 300; line-height: 1.5;
+  color: white; font-style: italic; margin-bottom: 2rem;
+  position: relative; z-index: 1;
+}
+.about-quote::before {
+  content: '"'; font-size: 5rem; color: rgba(122,158,135,0.3);
+  position: absolute; top: -20px; left: -10px;
+  font-family: 'Cormorant Garamond', serif; line-height: 1;
+}
+.credentials {
+  display: flex; flex-direction: column; gap: 0.75rem;
+  position: relative; z-index: 1;
+}
+.cred {
+  display: flex; align-items: center; gap: 0.75rem;
+  font-size: 0.88rem; color: rgba(255,255,255,0.7);
+}
+.cred-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--sage); flex-shrink: 0;
+}
+
+/* ── CTA SECTION ──────────────────── */
+.cta-section {
+  background: linear-gradient(135deg, var(--sage-dark) 0%, var(--ink) 100%);
+  padding: 6rem 5rem; text-align: center;
+}
+.cta-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300; color: white; margin-bottom: 1rem;
+}
+.cta-section p { font-size: 1rem; color: rgba(255,255,255,0.6); margin-bottom: 2.5rem; }
+.btn-white {
+  display: inline-block; background: white; color: var(--ink);
+  padding: 1rem 2.5rem; border-radius: 99px;
+  font-size: 0.95rem; font-weight: 500; text-decoration: none;
+  letter-spacing: 0.04em; transition: all 0.2s;
+}
+.btn-white:hover { background: var(--cream); transform: translateY(-2px); }
+
+/* ── FOOTER ───────────────────────── */
+footer {
+  background: var(--ink); padding: 4rem 5rem 2rem;
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 600; color: white;
+  margin-bottom: 0.75rem;
+}
+.footer-brand span { color: var(--sage); }
+footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height: 1.7; }
+.footer-col h5 {
+  font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-bottom: 1.25rem; font-weight: 500;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.75rem; }
+.footer-col ul a {
+  text-decoration: none; font-size: 0.88rem;
+  color: rgba(255,255,255,0.5); transition: color 0.2s;
+}
+.footer-col ul a:hover { color: var(--sage-light); }
+.footer-bottom {
+  background: #111827; padding: 1.5rem 5rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">The Next Chapter <span>Clinic</span></div>
+  <ul class="nav-links">
+    <li><a href="index.html#who">Who We Serve</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="index.html#how">How It Works</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="nav-cta">Book a Visit</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-tag">Telehealth Menopause Care</span>
+    <h1 class="hero-h1">
+      You deserve answers.<br>
+      Not just <em>"it's normal,<br>deal with it."</em>
+    </h1>
+    <p class="hero-sub">Specialized menopause care from a Certified Nurse Midwife, on your schedule, from your home, with the time and attention your symptoms actually deserve.</p>
+    <div class="hero-btns">
+      <a href="contact.html" class="btn-primary">Book Your First Visit →</a>
+      <a href="#how" class="btn-outline">See How It Works</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat" id="hs1">
+      <div class="stat-icon">🩺</div>
+      <div class="stat-text">
+        <strong>CNM + MSCP</strong>
+        <span>Certified Nurse Midwife & Menopause Specialist</span>
+      </div>
+    </div>
+    <div class="hero-stat" id="hs2">
+      <div class="stat-icon">📱</div>
+      <div class="stat-text">
+        <strong>100% Telehealth</strong>
+        <span>See your provider from the comfort of home</span>
+      </div>
+    </div>
+    <div class="hero-stat" id="hs3">
+      <div class="stat-icon">⏱️</div>
+      <div class="stat-text">
+        <strong>60–90 Min Visits</strong>
+        <span>Real time to talk, not a rushed 10-minute appointment</span>
+      </div>
+    </div>
+    <div class="hero-stat" id="hs4">
+      <div class="stat-icon">💳</div>
+      <div class="stat-text">
+        <strong>HSA / FSA Accepted</strong>
+        <span>Transparent cash-pay pricing with no insurance surprises</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section class="section" id="who">
+  <div class="section-tag">Who We Serve</div>
+  <h2 class="section-title">You've been brushed off.<br>We actually listen.</h2>
+  <p class="section-sub">The Next Chapter Clinic is for women who are tired of being told their symptoms are "just part of aging", and are ready for real answers and real solutions.</p>
+  <div class="wc-grid">
+    <div class="wc-card" id="wc1"><p>🌡️ <strong>Hot flashes and night sweats</strong> disrupting your sleep and daily life</p></div>
+    <div class="wc-card" id="wc2"><p>😔 <strong>Mood changes, anxiety, or brain fog</strong> that feel unlike your usual self</p></div>
+    <div class="wc-card" id="wc3"><p>😴 <strong>Chronic sleep disruption</strong> that no amount of melatonin is fixing</p></div>
+    <div class="wc-card" id="wc4"><p>💗 <strong>Vaginal dryness or discomfort</strong> affecting your comfort and relationships</p></div>
+    <div class="wc-card" id="wc5"><p>⚖️ <strong>Unexplained weight changes</strong> or metabolic shifts you can't explain</p></div>
+    <div class="wc-card" id="wc6"><p>🔍 <strong>Questions about HRT</strong> and whether it's safe and right for you</p></div>
+    <div class="wc-card" id="wc7"><p>📋 <strong>Perimenopause confusion</strong>, irregular cycles, symptoms but no answers</p></div>
+    <div class="wc-card" id="wc8"><p>💬 <strong>Someone who will spend real time</strong> listening and building a plan with you</p></div>
+    <div class="wc-card" id="wc9"><p>⚡ <strong>GLP-1 weight management</strong> integrated with your menopause care plan</p></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="section-tag">What We Offer</div>
+  <h2 class="section-title" style="color:white;">Comprehensive menopause care,<br>built around you.</h2>
+  <p class="section-sub">From your first conversation to long-term management, we handle the full picture of your midlife health.</p>
+  <div class="services-grid">
+    <div class="service-card" id="s1">
+      <div class="service-icon">🌿</div>
+      <h3>Hormone Therapy</h3>
+      <p>Evidence-based HRT including estrogen, progesterone, and testosterone, built around your symptoms, history, and goals.</p>
+    </div>
+    <div class="service-card" id="s2">
+      <div class="service-icon">💊</div>
+      <h3>Non-Hormonal Options</h3>
+      <p>SSRIs, SNRIs, gabapentin, and other non-hormonal approaches for women who can't or prefer not to use hormones.</p>
+    </div>
+    <div class="service-card" id="s3">
+      <div class="service-icon">🔬</div>
+      <h3>Lab Ordering & Review</h3>
+      <p>Comprehensive hormone panels ordered through Labcorp or Quest, billed to your insurance or available at self-pay rates.</p>
+    </div>
+    <div class="service-card" id="s4">
+      <div class="service-icon">💬</div>
+      <h3>Ongoing Support</h3>
+      <p>Quarterly follow-ups, secure messaging between visits, and a provider who actually remembers your story.</p>
+    </div>
+    <div class="service-card" id="s5">
+      <div class="service-icon">⚡</div>
+      <h3>GLP-1 Weight Management</h3>
+      <p>Zepbound and Wegovy prescribing, dose titration, and prior auth support — integrated with your menopause care, not separate from it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="section-tag">How It Works</div>
+  <h2 class="section-title">Getting care has never<br>been this simple.</h2>
+  <p class="section-sub">From booking to treatment, a straightforward process designed around your life, not a waiting room.</p>
+  <div class="steps">
+    <div class="step" id="sc1">
+      <div class="step-num">1</div>
+      <h3>Book Online</h3>
+      <p>Choose a time that works, Tuesday, Wednesday, or Sunday mornings available.</p>
+    </div>
+    <div class="step" id="sc2">
+      <div class="step-num">2</div>
+      <h3>Complete Intake</h3>
+      <p>Fill out your health history and symptom questionnaire securely through our patient portal before your visit.</p>
+    </div>
+    <div class="step" id="sc3">
+      <div class="step-num">3</div>
+      <h3>Your Visit</h3>
+      <p>A 60–90 minute telehealth consultation, real time to talk through everything, no rushing.</p>
+    </div>
+    <div class="step" id="sc4">
+      <div class="step-num">4</div>
+      <h3>Your Plan</h3>
+      <p>Leave with a personalized care plan, prescriptions sent to your pharmacy, and lab orders if needed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-tag">Transparent Pricing</div>
+  <h2 class="section-title">No surprises. No hidden fees.<br>Just honest pricing.</h2>
+  <p class="section-sub">Cash-pay telehealth means you know exactly what you'll pay before you book. HSA and FSA cards accepted.</p>
+  <div class="pricing-grid">
+    <div class="price-card" id="pc1">
+      <div class="price-icon">🌱</div>
+      <h3>Initial Consultation</h3>
+      <div class="price-amount">$200</div>
+      <div class="price-duration">One-time · 60–90 minutes</div>
+      <ul class="price-features">
+        <li>Full symptom & health history review</li>
+        <li>Personalized care plan</li>
+        <li>Prescription if appropriate</li>
+        <li>Lab orders if needed</li>
+        <li>Access to patient portal</li>
+      </ul>
+      <a href="contact.html" class="btn-book">Book Now</a>
+    </div>
+    <div class="price-card featured" id="pc2">
+      <div class="price-icon">⭐</div>
+      <h3>Follow-Up Visit</h3>
+      <div class="price-amount">$125</div>
+      <div class="price-duration">Per visit · 30 minutes</div>
+      <ul class="price-features">
+        <li>Symptom check and medication review</li>
+        <li>Prescription adjustments</li>
+        <li>Lab results review</li>
+        <li>Ongoing care plan updates</li>
+        <li>Secure messaging access</li>
+      </ul>
+      <a href="contact.html" class="btn-book">Book Now</a>
+    </div>
+    <div class="price-card" id="pc3">
+      <div class="price-icon">🔬</div>
+      <h3>Lab Review</h3>
+      <div class="price-amount">$75</div>
+      <div class="price-duration">Per review · Outside of visits</div>
+      <ul class="price-features">
+        <li>Full lab panel interpretation</li>
+        <li>Written summary of findings</li>
+        <li>Recommendations and next steps</li>
+        <li>Messaging for follow-up questions</li>
+        <li>Results in your patient portal</li>
+      </ul>
+      <a href="contact.html" class="btn-book">Get Started</a>
+    </div>
+  </div>
+  <p class="hsa-note">💳 <strong>HSA and FSA cards accepted.</strong> Superbills provided for insurance self-submission. Labs billed directly to your insurance through Labcorp or Quest.</p>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div>
+    <span class="about-badge">Your Provider</span>
+    <h2 class="section-title">A CNM who specializes<br>in exactly this.</h2>
+    <p>Most women going through perimenopause and menopause are seen by providers who have limited training in hormonal health, and even less time to discuss it. <strong>The Next Chapter Clinic was built to change that.</strong></p>
+    <p>As a Certified Nurse Midwife and Menopause Society Certified Practitioner (MSCP), I bring years of women's health experience and a deep commitment to evidence-based menopause care. I built this practice because every woman deserves a provider who takes her symptoms seriously, and has the time and training to do something about them.</p>
+    <p>Serving women across the country via telehealth, from your home, on your schedule.</p>
+    <div class="about-stats">
+      <div class="about-stat"><strong>CNM</strong><span>Certified Nurse Midwife</span></div>
+      <div class="about-stat"><strong>MSCP</strong><span>Menopause Specialist</span></div>
+      <div class="about-stat"><strong>MI</strong><span>MI · CO · AZ Licensed</span></div>
+    </div>
+  </div>
+  <div class="about-visual">
+    <p class="about-quote">The best is absolutely still ahead of you. You just need a provider who believes that too.</p>
+    <div class="credentials">
+      <div class="cred"><span class="cred-dot"></span>Certified Nurse Midwife (CNM)</div>
+      <div class="cred"><span class="cred-dot"></span>Menopause Society Certified Practitioner (MSCP)</div>
+      <div class="cred"><span class="cred-dot"></span>Licensed in Michigan, Colorado & Arizona</div>
+      <div class="cred"><span class="cred-dot"></span>Telehealth-only practice</div>
+      <div class="cred"><span class="cred-dot"></span>Cash-pay · HSA/FSA accepted</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="book">
+  <h2>Your next chapter starts here.</h2>
+  <p>Book a telehealth visit today, same-week appointments available for women.</p>
+  <a href="contact.html" class="btn-white">Schedule Your Visit →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">The Next Chapter <span>Clinic</span></div>
+    <p>Telehealth menopause care for women across the country. Led by Megan Nelson, CNM, MSCP — a Certified Nurse Midwife and Menopause Society Certified Practitioner.</p>
+  </div>
+  <div class="footer-col">
+    <h5>Navigate</h5>
+    <ul>
+      <li><a href="index.html#who">Who We Serve</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="index.html#how">How It Works</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#book">Book a Visit</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h5>Resources</h5>
+    <ul>
+      <li><a href="resources.html">Understanding Menopause</a></li>
+      <li><a href="resources.html">Is HRT Right for Me?</a></li>
+      <li><a href="resources.html">Perimenopause Guide</a></li>
+      <li><a href="faq.html">Patient FAQ</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2025 The Next Chapter Clinic · Telehealth Practice · HIPAA Compliant</p>
+  <p>Privacy Policy · Terms of Use · Accessibility</p>
+</div>
+
+<script>
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => {
+    if (el.isIntersecting) el.target.classList.add('visible');
+  });
+}, { threshold: 0.15 });
+
+['hs1','hs2','hs3','hs4',
+ 'wc1','wc2','wc3','wc4','wc5','wc6','wc7','wc8',
+ 's1','s2','s3','s4',
+ 'sc1','sc2','sc3','sc4',
+ 'pc1','pc2','pc3'
+].forEach((id, i) => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.style.transitionDelay = (i % 4) * 80 + 'ms';
+    observer.observe(el);
+  }
+});
+
+// Nav shadow
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').style.boxShadow =
+    window.scrollY > 20 ? '0 4px 24px rgba(26,26,46,0.08)' : 'none';
+});
+</script>
+</body>
+</html>
