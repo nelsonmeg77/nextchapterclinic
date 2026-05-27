@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ, The Next Chapter Clinic</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a2e;
+  --sage: #7a9e87;
+  --sage-dark: #5d8a6e;
+  --sage-light: #b8d4c0;
+  --sage-pale: #eef5f0;
+  --blush: #e8c4b0;
+  --blush-deep: #c9896e;
+  --cream: #faf7f2;
+  --text: #2d2d3a;
+  --muted: #7a7a8a;
+  --amber: #92660a;
+  --amber-pale: #fef9ee;
+  --amber-border: #f0c040;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ── NAV ─────────────────────────── */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  padding: 1.25rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(250,247,242,0.93);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(122,158,135,0.15);
+  transition: box-shadow 0.3s;
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 600;
+  color: var(--ink); letter-spacing: 0.02em;
+  text-decoration: none;
+}
+.nav-logo span { color: var(--sage); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: var(--muted);
+  font-size: 0.82rem; letter-spacing: 0.08em;
+  text-transform: uppercase; font-weight: 400;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--sage); }
+.nav-cta {
+  background: var(--sage); color: white !important;
+  padding: 0.6rem 1.4rem; border-radius: 99px;
+  font-size: 0.8rem !important; transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--sage-dark) !important; }
+
+/* ── PAGE HERO ───────────────────── */
+.page-hero {
+  background: var(--ink);
+  padding: 10rem 5rem 6rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: end;
+  position: relative; overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute; top: -100px; right: -80px;
+  width: 450px; height: 450px; border-radius: 50%;
+  background: rgba(122,158,135,0.08);
+}
+.hero-eyebrow {
+  font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--sage-light); font-weight: 400; margin-bottom: 1.25rem;
+}
+.page-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+  font-weight: 300; line-height: 1.1; color: white;
+  position: relative; z-index: 1;
+}
+.page-hero h1 em { font-style: italic; color: var(--blush); }
+.hero-right-text {
+  position: relative; z-index: 1; padding-bottom: 0.5rem;
+}
+.hero-right-text p {
+  font-size: 1.1rem; line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+  border-left: 2px solid var(--sage);
+  padding-left: 1.5rem;
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* ── CATEGORY NAV ────────────────── */
+.cat-nav {
+  background: white; padding: 1.5rem 5rem;
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  border-bottom: 1px solid rgba(122,158,135,0.15);
+  position: sticky; top: 72px; z-index: 100;
+}
+.cat-pill {
+  background: var(--sage-pale); border: 1px solid var(--sage-light);
+  color: var(--sage-dark); border-radius: 99px;
+  padding: 0.5rem 1.2rem; font-size: 0.82rem;
+  text-decoration: none; transition: all 0.2s; white-space: nowrap;
+}
+.cat-pill:hover, .cat-pill.active {
+  background: var(--sage); color: white; border-color: var(--sage);
+}
+
+/* ── FAQ LAYOUT ──────────────────── */
+.faq-layout {
+  display: grid; grid-template-columns: 240px 1fr;
+  gap: 0; max-width: 1200px; margin: 0 auto;
+  padding: 4rem 5rem;
+}
+.faq-sidebar {
+  position: sticky; top: 140px; height: fit-content;
+  padding-right: 3rem;
+}
+.faq-sidebar h4 {
+  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); font-weight: 500; margin-bottom: 1rem;
+}
+.sidebar-links { list-style: none; }
+.sidebar-links li { margin-bottom: 0.4rem; }
+.sidebar-links a {
+  text-decoration: none; font-size: 0.88rem; color: var(--muted);
+  padding: 0.3rem 0; display: block; transition: color 0.2s;
+  border-left: 2px solid transparent; padding-left: 0.75rem;
+}
+.sidebar-links a:hover { color: var(--sage); border-left-color: var(--sage-light); }
+.sidebar-links a.active { color: var(--sage-dark); border-left-color: var(--sage); font-weight: 500; }
+
+/* ── FAQ SECTIONS ────────────────── */
+.faq-content { min-width: 0; }
+.faq-section { margin-bottom: 4rem; }
+.faq-section-header {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 1.5rem; padding-bottom: 1rem;
+  border-bottom: 2px solid var(--sage-pale);
+}
+.faq-section-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--sage-pale); display: flex;
+  align-items: center; justify-content: center; font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.faq-section-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 400; color: var(--ink);
+}
+
+/* ── ACCORDION ───────────────────── */
+.faq-item {
+  border: 1px solid rgba(122,158,135,0.15);
+  border-radius: 12px; margin-bottom: 0.75rem;
+  overflow: hidden; background: white;
+  box-shadow: 0 1px 8px rgba(26,26,46,0.04);
+  opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.faq-item.visible { opacity: 1; transform: translateY(0); }
+.faq-item.highlight {
+  border-color: var(--amber-border);
+  background: var(--amber-pale);
+}
+.faq-question {
+  width: 100%; background: none; border: none;
+  padding: 1.25rem 1.5rem; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem; text-align: left;
+}
+.faq-question:hover { background: rgba(122,158,135,0.04); }
+.faq-item.highlight .faq-question:hover { background: rgba(240,192,64,0.08); }
+.q-text {
+  font-size: 0.97rem; font-weight: 500; color: var(--ink); line-height: 1.4;
+  font-family: 'DM Sans', sans-serif;
+}
+.faq-item.highlight .q-text { color: var(--amber); }
+.q-icon {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--sage-pale); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; color: var(--sage); font-weight: 300;
+  transition: transform 0.3s; line-height: 1;
+}
+.faq-item.open .q-icon { transform: rotate(45deg); background: var(--sage); color: white; }
+.faq-answer {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0 1.5rem;
+}
+.faq-item.open .faq-answer { max-height: 1000px; padding: 0 1.5rem 1.5rem; }
+.faq-answer p {
+  font-size: 0.95rem; line-height: 1.85; color: var(--muted);
+  margin-bottom: 0.9rem;
+}
+.faq-answer p:last-child { margin-bottom: 0; }
+.faq-answer p strong { color: var(--text); font-weight: 500; }
+.faq-answer ul {
+  margin: 0.5rem 0 0.9rem 1.2rem;
+}
+.faq-answer ul li {
+  font-size: 0.92rem; line-height: 1.7; color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+.faq-answer ul li strong { color: var(--text); font-weight: 500; }
+.answer-note {
+  background: var(--sage-pale); border-left: 3px solid var(--sage);
+  border-radius: 0 8px 8px 0; padding: 0.75rem 1rem;
+  margin-top: 0.75rem;
+}
+.answer-note p {
+  font-size: 0.88rem !important; color: var(--sage-dark) !important;
+  margin-bottom: 0 !important;
+}
+
+/* ── STILL HAVE QUESTIONS ─────────── */
+.still-questions {
+  background: var(--sage-pale); border-radius: 20px;
+  padding: 3rem; text-align: center; margin-top: 3rem;
+}
+.still-questions h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; font-weight: 300; color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+.still-questions p {
+  font-size: 0.95rem; color: var(--muted); margin-bottom: 1.5rem;
+}
+.btn-primary {
+  display: inline-block; background: var(--sage); color: white;
+  padding: 0.9rem 2rem; border-radius: 99px;
+  font-size: 0.9rem; text-decoration: none; transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--sage-dark); }
+
+/* ── CTA ─────────────────────────── */
+.cta-section {
+  background: linear-gradient(135deg, var(--sage-dark) 0%, var(--ink) 100%);
+  padding: 6rem 5rem; text-align: center;
+}
+.cta-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300; color: white; margin-bottom: 1rem;
+}
+.cta-section p { font-size: 1rem; color: rgba(255,255,255,0.6); margin-bottom: 2.5rem; }
+.btn-white {
+  display: inline-block; background: white; color: var(--ink);
+  padding: 1rem 2.5rem; border-radius: 99px;
+  font-size: 0.95rem; font-weight: 500; text-decoration: none;
+  transition: all 0.2s;
+}
+.btn-white:hover { background: var(--cream); transform: translateY(-2px); }
+
+/* ── FOOTER ───────────────────────── */
+footer {
+  background: var(--ink); padding: 4rem 5rem 2rem;
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 600; color: white; margin-bottom: 0.75rem;
+}
+.footer-brand span { color: var(--sage); }
+footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height: 1.7; }
+.footer-col h5 {
+  font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-bottom: 1.25rem; font-weight: 500;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.75rem; }
+.footer-col ul a {
+  text-decoration: none; font-size: 0.88rem;
+  color: rgba(255,255,255,0.5); transition: color 0.2s;
+}
+.footer-col ul a:hover { color: var(--sage-light); }
+.footer-bottom {
+  background: #111827; padding: 1.5rem 5rem;
+  display: flex; justify-content: space-between;
+}
+.footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+/* ── CONTACT FORM ────────────────── */
+.contact-form { margin-top: 1.5rem; text-align: left; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+.form-group label {
+  font-size: 0.82rem; font-weight: 500; color: var(--sage-dark);
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: white; border: 1px solid rgba(122,158,135,0.3);
+  border-radius: 10px; padding: 0.75rem 1rem;
+  font-size: 0.95rem; color: var(--text); font-family: 'DM Sans', sans-serif;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none; width: 100%;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px rgba(122,158,135,0.15);
+}
+.form-group textarea { resize: vertical; min-height: 110px; }
+.form-group select { appearance: none; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a9e87' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+.form-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem;
+}
+.form-note { font-size: 0.8rem; color: var(--muted); }
+.btn-submit {
+  background: var(--sage); color: white;
+  padding: 0.85rem 2rem; border-radius: 99px;
+  font-size: 0.9rem; font-family: 'DM Sans', sans-serif;
+  border: none; cursor: pointer; font-weight: 400;
+  letter-spacing: 0.04em; transition: background 0.2s;
+  white-space: nowrap;
+}
+.btn-submit:hover { background: var(--sage-dark); }
+.form-success {
+  display: none; text-align: center; padding: 2rem 0;
+}
+.success-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--sage); color: white;
+  font-size: 1.4rem; display: flex; align-items: center;
+  justify-content: center; margin: 0 auto 1rem;
+}
+.form-success h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 400; color: var(--ink); margin-bottom: 0.5rem;
+}
+.form-success p { font-size: 0.95rem; color: var(--muted); }
+
+/* ── MOBILE ──────────────────────── */
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.25rem; }
+  .nav-links { display: none; }
+  .nav-logo { font-size: 1.1rem; }
+
+  .page-hero {
+    grid-template-columns: 1fr;
+    padding: 7rem 1.5rem 3rem;
+    gap: 1.5rem;
+  }
+  .page-hero h1 { font-size: 2.2rem; }
+  .hero-right-text { display: none; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .hero-left { padding: 6rem 1.5rem 3rem; }
+  .hero-right { padding: 2rem 1.5rem; gap: 1rem; }
+  .hero-h1 { font-size: 2.2rem; }
+  .hero-btns { flex-direction: column; }
+
+  .section { padding: 3rem 1.5rem; }
+  .wc-grid { grid-template-columns: 1fr; }
+
+  .services-section { padding: 3rem 1.5rem; }
+  .services-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .how-section { padding: 3rem 1.5rem; }
+  .steps { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+  .pricing-section { padding: 3rem 1.5rem; }
+  .pricing-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .price-card.featured { transform: none; }
+  .price-card.featured.visible { transform: none; }
+
+  .about-section {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem;
+    gap: 2rem;
+  }
+  .about-stats { grid-template-columns: repeat(3, 1fr); }
+  .about-visual { padding: 2rem; }
+
+  .cta-section { padding: 3rem 1.5rem; }
+
+  .intro-section {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem;
+    gap: 2rem;
+  }
+  .photo-block { position: static; max-width: 280px; margin: 0 auto; }
+
+  .creds-strip {
+    grid-template-columns: 1fr 1fr;
+    padding: 2.5rem 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .why-section {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .philosophy-section { padding: 3rem 1.5rem; }
+  .philosophy-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+
+  .expect-section { padding: 3rem 1.5rem; }
+  .expect-grid { grid-template-columns: 1fr; }
+
+  .service-block {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem;
+    gap: 2rem;
+  }
+  .service-block.reverse { direction: ltr; }
+  .service-visual { min-height: 280px; }
+
+  .labs-section { padding: 3rem 1.5rem; }
+  .labs-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .visits-section { padding: 3rem 1.5rem; }
+  .visits-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .visit-card.featured { transform: none; }
+  .visit-card.featured.visible { transform: none; }
+
+  .scope-section {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .faq-layout {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.5rem;
+  }
+  .faq-sidebar { display: none; }
+  .cat-nav { padding: 1rem 1.5rem; }
+
+  .articles-section { padding: 3rem 1.5rem; }
+  .articles-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .article-modal { margin: 1rem; border-radius: 16px; }
+  .modal-content { padding: 1rem 1.5rem 2rem; }
+
+  .main-layout { grid-template-columns: 1fr; }
+  .book-side { padding: 3rem 1.5rem; }
+  .contact-side { padding: 3rem 1.5rem; border-left: none; border-top: 1px solid rgba(122,158,135,0.12); }
+  .form-row { grid-template-columns: 1fr; }
+
+  .expect-strip {
+    grid-template-columns: 1fr 1fr;
+    padding: 2.5rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .pricing-reminder {
+    grid-template-columns: 1fr 1fr;
+    padding: 2.5rem 1.5rem;
+    gap: 1rem;
+  }
+  .price-divider { display: none; }
+  .hsa-pill { grid-column: 1 / -1; }
+
+  footer {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem 2rem;
+    gap: 2rem;
+  }
+  .footer-bottom {
+    padding: 1.25rem 1.5rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .overview-strip { padding: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">The Next Chapter <span>Clinic</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#who">Who We Serve</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="index.html#how">How It Works</a></li>
+    <li><a href="faq.html" class="active">FAQ</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="nav-cta">Book a Visit</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div>
+    <p class="hero-eyebrow">Frequently Asked Questions</p>
+    <h1>Everything you need<br>to know before<br>your <em>first visit.</em></h1>
+  </div>
+  <div class="hero-right-text">
+    <p>We believe informed patients get better care. Here are the questions we hear most often, answered honestly.</p>
+  </div>
+</section>
+
+<!-- CATEGORY NAV -->
+<div class="cat-nav">
+  <a href="#getting-started" class="cat-pill active">Getting Started</a>
+  <a href="#insurance" class="cat-pill">Insurance & Payment</a>
+  <a href="#visits" class="cat-pill">Visits & Scheduling</a>
+  <a href="#treatment" class="cat-pill">Treatment</a>
+  <a href="#hrt-safety" class="cat-pill">HRT Safety</a>
+  <a href="#labs" class="cat-pill">Lab Work</a>
+  <a href="#telehealth" class="cat-pill">Telehealth</a>
+  <a href="#glp1" class="cat-pill">GLP-1 Medications</a>
+</div>
+
+<!-- FAQ LAYOUT -->
+<div class="faq-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="faq-sidebar">
+    <h4>Jump to section</h4>
+    <ul class="sidebar-links">
+      <li><a href="#getting-started">Getting Started</a></li>
+      <li><a href="#insurance">Insurance & Payment</a></li>
+      <li><a href="#visits">Visits & Scheduling</a></li>
+      <li><a href="#treatment">Treatment</a></li>
+      <li><a href="#hrt-safety">HRT Safety</a></li>
+      <li><a href="#labs">Lab Work</a></li>
+      <li><a href="#telehealth">Telehealth</a></li>
+      <li><a href="#glp1">GLP-1 Medications</a></li>
+    </ul>
+  </aside>
+
+  <!-- CONTENT -->
+  <div class="faq-content">
+
+    <!-- GETTING STARTED -->
+    <section class="faq-section" id="getting-started">
+      <div class="faq-section-header">
+        <div class="faq-section-icon">🌱</div>
+        <h2>Getting Started</h2>
+      </div>
+
+      <div class="faq-item" id="f1">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">Who is The Next Chapter Clinic for?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>The Next Chapter Clinic is for women in perimenopause or menopause who are looking for knowledgeable, unhurried, specialized care. If you've been dismissed, rushed, or told your symptoms are "just part of getting older", this practice was built for you.</p>
+          <p>We see women who are experiencing hot flashes, night sweats, sleep disruption, mood changes, brain fog, vaginal dryness, low libido, irregular cycles, or any combination of symptoms that feel connected to hormonal changes in midlife.</p>
+          <p>We also see women who simply want to be <strong>proactive about their menopause transition</strong>, understanding their options before symptoms become disruptive.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f2">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">What states do you currently serve?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>We are currently licensed to see patients in <strong>Michigan, Colorado, and Arizona</strong>. You must be physically located in one of these states at the time of your telehealth visit.</p>
+          <p>We are actively working to expand to additional states. If you are located elsewhere and would like to be notified when we launch in your state, please use the contact form to join our waitlist.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f3">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">Do I need a referral from my primary care doctor or OB/GYN?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>No referral is needed. You can book directly online without any prior authorization or referral from another provider.</p>
+          <p>That said, we do recommend staying connected with your primary care provider for routine health maintenance, annual physicals, mammograms, Pap smears, and other preventive care. We focus specifically on menopause and hormonal health, and we work alongside your existing care team rather than replacing them.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f4">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">What should I do before my first appointment?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>After booking, you'll receive a link to complete your intake forms through our secure patient portal. Please complete these before your visit, they include your health history, current medications, and a detailed symptom questionnaire. The more detail you provide, the more productive your first visit will be.</p>
+          <p>If you have any recent lab work, feel free to upload it to the portal or bring it up during your visit. It's helpful but not required, we can order new labs if needed.</p>
+          <div class="answer-note"><p>Your intake forms must be completed at least 24 hours before your appointment so we have time to review them thoroughly before your visit.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f5">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">Can I be seen if I'm still having periods?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely, in fact, some of the most important time to start menopause care is during perimenopause, which begins while you're still having periods. Perimenopause can start years before your last period, and symptoms during this transition can be just as disruptive as full menopause.</p>
+          <p>You do not need to have reached menopause (12 consecutive months without a period) to be seen here. If you're experiencing symptoms that feel hormonally driven, regardless of where you are in your cycle, you are welcome to book.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSURANCE & PAYMENT -->
+    <section class="faq-section" id="insurance">
+      <div class="faq-section-header">
+        <div class="faq-section-icon">💳</div>
+        <h2>Insurance & Payment</h2>
+      </div>
+
+      <div class="faq-item" id="f6">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">Do you accept insurance?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>We are a <strong>cash-pay practice</strong> and do not bill insurance directly for visit fees. This means we are not in-network with any insurance plan, and we do not submit claims on your behalf.</p>
+          <p>Here's why we made this choice: the traditional insurance billing model requires short appointments, standardized care, and an enormous amount of administrative overhead. By operating outside that system, we can offer longer visits, more personalized care, and a simpler, more transparent experience.</p>
+          <p>We know this isn't the right model for everyone, and we want to be upfront about it. If in-network insurance coverage is important to you, platforms like Midi Health or your local OB/GYN practice may be better options. If you value the kind of specialized, unhurried care we offer, the out-of-pocket cost tends to be well worth it for our patients.</p>
+          <div class="answer-note"><p><strong>Important:</strong> Lab work is handled separately. Labs are ordered through Labcorp and Quest and billed directly to your insurance, meaning your labs may be covered even though your visits are not.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f7">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">Can I submit a claim to my insurance for reimbursement?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, we provide a <strong>superbill</strong> for every visit upon request. A superbill is an itemized receipt that includes all the information your insurance company needs to process a reimbursement claim: your provider's NPI, the date of service, procedure codes (CPT codes), and diagnosis codes (ICD-10 codes).</p>
+          <p>You submit the superbill directly to your insurance company. Whether and how much they reimburse depends entirely on your individual plan, particularly whether you have out-of-network benefits. Plans with out-of-network coverage (common in PPO plans) may reimburse a portion of your visit cost. HMO plans typically do not cover out-of-network services.</p>
+          <p>We recommend calling the member services number on the back of your insurance card to ask about your out-of-network mental health or specialist benefits before your visit, so you know what to expect.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f8">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">Do you accept HSA and FSA cards?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, <strong>HSA and FSA cards are accepted</strong> for all visit fees and lab review fees. As a licensed healthcare provider, our services are HSA/FSA eligible by definition, you do not need any special approval or paperwork to use your card.</p>
+          <p>Simply use your HSA or FSA debit card at checkout just like a regular debit card. If your plan requires a receipt for reimbursement, we provide an itemized receipt with all required information.</p>
+          <div class="answer-note"><p>Recent legislation made telehealth services permanently eligible for HSA payment before meeting your high-deductible plan deductible, so using your HSA for telehealth visits will not affect your HSA contribution eligibility.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f9">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">What is your cancellation policy?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>We require <strong>24 hours notice</strong> for cancellations or rescheduling. Cancellations made with less than 24 hours notice may be subject to a cancellation fee. No-shows without notice will be charged the full visit fee.</p>
+          <p>We understand that life happens, if you have an emergency, please reach out through the patient portal and we will work with you. We ask for the same courtesy in return, as appointment slots are reserved specifically for you.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISITS & SCHEDULING -->
+    <section class="faq-section" id="visits">
+      <div class="faq-section-header">
+        <div class="faq-section-icon">📅</div>
+        <h2>Visits & Scheduling</h2>
+      </div>
+
+      <div class="faq-item" id="f10">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">When are appointments available?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Appointments are currently available on <strong>Tuesday and Wednesday mornings (9am–1pm)</strong> and <strong>Sunday mornings (10am–noon)</strong>. We intentionally offer weekend availability because we know most of our patients are working during the week and struggle to get away for appointments.</p>
+          <p>Booking is done online through our scheduling system, choose the time that works best for you and you'll receive a confirmation with your patient portal link to complete your intake forms.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f11">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">How long are appointments?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p><strong>Initial consultations are 60–90 minutes.</strong> This is intentional. Menopause care done well requires time, time to review your full health history, understand your symptoms in context, discuss your concerns and goals, explain your options clearly, and build a care plan together. We don't rush that process.</p>
+          <p><strong>Follow-up visits are 30 minutes.</strong> Once we know your history and have an established care plan, follow-ups are focused check-ins to monitor your response to treatment, review any new symptoms or labs, and adjust your plan as needed.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f12">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">How often will I need follow-up visits?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Most patients follow up <strong>every 6–8 weeks after starting a new treatment</strong>, this allows us to assess how you're responding and make any early adjustments. Once your symptoms are well-managed and your treatment is stable, we typically move to <strong>quarterly (every 3 months) follow-ups</strong>.</p>
+          <p>For patients who are well-established and stable, we may extend to every 6 months. Between visits, you can always reach us through secure messaging in the patient portal for questions that don't require a full appointment.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f13">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">Will I always see the same provider?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, always. This is one of the most important things that distinguishes The Next Chapter Clinic from large telehealth platforms. You will always see Megan Nelson, CNM, MSCP, every visit, every time.</p>
+          <p>Continuity of care matters enormously in menopause treatment. Your provider needs to know your full history, understand how you've responded to previous treatments, and remember what you discussed last time. You should never have to re-explain your story at every visit.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TREATMENT -->
+    <section class="faq-section" id="treatment">
+      <div class="faq-section-header">
+        <div class="faq-section-icon">💊</div>
+        <h2>Treatment</h2>
+      </div>
+
+      <div class="faq-item" id="f14">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">Will I definitely be prescribed hormones?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>No, there is no predetermined treatment plan. Your care is built entirely around your individual health history, risk factors, symptoms, and preferences.</p>
+          <p>Hormone therapy is the most effective treatment for most menopause symptoms and is appropriate for the majority of healthy women, but it isn't right for everyone, and we never push any treatment. If you have concerns about hormones, are not a candidate for HRT, or simply prefer a non-hormonal approach, we have effective options for you as well.</p>
+          <p>You will always be an active participant in your treatment decisions. We explain your options, discuss the evidence, and make a plan together.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f15">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">Where will my prescriptions be sent?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Prescriptions are sent electronically to the pharmacy of your choice. Any retail pharmacy, CVS, Walgreens, Rite Aid, Costco, your local independent pharmacy, can fill them.</p>
+          <p>If cost is a concern, we can recommend strategies to minimize your out-of-pocket pharmacy costs, including GoodRx and other discount programs that often make hormone therapy very affordable even without insurance coverage.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f16">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">How quickly will I notice results from treatment?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>It varies by symptom and treatment type, but here's a general guide:</p>
+          <ul>
+            <li><strong>Hot flashes and night sweats</strong>, most women notice improvement within 2–4 weeks of starting hormone therapy, with full effect by 8–12 weeks</li>
+            <li><strong>Sleep</strong>, often improves alongside hot flash relief, typically within the first month</li>
+            <li><strong>Mood and energy</strong>, usually 4–8 weeks</li>
+            <li><strong>Vaginal symptoms</strong>, local estrogen can take 8–12 weeks for full improvement, though many women notice some relief earlier</li>
+            <li><strong>Libido</strong>, typically takes 3–6 months to fully assess</li>
+          </ul>
+          <p>If you're not seeing the response you hoped for, we adjust. Getting the right dose and formulation sometimes takes a visit or two, which is completely normal.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f17">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">Can you treat me if I've already started hormones with another provider?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, we see many patients who are already on hormone therapy but feel their current regimen isn't working well, or whose provider doesn't have time to optimize it properly.</p>
+          <p>Please bring your current medication list, any recent labs, and a summary of your current regimen to your first visit. We'll review everything and work with you to refine your treatment if needed.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HRT SAFETY -->
+    <section class="faq-section" id="hrt-safety">
+      <div class="faq-section-header">
+        <div class="faq-section-icon">🔬</div>
+        <h2>HRT Safety</h2>
+      </div>
+
+      <div class="faq-item highlight" id="f18">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">I heard hormone therapy causes breast cancer. Is it safe?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>This is one of the most important questions we get, and the fear around it has kept millions of women from getting relief they deserve, based on science that has since been really revised.</p>
+          <p>Here's the history: In 2002, the Women's Health Initiative (WHI) study published findings that were widely interpreted as "HRT causes breast cancer." The headlines were alarming. HRT prescriptions dropped by more than 60% almost overnight. The problem? <strong>The study's findings were widely misinterpreted, and the risks were really overstated.</strong></p>
+          <p>What the science actually shows today:</p>
+          <ul>
+            <li>The WHI studied a specific oral combined hormone therapy in women who were <strong>63 years old on average</strong>, well past the window when most women start HRT</li>
+            <li>The absolute risk increase was very small, even in the original study</li>
+            <li><strong>Transdermal estrogen</strong> (patches, gels, sprays) has a different safety profile than the oral synthetic estrogen used in WHI</li>
+            <li><strong>Micronized progesterone</strong> (bioidentical) has a more favorable breast safety profile than the synthetic progestin used in WHI</li>
+            <li>For healthy women under 60 or within 10 years of menopause onset, the benefits of HRT typically outweigh the risks for most women</li>
+          </ul>
+          <p>None of this means HRT is risk-free for everyone, your individual health history, family history, and risk factors all matter, and we discuss them thoroughly before recommending any treatment. But <strong>fear of a 2002 headline is not a reason to suffer</strong> when effective, evidence-based treatment is available.</p>
+          <div class="answer-note"><p>We will always review your personal risk factors before recommending any treatment and help you make a fully informed decision based on current evidence, not outdated fears.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f19">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">Is there anyone who should NOT use hormone therapy?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, hormone therapy is not appropriate for everyone. Absolute contraindications include:</p>
+          <ul>
+            <li>Active or recent hormone-sensitive cancers (certain breast, uterine, or ovarian cancers)</li>
+            <li>Unexplained vaginal bleeding</li>
+            <li>Active blood clots or a history of clotting disorders (though transdermal estrogen has a much lower clot risk than oral)</li>
+            <li>Active liver disease</li>
+            <li>Pregnancy</li>
+          </ul>
+          <p>Women with certain personal or family health histories may need a more personalized risk-benefit conversation. This is exactly why a thorough intake and health history review is part of every first visit, we assess your individual situation before making any recommendations.</p>
+          <p>If HRT is not appropriate for you, there are effective non-hormonal options, you won't leave without a plan.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f20">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">How long can I stay on hormone therapy?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>The old guidance that "HRT should only be used for the shortest time at the lowest dose" is being actively revised by menopause specialists. <strong>Current evidence supports long-term use for many women</strong> when the benefits outweigh the risks and treatment is periodically reviewed.</p>
+          <p>There is no arbitrary time limit. Many women benefit from hormone therapy for a decade or more. We review your treatment annually and adjust our recommendations as new evidence emerges and as your health circumstances change.</p>
+          <p>The decision about duration is yours to make in partnership with your provider, not a blanket policy applied to all women.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LABS -->
+    <section class="faq-section" id="labs">
+      <div class="faq-section-header">
+        <div class="faq-section-icon">🧪</div>
+        <h2>Lab Work</h2>
+      </div>
+
+      <div class="faq-item" id="f21">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">Do I need labs before my first visit?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>No, labs are not required before your first visit. If you have recent labs (within the past 6–12 months), feel free to bring them or upload them to the patient portal. They provide helpful context.</p>
+          <p>If you don't have labs, that's completely fine. We'll discuss whether labs would be useful in your situation and order them if appropriate. For many patients, menopause is a clinical diagnosis based on symptoms and history, labs are supportive but not always required to start treatment.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f22">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">How much will labs cost me?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Lab costs depend on your insurance. Labs are ordered through Labcorp or Quest and billed directly to your insurance, completely separate from your visit fee.</p>
+          <ul>
+            <li><strong>If you have insurance that covers diagnostic labs:</strong> You'll pay your plan's normal cost-sharing (copay, coinsurance, or deductible). Many standard menopause labs are covered under medical necessity with the appropriate diagnosis code.</li>
+            <li><strong>If you're on a high-deductible plan and haven't met your deductible:</strong> You'll pay the negotiated rate, typically much lower than the sticker price.</li>
+            <li><strong>If you're paying cash:</strong> A thorough menopause panel typically runs $150–$300 at self-pay rates.</li>
+          </ul>
+          <p>We will always use appropriate diagnosis codes to support insurance coverage of your labs. We cannot guarantee what your specific plan will cover, we recommend contacting your insurer if you have questions about lab coverage.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f23">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">What happens after I get my labs done?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Results are sent directly to us and will appear in your patient portal. We review every result in full, not just the flagged values, and contact you with a summary and any recommended next steps.</p>
+          <p>If your labs are reviewed outside of a scheduled visit, a <strong>$75 lab review fee</strong> applies. This covers the time to thoroughly interpret your results, write a summary, and communicate findings and recommendations to you. If lab review happens as part of a scheduled follow-up visit, it's included in your visit fee.</p>
+          <div class="answer-note"><p>You will never receive a portal notification that just says "results normal" without context. Every lab review includes a written explanation of what your results mean for your care.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TELEHEALTH -->
+    <section class="faq-section" id="telehealth">
+      <div class="faq-section-header">
+        <div class="faq-section-icon">📱</div>
+        <h2>Telehealth</h2>
+      </div>
+
+      <div class="faq-item" id="f24">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">What technology do I need for my telehealth visit?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>You need a smartphone, tablet, or computer with a camera and microphone, and a reliable internet connection. That's it. No app download is required, your visit link will be sent to you before your appointment and you simply click to join.</p>
+          <p>We recommend finding a private, quiet space for your visit where you can speak freely. A set of earbuds or headphones can help with audio clarity.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f25">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">Is telehealth as effective as an in-person visit for menopause care?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>For menopause care specifically, yes. The vast majority of menopause evaluation and management is conversation-based: understanding your symptoms, reviewing your history, discussing options, and monitoring your response to treatment over time. None of that requires you to be in the same room.</p>
+          <p>Physical examination is not a routine part of menopause care the way it is for other conditions. We can see you, hear you, review your labs, prescribe and adjust medications, and provide the same quality of clinical care through a screen as we could in person.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f26">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">Is my visit private and HIPAA-compliant?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes. All visits are conducted through a HIPAA-compliant telehealth platform. Your health information is encrypted and protected. We have Business Associate Agreements in place with every technology vendor that handles patient information.</p>
+          <p>Your health information is never shared with third parties without your explicit consent, in accordance with HIPAA privacy rules.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f27">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">Do I need to be physically located in Michigan, Colorado, or Arizona during my visit?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, you must be physically present in a state where we are licensed (Michigan, Colorado, or Arizona) at the time of your telehealth visit. This is a legal requirement tied to our clinical licensure, not a preference.</p>
+          <p>If you are traveling outside of these states on the day of your visit, please reschedule. We're happy to accommodate rescheduling requests with adequate notice.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- GLP-1 -->
+    <section class="faq-section" id="glp1">
+      <div class="faq-section-header">
+        <div class="faq-section-icon">⚡</div>
+        <h2>GLP-1 Medications</h2>
+      </div>
+
+      <div class="faq-item" id="f28">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">Do you prescribe GLP-1 medications like Zepbound and Wegovy?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes. GLP-1 medications are part of our practice because weight changes during perimenopause and menopause are directly connected to hormonal shifts — not just lifestyle factors. For women whose menopause transition has significantly affected their metabolism and weight, GLP-1 therapy can be a meaningful part of their overall care plan.</p>
+          <p>We prescribe <strong>Zepbound (tirzepatide)</strong> and <strong>Wegovy (semaglutide)</strong> — brand name medications sent electronically to the pharmacy of your choice. We assess whether GLP-1 therapy is appropriate for you as part of your initial or follow-up consultation.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f29">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">How much do GLP-1 medications cost?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>The medication cost is separate from your visit fee and depends entirely on your insurance situation. Here's a breakdown:</p>
+          <ul>
+            <li><strong>Commercial insurance with savings card:</strong> Patients who enroll in the Eli Lilly savings card at zepbound.lilly.com/savings often pay as little as $25/month at a retail pharmacy</li>
+            <li><strong>No insurance — LillyDirect:</strong> Zepbound is available directly through Eli Lilly at lillydirect.com starting at $299/month for starter doses and $449/month for maintenance doses</li>
+            <li><strong>Medicare:</strong> The manufacturer savings card does not apply to Medicare. Starting July 2026, a $50/month cap under Medicare Part D applies for eligible GLP-1 medications</li>
+          </ul>
+          <div class="answer-note"><p>We will walk you through your specific options at your visit. We recommend calling your insurance member services before your appointment to ask whether Zepbound or Wegovy is covered under your plan.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f30">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">Do you handle prior authorizations for GLP-1 medications?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes — if your insurance requires a prior authorization for your GLP-1 medication, we will complete and submit the documentation on your behalf for a <strong>$75 prior authorization processing fee</strong>. This covers preparing the PA form, writing any required letter of medical necessity, and submitting through your insurance.</p>
+          <p>A few things to know about the PA process:</p>
+          <ul>
+            <li>Processing typically takes 3–14 business days depending on your insurance</li>
+            <li>Approval is not guaranteed — coverage decisions are made entirely by your insurance company</li>
+            <li>If your PA is denied, you have the right to appeal. We can assist with an appeal letter for an additional $75</li>
+            <li>We cannot guarantee what your insurance will cover or how long the process will take</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f31">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">Can I get compounded semaglutide or tirzepatide?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>No — we prescribe brand name GLP-1 medications only. The FDA resolved the semaglutide and tirzepatide shortages in early 2025, which ended the legal pathway that had allowed most compounding pharmacies to produce these medications at lower cost. Mass compounded GLP-1s are no longer legally available.</p>
+          <p>We know this is disappointing for patients who were accessing compounded versions at $150–$200/month. The manufacturer savings programs and LillyDirect are now the best options for keeping costs manageable, and for most patients with commercial insurance the savings card brings the cost to a very reasonable level.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f32">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">What does GLP-1 monitoring look like?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>We follow a structured monitoring schedule to make sure your treatment is safe and effective:</p>
+          <ul>
+            <li><strong>Before starting:</strong> Baseline labs including metabolic panel, liver function, HbA1c if relevant, and a full health history review</li>
+            <li><strong>First 3 months:</strong> Follow-up visits every 4–6 weeks to assess your response, manage any side effects, and titrate your dose</li>
+            <li><strong>Once stable:</strong> Quarterly follow-ups, with lab monitoring every 6–12 months</li>
+          </ul>
+          <p>Because we're also managing your menopause care, your GLP-1 monitoring is integrated into your overall care plan rather than being a separate program. One provider, one complete picture.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- STILL HAVE QUESTIONS + CONTACT FORM -->
+    <div class="still-questions" id="contact">
+      <h3>Still have a question?</h3>
+      <p>Send us a message and we'll get back to you within 1–2 business days, no obligation to book.</p>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cf-name">Your Name</label>
+            <input type="text" id="cf-name" placeholder="Jane Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="cf-email">Email Address</label>
+            <input type="email" id="cf-email" placeholder="jane@email.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cf-state">Your State</label>
+          <select id="cf-state" required>
+            <option value="" disabled selected>Select your state</option>
+            <option value="MI">Michigan</option>
+            <option value="CO">Colorado</option>
+            <option value="AZ">Arizona</option>
+            <option value="other">Other, notify me when you expand</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="cf-message">Your Question</label>
+          <textarea id="cf-message" rows="4" placeholder="What would you like to know before booking?" required></textarea>
+        </div>
+        <div class="form-footer">
+          <p class="form-note">🔒 Your information is private and will never be shared or used for marketing.</p>
+          <button type="submit" class="btn-submit">Send My Question →</button>
+        </div>
+      </form>
+      <div class="form-success" id="form-success">
+        <div class="success-icon">✓</div>
+        <h4>Message received!</h4>
+        <p>Thank you for reaching out. We'll respond within 1–2 business days.</p>
+        <a href="index.html#book" class="btn-primary" style="margin-top:1rem;display:inline-block;">Ready to book? Schedule your visit →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready to get real answers?</h2>
+  <p>Book your first visit and leave with a care plan, not just more questions.</p>
+  <a href="index.html#book" class="btn-white">Book Your First Visit →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">The Next Chapter <span>Clinic</span></div>
+    <p>Telehealth menopause care for women across the country. Led by Megan Nelson, CNM, MSCP.</p>
+  </div>
+  <div class="footer-col">
+    <h5>Navigate</h5>
+    <ul>
+      <li><a href="index.html#who">Who We Serve</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="index.html#how">How It Works</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#book">Book a Visit</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h5>Resources</h5>
+    <ul>
+      <li><a href="resources.html">Understanding Menopause</a></li>
+      <li><a href="resources.html">Is HRT Right for Me?</a></li>
+      <li><a href="resources.html">Perimenopause Guide</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2025 The Next Chapter Clinic · Telehealth Practice · HIPAA Compliant</p>
+  <p>Privacy Policy · Terms of Use · Accessibility</p>
+</div>
+
+<script>
+function toggle(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.faq-item').forEach((el, i) => {
+  el.style.transitionDelay = (i % 4) * 60 + 'ms';
+  observer.observe(el);
+});
+
+// Sidebar active state on scroll
+const sections = document.querySelectorAll('.faq-section');
+const links = document.querySelectorAll('.sidebar-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 200) current = s.id;
+  });
+  links.forEach(l => {
+    l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+  });
+  document.getElementById('navbar').style.boxShadow =
+    window.scrollY > 20 ? '0 4px 24px rgba(26,26,46,0.08)' : 'none';
+});
+
+function handleSubmit(e) {
+  e.preventDefault();
+  document.querySelector('.contact-form').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+}
+</script>
+</body>
+</html>

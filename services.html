@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services, The Next Chapter Clinic</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a2e;
+  --sage: #7a9e87;
+  --sage-dark: #5d8a6e;
+  --sage-light: #b8d4c0;
+  --sage-pale: #eef5f0;
+  --blush: #e8c4b0;
+  --blush-deep: #c9896e;
+  --cream: #faf7f2;
+  --text: #2d2d3a;
+  --muted: #7a7a8a;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ── NAV ─────────────────────────── */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  padding: 1.25rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(250,247,242,0.93);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(122,158,135,0.15);
+  transition: box-shadow 0.3s;
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 600;
+  color: var(--ink); letter-spacing: 0.02em;
+  text-decoration: none;
+}
+.nav-logo span { color: var(--sage); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: var(--muted);
+  font-size: 0.82rem; letter-spacing: 0.08em;
+  text-transform: uppercase; font-weight: 400;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--sage); }
+.nav-cta {
+  background: var(--sage); color: white !important;
+  padding: 0.6rem 1.4rem; border-radius: 99px;
+  font-size: 0.8rem !important; transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--sage-dark) !important; }
+
+/* ── PAGE HERO ───────────────────── */
+.page-hero {
+  background: var(--ink);
+  padding: 10rem 5rem 6rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: end;
+  position: relative; overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute; top: -120px; right: -80px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: rgba(122,158,135,0.07);
+}
+.page-hero::after {
+  content: '';
+  position: absolute; bottom: -60px; left: 25%;
+  width: 240px; height: 240px; border-radius: 50%;
+  background: rgba(232,196,176,0.05);
+}
+.hero-eyebrow {
+  font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--sage-light); font-weight: 400; margin-bottom: 1.25rem;
+}
+.page-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+  font-weight: 300; line-height: 1.1; color: white;
+  position: relative; z-index: 1;
+}
+.page-hero h1 em { font-style: italic; color: var(--blush); }
+.hero-right-text {
+  position: relative; z-index: 1; padding-bottom: 0.5rem;
+}
+.hero-right-text p {
+  font-size: 1.1rem; line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+  border-left: 2px solid var(--sage);
+  padding-left: 1.5rem;
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* ── SERVICE OVERVIEW STRIP ──────── */
+.overview-strip {
+  background: var(--sage-pale);
+  padding: 2.5rem 5rem;
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+}
+.overview-pill {
+  background: white; border: 1px solid var(--sage-light);
+  border-radius: 99px; padding: 0.6rem 1.4rem;
+  font-size: 0.85rem; color: var(--sage-dark); font-weight: 400;
+  white-space: nowrap;
+}
+
+/* ── SHARED SECTION STYLES ────────── */
+.section-tag {
+  font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--sage); font-weight: 500; margin-bottom: 1rem; display: block;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+  font-weight: 300; line-height: 1.2; color: var(--ink);
+  margin-bottom: 1rem;
+}
+.section-sub {
+  font-size: 1rem; line-height: 1.8; color: var(--muted);
+  max-width: 580px; margin-bottom: 3rem;
+}
+
+/* ── MAIN SERVICES ───────────────── */
+.service-block {
+  padding: 6rem 5rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: center;
+}
+.service-block.reverse { direction: rtl; }
+.service-block.reverse > * { direction: ltr; }
+.service-block.alt-bg { background: var(--sage-pale); }
+
+.service-visual {
+  background: var(--ink); border-radius: 24px;
+  padding: 3rem; position: relative; overflow: hidden;
+  min-height: 380px; display: flex; flex-direction: column; justify-content: space-between;
+}
+.service-visual::before {
+  content: '';
+  position: absolute; top: -60px; right: -60px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: rgba(122,158,135,0.12);
+}
+.service-visual.blush-theme { background: linear-gradient(135deg, #2d1a10 0%, var(--ink) 100%); }
+.service-visual.sage-theme { background: linear-gradient(135deg, #0d2018 0%, var(--ink) 100%); }
+.service-visual.mid-theme { background: linear-gradient(135deg, #1a1a2e 0%, #1e2d3a 100%); }
+
+.service-icon-large {
+  font-size: 3rem; margin-bottom: 1.5rem; position: relative; z-index: 1;
+}
+.service-visual-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; font-weight: 300; color: white;
+  margin-bottom: 1rem; position: relative; z-index: 1;
+}
+.service-visual-points {
+  display: flex; flex-direction: column; gap: 0.6rem;
+  position: relative; z-index: 1;
+}
+.svp {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.88rem; color: rgba(255,255,255,0.6);
+}
+.svp-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--sage-light); flex-shrink: 0;
+}
+
+.service-content {}
+.service-content h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  font-weight: 300; line-height: 1.25; color: var(--ink);
+  margin-bottom: 1.25rem;
+}
+.service-content p {
+  font-size: 1rem; line-height: 1.85; color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+.service-content p strong { color: var(--text); font-weight: 500; }
+
+.treatment-options {
+  margin: 1.5rem 0;
+  display: flex; flex-direction: column; gap: 0.6rem;
+}
+.treatment-option {
+  background: white; border-radius: 10px;
+  padding: 0.75rem 1rem;
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  border: 1px solid rgba(122,158,135,0.15);
+  box-shadow: 0 1px 8px rgba(26,26,46,0.04);
+}
+.to-icon { font-size: 1rem; flex-shrink: 0; margin-top: 0.1rem; }
+.treatment-option div strong {
+  display: block; font-size: 0.9rem; color: var(--ink); font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+.treatment-option div span { font-size: 0.82rem; color: var(--muted); }
+
+.good-for {
+  background: var(--sage-pale); border-radius: 12px;
+  padding: 1rem 1.25rem; margin-top: 1rem;
+  border-left: 3px solid var(--sage);
+}
+.good-for p {
+  font-size: 0.85rem; color: var(--sage-dark);
+  margin-bottom: 0 !important; line-height: 1.6;
+}
+.good-for p strong { color: var(--sage-dark) !important; }
+
+/* ── WHAT WE DON'T DO ─────────────── */
+.scope-section {
+  background: var(--ink); padding: 5rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+}
+.scope-col h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 300; margin-bottom: 1.5rem;
+}
+.scope-col.yes h3 { color: var(--sage-light); }
+.scope-col.no h3 { color: rgba(255,255,255,0.4); }
+.scope-list { display: flex; flex-direction: column; gap: 0.6rem; }
+.scope-item {
+  display: flex; align-items: center; gap: 0.75rem;
+  font-size: 0.9rem; padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.scope-col.yes .scope-item { color: rgba(255,255,255,0.75); }
+.scope-col.no .scope-item { color: rgba(255,255,255,0.35); }
+.scope-icon { font-size: 0.9rem; flex-shrink: 0; }
+
+/* ── LAB SECTION ─────────────────── */
+.labs-section { padding: 6rem 5rem; }
+.labs-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  margin-top: 1rem;
+}
+.lab-card {
+  background: white; border-radius: 16px; padding: 1.75rem;
+  border: 1px solid rgba(122,158,135,0.15);
+  box-shadow: 0 2px 16px rgba(26,26,46,0.05);
+  opacity: 0; transform: translateY(20px); transition: all 0.5s ease;
+}
+.lab-card.visible { opacity: 1; transform: translateY(0); }
+.lab-card:hover { border-color: var(--sage-light); box-shadow: 0 4px 24px rgba(26,26,46,0.1); }
+.lab-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+.lab-card h4 {
+  font-size: 1rem; font-weight: 500; color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+.lab-card p { font-size: 0.85rem; line-height: 1.6; color: var(--muted); }
+
+/* ── VISIT TYPES ─────────────────── */
+.visits-section {
+  background: var(--sage-pale); padding: 6rem 5rem;
+}
+.visits-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+}
+.visit-card {
+  background: white; border-radius: 20px; padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 4px 24px rgba(26,26,46,0.05);
+  border: 1px solid rgba(122,158,135,0.12);
+  opacity: 0; transform: translateY(20px); transition: all 0.5s ease;
+}
+.visit-card.visible { opacity: 1; transform: translateY(0); }
+.visit-card.featured {
+  background: var(--ink); border-color: transparent;
+  transform: translateY(-8px);
+}
+.visit-card.featured.visible { transform: translateY(-8px); }
+.visit-icon { font-size: 2rem; margin-bottom: 1rem; }
+.visit-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 400; color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.visit-card.featured h3 { color: white; }
+.visit-duration {
+  font-size: 0.82rem; color: var(--muted); margin-bottom: 0.25rem;
+}
+.visit-card.featured .visit-duration { color: rgba(255,255,255,0.4); }
+.visit-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 300; color: var(--sage);
+  margin: 0.75rem 0 1.25rem;
+}
+.visit-card.featured .visit-price { color: var(--blush); }
+.visit-includes {
+  list-style: none; text-align: left; margin-bottom: 2rem;
+}
+.visit-includes li {
+  font-size: 0.85rem; color: var(--muted); padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(122,158,135,0.1);
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.visit-card.featured .visit-includes li {
+  color: rgba(255,255,255,0.55);
+  border-color: rgba(255,255,255,0.07);
+}
+.visit-includes li::before { content: '✓'; color: var(--sage); font-weight: 500; font-size: 0.8rem; }
+.visit-card.featured .visit-includes li::before { color: var(--sage-light); }
+.btn-book {
+  display: block; background: var(--sage); color: white;
+  padding: 0.85rem; border-radius: 99px;
+  font-size: 0.88rem; text-decoration: none;
+  text-align: center; transition: background 0.2s;
+}
+.btn-book:hover { background: var(--sage-dark); }
+.visit-card.featured .btn-book { background: var(--blush-deep); }
+.visit-card.featured .btn-book:hover { background: #b5775a; }
+.hsa-note {
+  text-align: center; font-size: 0.82rem; color: var(--muted); margin-top: 1.5rem;
+}
+.hsa-note strong { color: var(--sage); }
+
+/* ── CTA ─────────────────────────── */
+.cta-section {
+  background: linear-gradient(135deg, var(--sage-dark) 0%, var(--ink) 100%);
+  padding: 6rem 5rem; text-align: center;
+}
+.cta-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300; color: white; margin-bottom: 1rem;
+}
+.cta-section p { font-size: 1rem; color: rgba(255,255,255,0.6); margin-bottom: 2.5rem; }
+.btn-white {
+  display: inline-block; background: white; color: var(--ink);
+  padding: 1rem 2.5rem; border-radius: 99px;
+  font-size: 0.95rem; font-weight: 500; text-decoration: none;
+  letter-spacing: 0.04em; transition: all 0.2s;
+}
+.btn-white:hover { background: var(--cream); transform: translateY(-2px); }
+
+/* ── FOOTER ───────────────────────── */
+footer {
+  background: var(--ink); padding: 4rem 5rem 2rem;
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 600; color: white; margin-bottom: 0.75rem;
+}
+.footer-brand span { color: var(--sage); }
+footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height: 1.7; }
+.footer-col h5 {
+  font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-bottom: 1.25rem; font-weight: 500;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.75rem; }
+.footer-col ul a {
+  text-decoration: none; font-size: 0.88rem;
+  color: rgba(255,255,255,0.5); transition: color 0.2s;
+}
+.footer-col ul a:hover { color: var(--sage-light); }
+.footer-bottom {
+  background: #111827; padding: 1.5rem 5rem;
+  display: flex; justify-content: space-between;
+}
+.footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+/* ── ANIMATIONS ──────────────────── */
+.fade-up {
+  opacity: 0; transform: translateY(24px); transition: all 0.6s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ── MOBILE ──────────────────────── */
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.25rem; }
+  .nav-links { display: none; }
+  .nav-logo { font-size: 1.1rem; }
+
+  .page-hero {
+    grid-template-columns: 1fr;
+    padding: 7rem 1.5rem 3rem;
+    gap: 1.5rem;
+  }
+  .page-hero h1 { font-size: 2.2rem; }
+  .hero-right-text { display: none; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .hero-left { padding: 6rem 1.5rem 3rem; }
+  .hero-right { padding: 2rem 1.5rem; gap: 1rem; }
+  .hero-h1 { font-size: 2.2rem; }
+  .hero-btns { flex-direction: column; }
+
+  .section { padding: 3rem 1.5rem; }
+  .wc-grid { grid-template-columns: 1fr; }
+
+  .services-section { padding: 3rem 1.5rem; }
+  .services-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .how-section { padding: 3rem 1.5rem; }
+  .steps { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+  .pricing-section { padding: 3rem 1.5rem; }
+  .pricing-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .price-card.featured { transform: none; }
+  .price-card.featured.visible { transform: none; }
+
+  .about-section {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem;
+    gap: 2rem;
+  }
+  .about-stats { grid-template-columns: repeat(3, 1fr); }
+  .about-visual { padding: 2rem; }
+
+  .cta-section { padding: 3rem 1.5rem; }
+
+  .intro-section {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem;
+    gap: 2rem;
+  }
+  .photo-block { position: static; max-width: 280px; margin: 0 auto; }
+
+  .creds-strip {
+    grid-template-columns: 1fr 1fr;
+    padding: 2.5rem 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .why-section {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .philosophy-section { padding: 3rem 1.5rem; }
+  .philosophy-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+
+  .expect-section { padding: 3rem 1.5rem; }
+  .expect-grid { grid-template-columns: 1fr; }
+
+  .service-block {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem;
+    gap: 2rem;
+  }
+  .service-block.reverse { direction: ltr; }
+  .service-visual { min-height: 280px; }
+
+  .labs-section { padding: 3rem 1.5rem; }
+  .labs-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .visits-section { padding: 3rem 1.5rem; }
+  .visits-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .visit-card.featured { transform: none; }
+  .visit-card.featured.visible { transform: none; }
+
+  .scope-section {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .faq-layout {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.5rem;
+  }
+  .faq-sidebar { display: none; }
+  .cat-nav { padding: 1rem 1.5rem; }
+
+  .articles-section { padding: 3rem 1.5rem; }
+  .articles-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .article-modal { margin: 1rem; border-radius: 16px; }
+  .modal-content { padding: 1rem 1.5rem 2rem; }
+
+  .main-layout { grid-template-columns: 1fr; }
+  .book-side { padding: 3rem 1.5rem; }
+  .contact-side { padding: 3rem 1.5rem; border-left: none; border-top: 1px solid rgba(122,158,135,0.12); }
+  .form-row { grid-template-columns: 1fr; }
+
+  .expect-strip {
+    grid-template-columns: 1fr 1fr;
+    padding: 2.5rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .pricing-reminder {
+    grid-template-columns: 1fr 1fr;
+    padding: 2.5rem 1.5rem;
+    gap: 1rem;
+  }
+  .price-divider { display: none; }
+  .hsa-pill { grid-column: 1 / -1; }
+
+  footer {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem 2rem;
+    gap: 2rem;
+  }
+  .footer-bottom {
+    padding: 1.25rem 1.5rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .overview-strip { padding: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">The Next Chapter <span>Clinic</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#who">Who We Serve</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="index.html#how">How It Works</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="nav-cta">Book a Visit</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div>
+    <p class="hero-eyebrow">Clinical Services</p>
+    <h1>Specialized care for<br>every stage of <em>your<br>menopause transition.</em></h1>
+  </div>
+  <div class="hero-right-text">
+    <p>From your first perimenopause symptom to long-term hormone management, thorough, evidence-based care built around you as an individual.</p>
+  </div>
+</section>
+
+<!-- OVERVIEW PILLS -->
+<div class="overview-strip">
+  <span class="overview-pill">🌿 Hormone Therapy</span>
+  <span class="overview-pill">💊 Non-Hormonal Treatment</span>
+  <span class="overview-pill">🔬 Lab Ordering & Review</span>
+  <span class="overview-pill">💬 Ongoing Management</span>
+  <span class="overview-pill">📋 Symptom Assessment</span>
+  <span class="overview-pill">🩺 Perimenopause Care</span>
+  <span class="overview-pill">⚡ GLP-1 Weight Management</span>
+</div>
+
+<!-- SERVICE 1: HORMONE THERAPY -->
+<section class="service-block" id="hrt">
+  <div class="service-visual sage-theme fade-up" id="sv1">
+    <div class="service-icon-large">🌿</div>
+    <div class="service-visual-title">Hormone Therapy</div>
+    <div class="service-visual-points">
+      <div class="svp"><span class="svp-dot"></span>Estrogen therapy (systemic and local)</div>
+      <div class="svp"><span class="svp-dot"></span>Progesterone therapy</div>
+      <div class="svp"><span class="svp-dot"></span>Testosterone therapy</div>
+      <div class="svp"><span class="svp-dot"></span>Combination hormone regimens</div>
+      <div class="svp"><span class="svp-dot"></span>Vaginal hormone therapy</div>
+      <div class="svp"><span class="svp-dot"></span>Ongoing monitoring and adjustment</div>
+    </div>
+  </div>
+  <div class="service-content fade-up" id="sc1">
+    <span class="section-tag">Service 01</span>
+    <h2>Hormone Therapy ,<br>evidence-based, personalized.</h2>
+    <p>Hormone therapy remains the <strong>most effective treatment for menopause symptoms</strong> and is appropriate for the majority of healthy women under 60 or within 10 years of menopause. At The Next Chapter Clinic, we practice using current evidence, not the outdated fears that have kept millions of women from getting the relief they deserve.</p>
+    <p>We evaluate your full health history, symptoms, and goals before recommending any treatment, and we take time to explain your options clearly so you can make an informed decision.</p>
+    <div class="treatment-options">
+      <div class="treatment-option">
+        <span class="to-icon">💊</span>
+        <div>
+          <strong>Systemic Estrogen & Progesterone</strong>
+          <span>Available in multiple delivery forms, pills, patches, gels, sprays, and rings, built around your lifestyle and preferences</span>
+        </div>
+      </div>
+      <div class="treatment-option">
+        <span class="to-icon">🎯</span>
+        <div>
+          <strong>Local / Vaginal Hormone Therapy</strong>
+          <span>For vaginal dryness, discomfort, and urinary symptoms, highly effective with minimal systemic absorption</span>
+        </div>
+      </div>
+      <div class="treatment-option">
+        <span class="to-icon">⚡</span>
+        <div>
+          <strong>Testosterone Therapy</strong>
+          <span>For low libido, energy, and cognitive symptoms, an often overlooked but important part of women's hormonal health</span>
+        </div>
+      </div>
+    </div>
+    <div class="good-for">
+      <p><strong>Good for:</strong> Hot flashes, night sweats, vaginal symptoms, sleep disruption, mood changes, brain fog, low libido, and bone health maintenance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 2: NON-HORMONAL -->
+<section class="service-block reverse alt-bg" id="nonhormonal">
+  <div class="service-visual blush-theme fade-up" id="sv2">
+    <div class="service-icon-large">💊</div>
+    <div class="service-visual-title">Non-Hormonal Treatment</div>
+    <div class="service-visual-points">
+      <div class="svp"><span class="svp-dot"></span>Prescription non-hormonal medications</div>
+      <div class="svp"><span class="svp-dot"></span>FDA-approved alternatives to HRT</div>
+      <div class="svp"><span class="svp-dot"></span>Evidence-based symptom management</div>
+      <div class="svp"><span class="svp-dot"></span>Tailored to your health history</div>
+      <div class="svp"><span class="svp-dot"></span>Safe for women who can't use hormones</div>
+    </div>
+  </div>
+  <div class="service-content fade-up" id="sc2">
+    <span class="section-tag">Service 02</span>
+    <h2>Effective options for women<br>who prefer not to use hormones.</h2>
+    <p>Hormone therapy isn't right for every woman, whether due to personal preference, medical history, or other factors. <strong>Non-hormonal options have come a long way</strong>, and several prescription medications are now FDA-approved specifically for menopause symptom management.</p>
+    <p>We don't push hormones on anyone. If non-hormonal treatment is the right fit for you, we'll build a plan around that with the same level of care and attention.</p>
+    <div class="treatment-options">
+      <div class="treatment-option">
+        <span class="to-icon">🧠</span>
+        <div>
+          <strong>Medications for Hot Flashes & Mood</strong>
+          <span>Several classes of prescription medication are highly effective for vasomotor symptoms and mood-related concerns without using hormones</span>
+        </div>
+      </div>
+      <div class="treatment-option">
+        <span class="to-icon">😴</span>
+        <div>
+          <strong>Sleep Support</strong>
+          <span>Targeted approaches for sleep disruption that address the underlying hormonal drivers rather than just masking symptoms</span>
+        </div>
+      </div>
+      <div class="treatment-option">
+        <span class="to-icon">💧</span>
+        <div>
+          <strong>Vaginal & Urinary Symptom Treatment</strong>
+          <span>Non-hormonal prescription options for vaginal dryness, discomfort, and urinary symptoms with strong clinical evidence behind them</span>
+        </div>
+      </div>
+    </div>
+    <div class="good-for">
+      <p><strong>Good for:</strong> Women with hormone-sensitive cancer history, personal preference for non-hormonal care, or those who haven't responded well to hormone therapy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 3: PERIMENOPAUSE -->
+<section class="service-block" id="perimenopause">
+  <div class="service-visual mid-theme fade-up" id="sv3">
+    <div class="service-icon-large">🌙</div>
+    <div class="service-visual-title">Perimenopause Care</div>
+    <div class="service-visual-points">
+      <div class="svp"><span class="svp-dot"></span>Early symptom recognition and diagnosis</div>
+      <div class="svp"><span class="svp-dot"></span>Cycle change evaluation</div>
+      <div class="svp"><span class="svp-dot"></span>Proactive hormone management</div>
+      <div class="svp"><span class="svp-dot"></span>Lab monitoring over time</div>
+      <div class="svp"><span class="svp-dot"></span>Transition planning into menopause</div>
+    </div>
+  </div>
+  <div class="service-content fade-up" id="sc3">
+    <span class="section-tag">Service 03</span>
+    <h2>Perimenopause, the transition<br>that starts years before menopause.</h2>
+    <p>Many women don't realize their symptoms have started. Irregular periods, disrupted sleep, mood changes, and brain fog can begin <strong>years before your last period</strong>, and most women are told everything is "fine" because their labs look normal.</p>
+    <p>Perimenopause is a clinical diagnosis, not just a lab value. We understand the full picture and can start treatment early, before symptoms become disruptive, if that's right for you.</p>
+    <div class="treatment-options">
+      <div class="treatment-option">
+        <span class="to-icon">🔍</span>
+        <div>
+          <strong>Symptom-Based Diagnosis</strong>
+          <span>We diagnose and treat based on your symptoms and history, not just your labs, which are often normal early in perimenopause</span>
+        </div>
+      </div>
+      <div class="treatment-option">
+        <span class="to-icon">📈</span>
+        <div>
+          <strong>Proactive Management</strong>
+          <span>Getting ahead of symptoms early can really improve quality of life and long-term health outcomes</span>
+        </div>
+      </div>
+    </div>
+    <div class="good-for">
+      <p><strong>Good for:</strong> Women in their 40s (sometimes late 30s) noticing cycle changes, new sleep problems, mood shifts, or other symptoms that feel "off" but haven't been explained.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 4: ONGOING MANAGEMENT -->
+<section class="service-block reverse alt-bg" id="ongoing">
+  <div class="service-visual sage-theme fade-up" id="sv4">
+    <div class="service-icon-large">💬</div>
+    <div class="service-visual-title">Ongoing Management</div>
+    <div class="service-visual-points">
+      <div class="svp"><span class="svp-dot"></span>Quarterly follow-up visits</div>
+      <div class="svp"><span class="svp-dot"></span>Secure messaging between visits</div>
+      <div class="svp"><span class="svp-dot"></span>Prescription renewals and adjustments</div>
+      <div class="svp"><span class="svp-dot"></span>Lab monitoring and review</div>
+      <div class="svp"><span class="svp-dot"></span>Long-term care planning</div>
+      <div class="svp"><span class="svp-dot"></span>Same provider every visit</div>
+    </div>
+  </div>
+  <div class="service-content fade-up" id="sc4">
+    <span class="section-tag">Service 04</span>
+    <h2>Long-term care from a provider<br>who knows your story.</h2>
+    <p>Menopause isn't a one-appointment fix. Hormone levels shift, symptoms evolve, and your care plan needs to evolve with them. <strong>Long-term management is where this practice truly shines</strong>, because you'll always see the same provider who knows your full history.</p>
+    <p>Most patients follow up every 3 months initially, then every 6 months once stable. In between visits, secure messaging means you never have to wait for a full appointment to ask a question or report a new symptom.</p>
+    <div class="treatment-options">
+      <div class="treatment-option">
+        <span class="to-icon">📅</span>
+        <div>
+          <strong>Quarterly Follow-Ups</strong>
+          <span>Regular check-ins to monitor your response to treatment, review labs, and adjust your plan as needed</span>
+        </div>
+      </div>
+      <div class="treatment-option">
+        <span class="to-icon">💬</span>
+        <div>
+          <strong>Secure Messaging</strong>
+          <span>Reach your provider between visits through our HIPAA-compliant patient portal, no waiting for your next appointment</span>
+        </div>
+      </div>
+    </div>
+    <div class="good-for">
+      <p><strong>Good for:</strong> All patients, ongoing management is a core part of every care plan, not an add-on.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- SERVICE 5: GLP-1 -->
+<section class="service-block" id="glp1">
+  <div class="service-visual blush-theme fade-up" id="sv5">
+    <div class="service-icon-large">⚡</div>
+    <div class="service-visual-title">GLP-1 Weight Management</div>
+    <div class="service-visual-points">
+      <div class="svp"><span class="svp-dot"></span>Zepbound (tirzepatide) prescribing</div>
+      <div class="svp"><span class="svp-dot"></span>Wegovy (semaglutide) prescribing</div>
+      <div class="svp"><span class="svp-dot"></span>Dose titration and monitoring</div>
+      <div class="svp"><span class="svp-dot"></span>Insurance prior authorization support</div>
+      <div class="svp"><span class="svp-dot"></span>Lab monitoring throughout treatment</div>
+      <div class="svp"><span class="svp-dot"></span>Integrated with your menopause care</div>
+    </div>
+  </div>
+  <div class="service-content fade-up" id="sc5">
+    <span class="section-tag">Service 05</span>
+    <h2>GLP-1 therapy, integrated with<br>your menopause care.</h2>
+    <p>Weight changes during perimenopause and menopause are real and frustrating — and they're not just about calories. <strong>The hormonal shifts of menopause directly affect metabolism, fat distribution, and appetite regulation.</strong> For many women, GLP-1 medications are a meaningful part of addressing this.</p>
+    <p>Because we're already managing your hormonal health, we can prescribe and monitor GLP-1 therapy as part of your overall care plan — not as a separate program you have to find elsewhere.</p>
+    <div class="treatment-options">
+      <div class="treatment-option">
+        <span class="to-icon">💊</span>
+        <div>
+          <strong>GLP-1 Prescribing</strong>
+          <span>Zepbound (tirzepatide) and Wegovy (semaglutide) prescribed and sent directly to your pharmacy — brand name medications through standard pharmacy channels</span>
+        </div>
+      </div>
+      <div class="treatment-option">
+        <span class="to-icon">📈</span>
+        <div>
+          <strong>Titration and Monitoring</strong>
+          <span>Regular follow-up visits to assess your response, manage side effects, and adjust your dose — the clinical oversight that makes treatment safe and effective</span>
+        </div>
+      </div>
+      <div class="treatment-option">
+        <span class="to-icon">📋</span>
+        <div>
+          <strong>Prior Authorization Support</strong>
+          <span>If your insurance requires a PA, we complete and submit the paperwork on your behalf for a $75 processing fee — because your time shouldn't be spent fighting with insurance</span>
+        </div>
+      </div>
+    </div>
+    <div class="good-for">
+      <p><strong>On medication cost:</strong> GLP-1 medications are prescribed and filled at your pharmacy separately from your visit fee. Patients with commercial insurance using the manufacturer savings card often pay as little as $25/month. Cash-pay options start at $299/month through LillyDirect. We walk you through your options at your first visit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LAB SECTION -->
+<section class="labs-section" id="labs">
+  <span class="section-tag">Lab Work</span>
+  <h2 class="section-title">Comprehensive lab ordering<br>and review, included.</h2>
+  <p class="section-sub">Labs are an essential part of menopause care, for diagnosis, treatment monitoring, and ongoing health screening. We order through Labcorp and Quest, billed directly to your insurance or available at competitive self-pay rates.</p>
+  <div class="labs-grid">
+    <div class="lab-card" id="lc1">
+      <div class="lab-icon">🧪</div>
+      <h4>Hormone Panel</h4>
+      <p>Estradiol, FSH, LH, progesterone, and testosterone, the foundation of any menopause evaluation.</p>
+    </div>
+    <div class="lab-card" id="lc2">
+      <div class="lab-icon">🦋</div>
+      <h4>Thyroid Function</h4>
+      <p>TSH and related markers, thyroid dysfunction is common in midlife women and mimics menopause symptoms.</p>
+    </div>
+    <div class="lab-card" id="lc3">
+      <div class="lab-icon">☀️</div>
+      <h4>Vitamin D</h4>
+      <p>Critical for bone health, immune function, and mood, especially important during the menopause transition.</p>
+    </div>
+    <div class="lab-card" id="lc4">
+      <div class="lab-icon">🩸</div>
+      <h4>Iron Studies</h4>
+      <p>CBC, ferritin, and iron panel, particularly important for women with heavy or irregular perimenopausal bleeding.</p>
+    </div>
+    <div class="lab-card" id="lc5">
+      <div class="lab-icon">❤️</div>
+      <h4>Metabolic & Cardiovascular</h4>
+      <p>Lipid panel, fasting glucose, and metabolic markers, estrogen loss increases cardiovascular risk and metabolic changes are common.</p>
+    </div>
+    <div class="lab-card" id="lc6">
+      <div class="lab-icon">📊</div>
+      <h4>Treatment Monitoring</h4>
+      <p>Ongoing hormone level monitoring to ensure your treatment is working optimally and safely over time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DON'T DO -->
+<section class="scope-section">
+  <div class="scope-col yes">
+    <h3>What we do treat</h3>
+    <div class="scope-list">
+      <div class="scope-item"><span class="scope-icon">✓</span>Hot flashes and night sweats</div>
+      <div class="scope-item"><span class="scope-icon">✓</span>Sleep disruption related to menopause</div>
+      <div class="scope-item"><span class="scope-icon">✓</span>Vaginal dryness and discomfort</div>
+      <div class="scope-item"><span class="scope-icon">✓</span>Mood changes and anxiety</div>
+      <div class="scope-item"><span class="scope-icon">✓</span>Brain fog and cognitive changes</div>
+      <div class="scope-item"><span class="scope-icon">✓</span>Low libido and sexual health</div>
+      <div class="scope-item"><span class="scope-icon">✓</span>Irregular cycles in perimenopause</div>
+      <div class="scope-item"><span class="scope-icon">✓</span>Urinary symptoms related to menopause</div>
+      <div class="scope-item"><span class="scope-icon">✓</span>Bone health monitoring and prevention</div>
+      <div class="scope-item"><span class="scope-icon">✓</span>Metabolic changes in midlife</div>
+      <div class="scope-item"><span class="scope-icon">✓</span>GLP-1 weight management therapy</div>
+      <div class="scope-item"><span class="scope-icon">✓</span>Prior authorization processing</div>
+    </div>
+  </div>
+  <div class="scope-col no">
+    <h3>Outside our scope</h3>
+    <div class="scope-list">
+      <div class="scope-item"><span class="scope-icon">○</span>Primary care or general medicine</div>
+      <div class="scope-item"><span class="scope-icon">○</span>OB/GYN care (prenatal, delivery)</div>
+      <div class="scope-item"><span class="scope-icon">○</span>Urgent or emergency care</div>
+      <div class="scope-item"><span class="scope-icon">○</span>Mental health therapy or counseling</div>
+      <div class="scope-item"><span class="scope-icon">○</span>Oncology or cancer treatment</div>
+      <div class="scope-item"><span class="scope-icon">○</span>Chronic disease management (diabetes, heart disease)</div>
+      <div class="scope-item"><span class="scope-icon">○</span>In-person procedures or exams</div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT TYPES -->
+<section class="visits-section" id="visits">
+  <span class="section-tag">Visit Types & Pricing</span>
+  <h2 class="section-title">Transparent pricing.<br>No surprises.</h2>
+  <p class="section-sub">Cash-pay telehealth means you know exactly what you'll pay before you book. HSA and FSA cards accepted for all visits.</p>
+  <div class="visits-grid">
+    <div class="visit-card" id="vc1">
+      <div class="visit-icon">🌱</div>
+      <h3>Initial Consultation</h3>
+      <div class="visit-duration">60–90 minutes · First visit</div>
+      <div class="visit-price">$200</div>
+      <ul class="visit-includes">
+        <li>Full symptom & health history review</li>
+        <li>Personalized care plan</li>
+        <li>Prescription if appropriate</li>
+        <li>Lab orders if needed</li>
+        <li>Patient portal access</li>
+      </ul>
+      <a href="index.html#book" class="btn-book">Book Now</a>
+    </div>
+    <div class="visit-card featured" id="vc2">
+      <div class="visit-icon">⭐</div>
+      <h3>Follow-Up Visit</h3>
+      <div class="visit-duration">30 minutes · Ongoing care</div>
+      <div class="visit-price">$125</div>
+      <ul class="visit-includes">
+        <li>Symptom check & medication review</li>
+        <li>Prescription adjustments</li>
+        <li>Lab results review</li>
+        <li>Care plan updates</li>
+        <li>Secure messaging access</li>
+      </ul>
+      <a href="index.html#book" class="btn-book">Book Now</a>
+    </div>
+    <div class="visit-card" id="vc3">
+      <div class="visit-icon">🔬</div>
+      <h3>Lab Review</h3>
+      <div class="visit-duration">Outside of scheduled visits</div>
+      <div class="visit-price">$75</div>
+      <ul class="visit-includes">
+        <li>Full lab panel interpretation</li>
+        <li>Written summary of findings</li>
+        <li>Recommendations & next steps</li>
+        <li>Portal messaging for questions</li>
+        <li>Results in your patient portal</li>
+      </ul>
+      <a href="index.html#book" class="btn-book">Get Started</a>
+    </div>
+  </div>
+  <p class="hsa-note">💳 <strong>HSA and FSA cards accepted.</strong> Superbills provided for insurance self-submission. Labs billed directly to your insurance through Labcorp or Quest.</p>
+  <p class="hsa-note" style="margin-top:0.5rem;">📋 <strong>Prior authorization processing: $75.</strong> GLP-1 medication costs are separate and filled at your pharmacy — not included in visit fees.</p>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready to get the care you deserve?</h2>
+  <p>Book your initial consultation and leave with a real plan, not just a pamphlet.</p>
+  <a href="index.html#book" class="btn-white">Book Your First Visit →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">The Next Chapter <span>Clinic</span></div>
+    <p>Telehealth menopause care for women across the country. Led by Megan Nelson, CNM, MSCP, a Certified Nurse Midwife and Menopause Society Certified Practitioner.</p>
+  </div>
+  <div class="footer-col">
+    <h5>Navigate</h5>
+    <ul>
+      <li><a href="index.html#who">Who We Serve</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="index.html#how">How It Works</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#book">Book a Visit</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h5>Resources</h5>
+    <ul>
+      <li><a href="resources.html">Understanding Menopause</a></li>
+      <li><a href="resources.html">Is HRT Right for Me?</a></li>
+      <li><a href="resources.html">Perimenopause Guide</a></li>
+      <li><a href="faq.html">Patient FAQ</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2025 The Next Chapter Clinic · Telehealth Practice · HIPAA Compliant</p>
+  <p>Privacy Policy · Terms of Use · Accessibility</p>
+</div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => {
+    if (el.isIntersecting) el.target.classList.add('visible');
+  });
+}, { threshold: 0.12 });
+
+['sv1','sc1','sv2','sc2','sv3','sc3','sv4','sc4',
+ 'lc1','lc2','lc3','lc4','lc5','lc6',
+ 'vc1','vc2','vc3'
+].forEach((id, i) => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.style.transitionDelay = (i % 3) * 80 + 'ms';
+    observer.observe(el);
+  }
+});
+
+document.querySelectorAll('.fade-up').forEach((el, i) => {
+  el.style.transitionDelay = i * 80 + 'ms';
+  observer.observe(el);
+});
+
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').style.boxShadow =
+    window.scrollY > 20 ? '0 4px 24px rgba(26,26,46,0.08)' : 'none';
+});
+</script>
+</body>
+</html>
