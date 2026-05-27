@@ -655,6 +655,38 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 .mobile-menu {
   position: fixed !important;
 }
+
+/* ── PHOTO + BLURB ───────────────── */
+.photo-blurb-section {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; padding: 5rem 5rem; align-items: center;
+  background: white;
+}
+.photo-blurb-img {
+  height: 480px; border-radius: 20px; overflow: hidden;
+  box-shadow: 0 8px 40px rgba(26,26,46,0.12);
+}
+.photo-blurb-text p {
+  font-size: 1rem; line-height: 1.8; color: var(--muted);
+  margin-bottom: 1.1rem;
+}
+.photo-blurb-text p strong { color: var(--text); font-weight: 500; }
+.btn-blurb {
+  display: inline-block; background: var(--sage); color: white;
+  padding: 0.85rem 1.75rem; border-radius: 99px;
+  font-size: 0.9rem; text-decoration: none;
+  margin-top: 0.5rem; transition: background 0.2s;
+}
+.btn-blurb:hover { background: var(--sage-dark); }
+
+@media (max-width: 768px) {
+  .photo-blurb-section {
+    grid-template-columns: 1fr;
+    padding: 2.5rem 1.25rem;
+    gap: 2rem;
+  }
+  .photo-blurb-img { height: 260px; }
+}
 </style>
 </head>
 <body>
@@ -663,11 +695,11 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 <nav id="navbar">
   <div class="nav-logo">The Next Chapter <span>Clinic</span></div>
   <ul class="nav-links">
-    <li><a href="index.html#who">Who We Serve</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="services.html">How It Works</a></li>
-    <li><a href="contact.html#pricing">Pricing</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="resources.html">Resources</a></li>
     <li><a href="contact.html" class="nav-cta">Book a Visit</a></li>
   </ul>
 
@@ -731,6 +763,21 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
         <span>Transparent cash-pay pricing with no insurance surprises</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- PHOTO + BLURB -->
+<section class="photo-blurb-section">
+  <div class="photo-blurb-img">
+    <img src="hero-photo.jpg" alt="Women in their 40s and 50s enjoying life" style="width:100%; height:100%; object-fit:cover; border-radius:20px;">
+  </div>
+  <div class="photo-blurb-text">
+    <span class="section-tag">What We Do</span>
+    <h2 class="section-title">Menopause care that actually<br>fits your life.</h2>
+    <p>The Next Chapter Clinic is a telehealth menopause practice led by Megan Nelson, CNM, MSCP — a Certified Nurse Midwife and Menopause Society Certified Practitioner. We offer longer visits, real conversations, and care plans built around you as a person.</p>
+    <p>We treat the full spectrum of menopause and perimenopause — from hormone therapy and non-hormonal options to GLP-1 weight management, lab work, and ongoing support. All via telehealth, on your schedule, from home.</p>
+    <p>Currently serving women in <strong>Michigan, Colorado, and Arizona.</strong></p>
+    <a href="services.html" class="btn-blurb">See All Services →</a>
   </div>
 </section>
 
