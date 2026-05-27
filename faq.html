@@ -595,6 +595,22 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   .expect-card { padding: 1.25rem 1.25rem; }
   .book-detail { padding: 0.75rem 1rem; }
 }
+
+.menu-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 2001;
+}
+.mobile-menu {
+  position: fixed !important;
+}
 </style>
 </head>
 <body>
@@ -611,19 +627,22 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
     <li><a href="contact.html" class="nav-cta">Book a Visit</a></li>
   </ul>
 
-  <!-- Mobile Menu -->
+  <!-- Mobile Menu Button -->
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="index.html" onclick="closeMenu()">Home</a>
-    <a href="about.html" onclick="closeMenu()">About</a>
-    <a href="services.html" onclick="closeMenu()">Services</a>
-    <a href="faq.html" onclick="closeMenu()">FAQ</a>
-    <a href="resources.html" onclick="closeMenu()">Resources</a>
-    <a href="contact.html" class="mobile-book" onclick="closeMenu()">Book a Visit</a>
-  </div>
 </nav>
+
+<!-- Mobile Menu Overlay (outside nav so it covers full screen) -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="menu-close" onclick="closeMenu()">✕</button>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="faq.html" onclick="closeMenu()">FAQ</a>
+  <a href="resources.html" onclick="closeMenu()">Resources</a>
+  <a href="contact.html" class="mobile-book" onclick="closeMenu()">Book a Visit</a>
+</div>
 
 <!-- PAGE HERO -->
 <section class="page-hero">
