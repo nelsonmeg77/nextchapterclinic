@@ -709,7 +709,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 
     <form class="contact-form" action="https://formspree.io/f/meeddpvz" method="POST">
       <input type="hidden" name="_subject" value="New Contact — The Next Chapter Clinic">
-      <input type="hidden" name="_next" value="https://nextchapterclinic.com/contact.html">
+      <input type="hidden" name="_replyto" value="">
       <div class="form-row">
         <div class="form-group">
           <label for="cf-name">Your Name</label>
@@ -783,11 +783,11 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
     <span style="font-size:0.75rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--sage); font-weight:500; margin-bottom:1rem; display:block;">Expanding Soon</span>
     <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.6rem,2.5vw,2.2rem); font-weight:300; color:var(--ink); margin-bottom:0.75rem;">Not in Michigan, Colorado, or Arizona?</h2>
     <p style="font-size:0.95rem; line-height:1.8; color:var(--muted); margin-bottom:2rem;">We're actively planning expansion to additional states. Let us know where you're located and we'll notify you as soon as we're licensed in your state.</p>
-    <form id="out-of-state-form" action="https://formspree.io/f/meeddpvz" method="POST"
-      data-subject="Waitlist Signup — The Next Chapter Clinic" style="background:white; border-radius:16px; padding:2rem; box-shadow:0 2px 16px rgba(26,26,46,0.06); border:1px solid rgba(122,158,135,0.15);">
+    <form id="out-of-state-form" action="https://formspree.io/f/meeddpvz" method="POST" style="background:white; border-radius:16px; padding:2rem; box-shadow:0 2px 16px rgba(26,26,46,0.06); border:1px solid rgba(122,158,135,0.15);">
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
         <div style="display:flex; flex-direction:column; gap:0.4rem;">
           <label style="font-size:0.8rem; font-weight:500; color:var(--sage-dark); letter-spacing:0.05em; text-transform:uppercase;">Your Name</label>
+          <input type="hidden" name="_subject" value="Waitlist Signup — The Next Chapter Clinic">
           <input type="text" placeholder="Jane Smith" name="name" required style="background:var(--cream); border:1px solid rgba(122,158,135,0.25); border-radius:10px; padding:0.75rem 1rem; font-size:0.95rem; font-family:'DM Sans',sans-serif; outline:none; width:100%;">
         </div>
         <div style="display:flex; flex-direction:column; gap:0.4rem;">
@@ -849,11 +849,8 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 </div>
 
 <script>
-function handleSubmit(e) {
-  e.preventDefault();
-  document.querySelector('.contact-form').style.display = 'none';
-  document.getElementById('form-success').style.display = 'block';
-}
+// Contact form handled by Formspree — no preventDefault needed
+// Success message shown via Formspree redirect or on page reload
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
@@ -891,11 +888,7 @@ function closeMenu() {
   document.body.style.overflow = '';
 }
 
-function handleOOS(e) {
-  e.preventDefault();
-  document.getElementById('out-of-state-form').style.display = 'none';
-  document.getElementById('oos-success').style.display = 'block';
-}
+// Out of state form handled by Formspree — no preventDefault needed
 </script>
 </body>
 </html>

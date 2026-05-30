@@ -1301,11 +1301,7 @@ window.addEventListener('scroll', () => {
     window.scrollY > 20 ? '0 4px 24px rgba(26,26,46,0.08)' : 'none';
 });
 
-function handleSubmit(e) {
-  e.preventDefault();
-  document.querySelector('.contact-form').style.display = 'none';
-  document.getElementById('form-success').style.display = 'block';
-}
+// Form handled by Formspree — no preventDefault needed
 
 function toggleMenu() {
   const menu = document.getElementById('mobile-menu');
