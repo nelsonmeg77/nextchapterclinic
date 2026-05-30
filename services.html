@@ -113,7 +113,12 @@ nav {
   background: white; border: 1px solid var(--sage-light);
   border-radius: 99px; padding: 0.6rem 1.4rem;
   font-size: 0.85rem; color: var(--sage-dark); font-weight: 400;
-  white-space: nowrap;
+  white-space: nowrap; text-decoration: none;
+  transition: all 0.2s; cursor: pointer;
+}
+.overview-pill:hover {
+  background: var(--sage); color: white;
+  border-color: var(--sage);
 }
 
 /* ── SHARED SECTION STYLES ────────── */
@@ -695,13 +700,12 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 
 <!-- OVERVIEW PILLS -->
 <div class="overview-strip">
-  <span class="overview-pill">🌿 Hormone Therapy</span>
-  <span class="overview-pill">💊 Non-Hormonal Treatment</span>
-  <span class="overview-pill">🔬 Lab Ordering & Review</span>
-  <span class="overview-pill">💬 Ongoing Management</span>
-  <span class="overview-pill">📋 Symptom Assessment</span>
-  <span class="overview-pill">🩺 Perimenopause Care</span>
-  <span class="overview-pill">⚡ GLP-1 Weight Management</span>
+  <a href="#hrt" class="overview-pill">🌿 Hormone Therapy</a>
+  <a href="#nonhormonal" class="overview-pill">💊 Non-Hormonal Treatment</a>
+  <a href="#labs" class="overview-pill">🔬 Lab Ordering & Review</a>
+  <a href="#ongoing" class="overview-pill">💬 Ongoing Management</a>
+  <a href="#perimenopause" class="overview-pill">🩺 Perimenopause Care</a>
+  <a href="#glp1" class="overview-pill">⚡ GLP-1 Weight Management</a>
 </div>
 
 <!-- SERVICE 1: HORMONE THERAPY -->
