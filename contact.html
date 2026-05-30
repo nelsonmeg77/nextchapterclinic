@@ -713,16 +713,16 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
       <div class="form-row">
         <div class="form-group">
           <label for="cf-name">Your Name</label>
-          <input type="text" id="cf-name" placeholder="Jane Smith" required>
+          <input type="text" id="cf-name" name="name" placeholder="Jane Smith" required>
         </div>
         <div class="form-group">
           <label for="cf-email">Email Address</label>
-          <input type="email" id="cf-email" placeholder="jane@email.com" required>
+          <input type="email" id="cf-email" name="email" placeholder="jane@email.com" required>
         </div>
       </div>
       <div class="form-group">
         <label for="cf-state">Your State</label>
-        <select id="cf-state" required>
+        <select id="cf-state" name="state" required>
           <option value="" disabled selected>Select your state</option>
           <option value="MI">Michigan</option>
           <option value="CO">Colorado</option>
@@ -732,7 +732,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
       </div>
       <div class="form-group">
         <label for="cf-message">Your Question</label>
-        <textarea id="cf-message" rows="5" placeholder="What would you like to know before booking?" required></textarea>
+        <textarea id="cf-message" name="message" rows="5" placeholder="What would you like to know before booking?" required></textarea>
       </div>
       <div class="form-footer">
         <p class="form-note">🔒 Your information is private and will never be shared.</p>
@@ -788,16 +788,16 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
         <div style="display:flex; flex-direction:column; gap:0.4rem;">
           <label style="font-size:0.8rem; font-weight:500; color:var(--sage-dark); letter-spacing:0.05em; text-transform:uppercase;">Your Name</label>
-          <input type="text" placeholder="Jane Smith" required style="background:var(--cream); border:1px solid rgba(122,158,135,0.25); border-radius:10px; padding:0.75rem 1rem; font-size:0.95rem; font-family:'DM Sans',sans-serif; outline:none; width:100%;">
+          <input type="text" placeholder="Jane Smith" name="name" required style="background:var(--cream); border:1px solid rgba(122,158,135,0.25); border-radius:10px; padding:0.75rem 1rem; font-size:0.95rem; font-family:'DM Sans',sans-serif; outline:none; width:100%;">
         </div>
         <div style="display:flex; flex-direction:column; gap:0.4rem;">
           <label style="font-size:0.8rem; font-weight:500; color:var(--sage-dark); letter-spacing:0.05em; text-transform:uppercase;">Email Address</label>
-          <input type="email" placeholder="jane@email.com" required style="background:var(--cream); border:1px solid rgba(122,158,135,0.25); border-radius:10px; padding:0.75rem 1rem; font-size:0.95rem; font-family:'DM Sans',sans-serif; outline:none; width:100%;">
+          <input type="email" placeholder="jane@email.com" name="email" required style="background:var(--cream); border:1px solid rgba(122,158,135,0.25); border-radius:10px; padding:0.75rem 1rem; font-size:0.95rem; font-family:'DM Sans',sans-serif; outline:none; width:100%;">
         </div>
       </div>
       <div style="display:flex; flex-direction:column; gap:0.4rem; margin-bottom:1.5rem;">
         <label style="font-size:0.8rem; font-weight:500; color:var(--sage-dark); letter-spacing:0.05em; text-transform:uppercase;">Your State</label>
-        <select required style="background:var(--cream); border:1px solid rgba(122,158,135,0.25); border-radius:10px; padding:0.75rem 1rem; font-size:0.95rem; font-family:'DM Sans',sans-serif; outline:none; width:100%; appearance:none; cursor:pointer; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a9e87' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E&quot;); background-repeat:no-repeat; background-position:right 1rem center; padding-right:2.5rem;">
+        <select name="state" required style="background:var(--cream); border:1px solid rgba(122,158,135,0.25); border-radius:10px; padding:0.75rem 1rem; font-size:0.95rem; font-family:'DM Sans',sans-serif; outline:none; width:100%; appearance:none; cursor:pointer; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a9e87' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E&quot;); background-repeat:no-repeat; background-position:right 1rem center; padding-right:2.5rem;">
           <option value="" disabled selected>Select your state</option>
           <option>Alabama</option><option>Alaska</option><option>Arkansas</option><option>California</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
         </select>
