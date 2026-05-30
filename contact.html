@@ -707,9 +707,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
     <h2>Not quite ready to book?<br>That's okay too.</h2>
     <p>Send a message and we'll get back to you within 1–2 business days. No pressure, no obligation.</p>
 
-    <form class="contact-form" action="https://formspree.io/f/meeddpvz" method="POST">
-      <input type="hidden" name="_subject" value="New Contact — The Next Chapter Clinic">
-      <input type="hidden" name="_next" value="https://nextchapterclinic.com/contact.html">
+    <form class="contact-form" onsubmit="handleSubmit(event)">
       <div class="form-row">
         <div class="form-group">
           <label for="cf-name">Your Name</label>
@@ -783,8 +781,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
     <span style="font-size:0.75rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--sage); font-weight:500; margin-bottom:1rem; display:block;">Expanding Soon</span>
     <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.6rem,2.5vw,2.2rem); font-weight:300; color:var(--ink); margin-bottom:0.75rem;">Not in Michigan, Colorado, or Arizona?</h2>
     <p style="font-size:0.95rem; line-height:1.8; color:var(--muted); margin-bottom:2rem;">We're actively planning expansion to additional states. Let us know where you're located and we'll notify you as soon as we're licensed in your state.</p>
-    <form id="out-of-state-form" action="https://formspree.io/f/meeddpvz" method="POST"
-      data-subject="Waitlist Signup — The Next Chapter Clinic" style="background:white; border-radius:16px; padding:2rem; box-shadow:0 2px 16px rgba(26,26,46,0.06); border:1px solid rgba(122,158,135,0.15);">
+    <form id="out-of-state-form" onsubmit="handleOOS(event)" style="background:white; border-radius:16px; padding:2rem; box-shadow:0 2px 16px rgba(26,26,46,0.06); border:1px solid rgba(122,158,135,0.15);">
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
         <div style="display:flex; flex-direction:column; gap:0.4rem;">
           <label style="font-size:0.8rem; font-weight:500; color:var(--sage-dark); letter-spacing:0.05em; text-transform:uppercase;">Your Name</label>
