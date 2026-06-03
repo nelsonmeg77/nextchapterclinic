@@ -273,7 +273,7 @@ nav {
   background: var(--sage-pale); padding: 6rem 5rem;
 }
 .visits-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
 }
 .visit-card {
   background: white; border-radius: 20px; padding: 2.5rem 2rem;
@@ -1008,55 +1008,69 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 
 <!-- VISIT TYPES -->
 <section class="visits-section" id="visits">
-  <span class="section-tag">Visit Types & Pricing</span>
+  <span class="section-tag">Pricing</span>
   <h2 class="section-title">Transparent pricing.<br>No surprises.</h2>
-  <p class="section-sub">Cash-pay telehealth means you know exactly what you'll pay before you book. HSA and FSA cards accepted for all visits.</p>
+  <p class="section-sub">Cash-pay telehealth with two ongoing-care paths. Every patient starts with an Initial Consultation, then chooses the model that fits their life. HSA and FSA cards accepted.</p>
+
+  <!-- ROW 1: Initial Consultation spanning full width -->
+  <div style="margin-bottom:1.5rem;">
+    <div class="visit-card" id="vc0" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;max-width:100%;">
+      <div>
+        <div class="visit-icon">🌱</div>
+        <h3>Initial Consultation</h3>
+        <div class="visit-duration">60–90 minutes · Required first visit · One time</div>
+        <div class="visit-price">$200</div>
+      </div>
+      <div>
+        <ul class="visit-includes" style="margin-top:0.5rem;">
+          <li>Full symptom & health history review</li>
+          <li>Personalized care plan</li>
+          <li>Prescription if appropriate</li>
+          <li>Lab orders if needed</li>
+          <li>Patient portal access</li>
+          <li>Follow-up scheduled at ~6–8 weeks for any new dose or medication change</li>
+        </ul>
+        <a href="contact.html" class="btn-book" style="margin-top:1rem;display:block;">Scheduling Opening Fall 2026</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 2: Two ongoing paths -->
+  <p style="font-size:0.82rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--sage);font-weight:500;margin-bottom:1rem;">After your initial visit — choose your ongoing care path:</p>
   <div class="visits-grid">
     <div class="visit-card" id="vc1">
-      <div class="visit-icon">🌱</div>
-      <h3>Initial Consultation</h3>
-      <div class="visit-duration">60 minutes · First visit</div>
-      <div class="visit-price">$200</div>
+      <div class="visit-icon">💊</div>
+      <h3>Pay-As-You-Go</h3>
+      <div class="visit-duration">No commitment · Use as needed</div>
+      <div class="visit-price" style="font-size:1.3rem;margin:0.5rem 0 0.25rem;">À la carte</div>
       <ul class="visit-includes">
-        <li>Full symptom & health history review</li>
-        <li>Personalized care plan</li>
-        <li>Prescription if appropriate</li>
-        <li>Lab orders if needed</li>
-        <li>Patient portal access</li>
+        <li>Follow-up visit — <strong>$125</strong></li>
+        <li>Lab review between visits — <strong>$75</strong></li>
+        <li>PA / refill support — <strong>$75</strong></li>
       </ul>
+      <p style="font-size:0.82rem;color:var(--muted);margin:0.75rem 0 1rem;line-height:1.6;">Labs reviewed promptly — never a weeks-long wait. Results communicated with a clear summary and next steps.</p>
       <a href="contact.html" class="btn-book">Scheduling Opening Fall 2026</a>
     </div>
+
     <div class="visit-card featured" id="vc2">
       <div class="visit-icon">⭐</div>
-      <h3>Follow-Up Visit</h3>
-      <div class="visit-duration">30 minutes · Ongoing care</div>
-      <div class="visit-price">$125</div>
+      <h3>The Next Chapter Membership</h3>
+      <div class="visit-duration">Month-to-month · Cancel anytime</div>
+      <div class="visit-price">$89<span style="font-size:1rem;font-weight:300;">/mo</span></div>
+      <p style="font-size:0.78rem;color:rgba(255,255,255,0.5);margin-bottom:1rem;">Save with 6-month or 12-month prepay — ask us for details</p>
       <ul class="visit-includes">
-        <li>Symptom check & medication review</li>
-        <li>Prescription adjustments</li>
-        <li>Lab results review</li>
-        <li>Care plan updates</li>
-        <li>Secure messaging access</li>
+        <li>Follow-ups your care plan actually needs</li>
+        <li>Prompt lab review + results communication</li>
+        <li>Between-visit secure messaging</li>
+        <li>PA / refill support included</li>
       </ul>
-      <a href="contact.html" class="btn-book">Scheduling Opening Fall 2026</a>
-    </div>
-    <div class="visit-card" id="vc3">
-      <div class="visit-icon">🔬</div>
-      <h3>Lab Review</h3>
-      <div class="visit-duration">Outside of scheduled visits</div>
-      <div class="visit-price">$75</div>
-      <ul class="visit-includes">
-        <li>Full lab panel interpretation</li>
-        <li>Written summary of findings</li>
-        <li>Recommendations & next steps</li>
-        <li>Portal messaging for questions</li>
-        <li>Results in your patient portal</li>
-      </ul>
+      <p style="font-size:0.82rem;color:rgba(255,255,255,0.45);margin:0.75rem 0 1rem;line-height:1.6;">Monthly members cancel at end of billing month, no fee. Prepay refunds unused full months at the standard monthly rate.</p>
       <a href="contact.html" class="btn-book">Scheduling Opening Fall 2026</a>
     </div>
   </div>
-  <p class="hsa-note">💳 <strong>HSA and FSA cards accepted.</strong> Superbills provided for insurance self-submission. Labs billed directly to your insurance through Labcorp or Quest.</p>
-  <p class="hsa-note" style="margin-top:0.5rem;">📋 <strong>Prior authorization processing: $75.</strong> GLP-1 medication costs are separate and filled at your pharmacy — not included in visit fees.</p>
+
+  <p class="hsa-note" style="margin-top:1.5rem;">💳 <strong>HSA and FSA cards accepted.</strong> Superbills provided for insurance self-submission. Labs billed directly to your insurance through Labcorp or Quest.</p>
+  <p class="hsa-note" style="margin-top:0.5rem;">📋 <strong>PA processing $75</strong> (included in membership). GLP-1 medication costs are separate — filled at your pharmacy, not included in visit fees.</p>
 </section>
 
 <!-- CTA -->
