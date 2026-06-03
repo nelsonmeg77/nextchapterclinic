@@ -114,7 +114,7 @@ nav {
   max-width: 560px; margin-bottom: 3rem;
 }
 .articles-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
 }
 .article-card {
   background: white; border-radius: 20px; overflow: hidden;
@@ -599,7 +599,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 <section class="articles-section">
   <span class="section-tag">Educational Guides</span>
   <h2 class="section-title">Start here.</h2>
-  <p class="section-sub">Three guides covering the most important things every woman should understand about menopause, written in plain language, backed by current evidence.</p>
+  <p class="section-sub">Four guides covering the most important things every woman should understand about menopause, written in plain language, backed by current evidence.</p>
 
   <div class="articles-grid">
     <div class="article-card" id="ac1" onclick="openArticle('menopause')">
@@ -628,6 +628,16 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
         <span class="article-tag">Hormone Therapy</span>
         <h3>The Truth About HRT: Separating Evidence from Outdated Fear</h3>
         <p>The 2002 WHI study scared millions of women away from hormone therapy. Here's what the science actually says, and what that means for your decision.</p>
+        <span class="read-more">Read the guide →</span>
+      </div>
+    </div>
+
+    <div class="article-card" id="ac4" onclick="openArticle('lifestyle')">
+      <div class="article-thumb sage">🏃‍♀️</div>
+      <div class="article-body">
+        <span class="article-tag">Lifestyle</span>
+        <h3>Exercise, Sleep, Nutrition & Stress: The Lifestyle Pillars of Menopause Health</h3>
+        <p>Hormones matter — but so does everything else. Here's what the evidence says about the four lifestyle factors that directly shape how you feel during menopause.</p>
         <span class="read-more">Read the guide →</span>
       </div>
     </div>
@@ -675,6 +685,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
       <li><a href="resources.html">Understanding Menopause</a></li>
       <li><a href="resources.html">Perimenopause Guide</a></li>
       <li><a href="resources.html">The Truth About HRT</a></li>
+      <li><a href="resources.html">Exercise, Sleep & Nutrition</a></li>
       <li><a href="faq.html">Patient FAQ</a></li>
     </ul>
   </div>
@@ -837,6 +848,66 @@ const articles = {
       <a href="contact.html" class="btn-modal">Scheduling Opening Fall 2026 →</a>
     </div>
   `
+  lifestyle: `
+    <span class="modal-tag">Lifestyle · By Megan Nelson, CNM, MSCP Candidate</span>
+    <h1>Exercise, Sleep, Nutrition & Stress: The Lifestyle Pillars of Menopause Health</h1>
+    <p class="modal-meta">8 minute read · Written by Megan Nelson, CNM, MSCP Candidate</p>
+
+    <p>Hormone therapy can do a lot. But it works best when the foundations of your health are also working for you. The menopause transition affects nearly every system in your body, and the lifestyle choices you make during this time matter more than most women realize. Not because you're doing anything wrong, but because your body is changing, and what worked in your 30s may need some rethinking in your 40s and 50s.</p>
+    <p>Here's what the evidence actually says about the four areas that make the biggest difference.</p>
+
+    <h2>Strength Training: The Most Important Exercise You're Probably Not Doing Enough Of</h2>
+    <p>If there's one lifestyle change I'd recommend above all others for women in midlife, it's this: pick up weights. Consistently. The research on strength training and menopause health is as strong as it gets.</p>
+    <p>Here's why it matters so much right now. Estrogen decline accelerates bone loss, increases cardiovascular risk, and contributes to the loss of muscle mass that many women notice in their 40s and 50s. Strength training directly addresses all three. It builds and preserves bone density, improves cardiovascular health, increases muscle mass, supports healthy metabolism, and significantly improves mood and sleep quality.</p>
+    <p>You don't need to be in a gym every day. Two to three sessions per week of resistance training, bodyweight exercises, free weights, machines, or resistance bands, done consistently, is enough to make a real difference. The key word is consistently. This is a long game, and starting earlier is always better.</p>
+    <p>Cardiovascular exercise matters too, but for women in the menopause transition, strength training often gets underemphasized in favor of cardio. Both have a place. If you're only doing one, add the other. If you're only doing cardio, start adding resistance work.</p>
+
+    <h2>Sleep: It's Not Just Uncomfortable — It's a Health Issue</h2>
+    <p>Most women going through perimenopause and menopause already know their sleep has gotten worse. Night sweats wake you up. You lie awake at 3am for no clear reason. You wake up exhausted even after a full night in bed. This is so common it gets dismissed as just part of menopause, which is exactly the wrong response.</p>
+    <p>Disrupted sleep during menopause is both a symptom and a driver of other symptoms. Poor sleep increases inflammation, worsens mood and anxiety, impairs cognitive function, affects metabolism and weight regulation, and reduces your body's ability to repair and regulate itself. It's not something to just white-knuckle through.</p>
+    <p>Estrogen and progesterone both play roles in sleep regulation, which is part of why this gets harder during the transition. Treating hot flashes and night sweats directly, often through hormone therapy, frequently improves sleep dramatically. But there are also behavioral and environmental strategies that help regardless of what treatment path you're on:</p>
+    <ul>
+      <li>Keep your bedroom cool — your temperature regulation is more sensitive now</li>
+      <li>Consistent wake time, even on weekends, anchors your circadian rhythm</li>
+      <li>Limit alcohol — it fragments sleep architecture even if it helps you fall asleep initially</li>
+      <li>Wind down screens and stimulation 30–60 minutes before bed</li>
+      <li>Strength training (see above) has a measurable positive effect on sleep quality</li>
+    </ul>
+    <p>If your sleep is significantly disrupted, it's worth bringing up directly rather than assuming it's just something to live with. There are effective treatment options.</p>
+
+    <h2>Nutrition: What Actually Matters (and What Doesn't)</h2>
+    <p>The nutrition conversation around menopause can get noisy fast, filled with supplements, elimination diets, and miracle foods. The evidence is more straightforward than the wellness industry would have you believe.</p>
+    <p>A few things that are well-supported by research:</p>
+    <ul>
+      <li><strong>Adequate protein</strong> — becomes more important in midlife to preserve muscle mass and support bone health. Most women don't eat enough. Aim for protein at every meal.</li>
+      <li><strong>Calcium and vitamin D</strong> — essential for bone density, especially as estrogen declines. Food sources first (dairy, leafy greens, fatty fish), supplements if needed. Your vitamin D level is worth checking.</li>
+      <li><strong>Fiber and whole foods</strong> — support cardiovascular health, which becomes a bigger priority after menopause. Vegetables, legumes, whole grains, and fruit over processed alternatives.</li>
+      <li><strong>Limiting alcohol</strong> — alcohol worsens hot flashes, disrupts sleep, and has a meaningful association with breast cancer risk. Worth paying attention to.</li>
+      <li><strong>Phytoestrogens</strong> — found in soy and other foods, some women find these helpful for mild symptoms. The evidence is modest but they're generally safe.</li>
+    </ul>
+    <p>What doesn't have strong evidence: most specific supplements marketed for menopause, extreme elimination diets, and the idea that there's one perfect eating plan that works for everyone. A registered dietitian is the right person if you want individualized nutrition guidance — it's beyond what a menopause visit covers in depth, but it's a worthwhile investment.</p>
+
+    <h2>Stress Management: Not a Soft Topic</h2>
+    <p>Stress has a direct physiological effect on hormone balance, hot flash frequency, sleep quality, mood, and immune function. During the menopause transition, when your hormone system is already under strain, chronic stress makes everything harder.</p>
+    <p>This isn't about telling you to relax or do yoga. It's about recognizing that stress management is clinical, not optional. A few approaches with real evidence behind them:</p>
+    <ul>
+      <li><strong>Regular movement</strong> — exercise is one of the most effective stress regulators we have. This is another reason the strength training recommendation matters so much.</li>
+      <li><strong>Mindfulness-based practices</strong> — mindfulness-based stress reduction (MBSR) has been specifically studied in menopausal women and shown to reduce hot flash severity and improve quality of life. Apps like Headspace or Calm make this accessible.</li>
+      <li><strong>Social connection</strong> — isolated women consistently report worse menopause symptom burden. This is a real biological phenomenon, not just a psychological one.</li>
+      <li><strong>Cognitive behavioral therapy (CBT)</strong> — has good evidence for improving insomnia and mood symptoms in menopause specifically, not just as a general mental health tool.</li>
+    </ul>
+    <p>If stress, anxiety, or low mood are significant parts of your experience right now, that's worth bringing to a visit. These are treatable symptoms, not character flaws.</p>
+
+    <div class="modal-callout">
+      <p><strong>The bottom line:</strong> Hormone therapy and lifestyle aren't competing approaches. They work together. The research consistently shows that women who address both, treating symptoms with appropriate medications AND investing in sleep, movement, nutrition, and stress, do better than those who do only one or the other. This transition is a good reason to build habits that will serve you for the next few decades, not just the next few months.</p>
+    </div>
+
+    <div class="modal-cta">
+      <h3>Want to talk through what this looks like for you?</h3>
+      <p>Your lifestyle, your symptoms, and your goals are all part of the conversation at your first visit.</p>
+      <a href="contact.html" class="btn-modal">Scheduling Opening Fall 2026 →</a>
+    </div>
+  `
 };
 
 function openArticle(id) {
@@ -862,7 +933,7 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
 }, { threshold: 0.12 });
 
-['ac1','ac2','ac3'].forEach((id, i) => {
+['ac1','ac2','ac3','ac4'].forEach((id, i) => {
   const el = document.getElementById(id);
   if (el) { el.style.transitionDelay = i * 120 + 'ms'; observer.observe(el); }
 });
