@@ -121,7 +121,7 @@ nav {
   border: 1px solid rgba(122,158,135,0.15);
   box-shadow: 0 4px 24px rgba(26,26,46,0.06);
   transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
+  cursor: pointer; position: relative; z-index: 1;
   opacity: 1; transform: translateY(0); transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s;
 }
 .article-card.visible { opacity: 1; transform: translateY(0); }
@@ -458,7 +458,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   justify-content: center;
   gap: 0;
 }
-.mobile-menu.open { display: flex; }
+.mobile-menu.open { pointer-events: all; display: flex; }
 .mobile-menu a {
   font-family: 'Cormorant Garamond', serif;
   font-size: 2rem; font-weight: 300;
@@ -542,7 +542,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   z-index: 2001;
 }
 .mobile-menu {
-  position: fixed !important;
+  position: fixed !important; pointer-events: none;
 }
 </style>
 </head>
