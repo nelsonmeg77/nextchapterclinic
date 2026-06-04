@@ -620,6 +620,18 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   z-index: 2001;
 }
 
+
+/* ── CHECKBOX MENU TOGGLE ─────────── */
+.menu-toggle-input {
+  display: none;
+}
+.menu-toggle-input:checked ~ .mobile-menu {
+  display: flex !important;
+  pointer-events: all;
+}
+.menu-toggle-input:checked ~ nav .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle-input:checked ~ nav .hamburger span:nth-child(2) { opacity: 0; }
+.menu-toggle-input:checked ~ nav .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 </style>
 </head>
 <body>
@@ -629,6 +641,8 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   🌿 <strong style="color:var(--sage-light);">Coming Fall 2026</strong> — We're building something exciting. Stay tuned.
 </div>
 
+<!-- MENU TOGGLE -->
+<input type="checkbox" id="menu-toggle" class="menu-toggle-input">
 <!-- NAV -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo">The Next Chapter <span>Clinic</span></a>
@@ -643,21 +657,21 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   </ul>
 
   <!-- Mobile Menu Button -->
-  <button class="hamburger" id="hamburger" onclick="toggleMenu(event)" aria-label="Menu">
+  <label for="menu-toggle" class="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
-  </button>
+  </label>
 </nav>
 
 <!-- Mobile Menu Overlay (outside nav so it covers full screen) -->
 <div class="mobile-menu" id="mobile-menu">
-  <button class="menu-close" onclick="closeMenu()">✕</button>
-  <a href="index.html" onclick="closeMenu()">Home</a>
-  <a href="about.html" onclick="closeMenu()">About</a>
-  <a href="services.html" onclick="closeMenu()">Services</a>
-  <a href="pricing.html" onclick="closeMenu()">Pricing</a>
-  <a href="faq.html" onclick="closeMenu()">FAQ</a>
-  <a href="resources.html" onclick="closeMenu()">Resources</a>
-  <a href="contact.html" class="mobile-book" onclick="closeMenu()">Book a Visit</a>
+  <label for="menu-toggle" class="menu-close">✕</label>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="faq.html">FAQ</a>
+  <a href="resources.html">Resources</a>
+  <a href="contact.html" class="mobile-book">Book a Visit</a>
 </div>
 
 <!-- PAGE HERO -->
