@@ -506,11 +506,17 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  padding: 4px;
+  padding: 8px;
   background: none;
   border: none;
   z-index: 2000;
   position: relative;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
 }
 .hamburger span {
   display: block;
@@ -546,6 +552,9 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   letter-spacing: 0.02em;
   transition: color 0.2s;
   text-align: center;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  cursor: pointer;
 }
 .mobile-menu a:hover { color: var(--sage); }
 .mobile-menu .mobile-book {
@@ -644,7 +653,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   </ul>
 
   <!-- Mobile Menu Button -->
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+  <button class="hamburger" id="hamburger" onclick="toggleMenu(event)" ontouchend="toggleMenu(event)" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -904,7 +913,8 @@ window.addEventListener('scroll', () => {
     window.scrollY > 20 ? '0 4px 24px rgba(26,26,46,0.08)' : 'none';
 });
 
-function toggleMenu() {
+function toggleMenu(e) {
+  if (e) { e.preventDefault(); e.stopPropagation(); }
   const menu = document.getElementById('mobile-menu');
   const btn = document.getElementById('hamburger');
   const isOpen = menu.classList.contains('open');

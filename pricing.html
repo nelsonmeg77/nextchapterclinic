@@ -329,7 +329,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
     <li><a href="contact.html" class="nav-cta">Book a Visit</a></li>
   </ul>
   <!-- Mobile Menu Button -->
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+  <button class="hamburger" id="hamburger" onclick="toggleMenu(event)" ontouchend="toggleMenu(event)" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -499,7 +499,8 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 </div>
 
 <script>
-function toggleMenu() {
+function toggleMenu(e) {
+  if (e) { e.preventDefault(); e.stopPropagation(); }
   const menu = document.getElementById('mobile-menu');
   const btn = document.getElementById('hamburger');
   const isOpen = menu.classList.contains('open');
