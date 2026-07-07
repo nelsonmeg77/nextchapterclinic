@@ -107,6 +107,11 @@ nav {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 0; min-height: 70vh;
 }
+@media (max-width: 480px) {
+  .main-layout { grid-template-columns: 1fr; }
+  .book-side { padding: 2.5rem 1.5rem; }
+  .contact-side { padding: 2.5rem 1.5rem; border-left: none; border-top: 1px solid rgba(122,158,135,0.12); }
+}
 
 /* ── BOOK SIDE ───────────────────── */
 .book-side {
@@ -441,9 +446,6 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   .article-modal { margin: 1rem; border-radius: 16px; }
   .modal-content { padding: 1rem 1.5rem 2rem; }
 
-  .main-layout { grid-template-columns: 1fr; }
-  .book-side { padding: 3rem 1.5rem; }
-  .contact-side { padding: 3rem 1.5rem; border-left: none; border-top: 1px solid rgba(122,158,135,0.12); }
   .form-row { grid-template-columns: 1fr; }
 
   .expect-strip {
@@ -719,7 +721,6 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 
     <div class="btn-book-large" style="opacity:0.7; cursor:default; box-shadow:none; transform:none; background:var(--sage);">
       Scheduling Opening Winter 2026
-    </div>
     </div>
   </div>
 
