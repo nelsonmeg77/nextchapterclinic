@@ -1100,12 +1100,20 @@ const articleMap = {ac1:'menopause', ac2:'perimenopause', ac3:'hrt', ac4:'lifest
   if (el) {
     el.style.transitionDelay = i * 120 + 'ms';
     observer.observe(el);
-    el.addEventListener('click', function(e) {
-      e.preventDefault();
-      openArticle(articleMap[id]);
-    });
+    let touchStartY = 0;
+    el.addEventListener('touchstart', function(e) {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
     el.addEventListener('touchend', function(e) {
-      e.preventDefault();
+      const touchEndY = e.changedTouches[0].clientY;
+      const diff = Math.abs(touchEndY - touchStartY);
+      // Only open if finger moved less than 10px (tap, not scroll)
+      if (diff < 10) {
+        e.preventDefault();
+        openArticle(articleMap[id]);
+      }
+    });
+    el.addEventListener('click', function(e) {
       openArticle(articleMap[id]);
     });
   }
