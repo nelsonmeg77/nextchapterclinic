@@ -803,6 +803,25 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   .modal-content { padding: 0.75rem 1.25rem 2rem; }
   .modal-content h1 { font-size: 1.5rem; }
 }
+
+/* ── SERVICE DROPDOWN ────────────── */
+.nav-dropdown { position: relative; }
+.nav-dropdown > a::after { content: ' ▾'; font-size: 0.7rem; }
+.dropdown-menu {
+  display: none; position: absolute; top: calc(100% + 0.75rem);
+  left: 50%; transform: translateX(-50%);
+  background: white; border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(26,26,46,0.12);
+  border: 1px solid rgba(122,158,135,0.15);
+  padding: 0.5rem 0; min-width: 220px; z-index: 9999; white-space: nowrap;
+}
+.nav-dropdown:hover .dropdown-menu { display: block; }
+.dropdown-menu a {
+  display: block; padding: 0.6rem 1.25rem; font-size: 0.82rem;
+  color: var(--muted) !important; text-decoration: none;
+  transition: background 0.15s, color 0.15s; letter-spacing: 0.04em;
+}
+.dropdown-menu a:hover { background: var(--sage-pale); color: var(--sage-dark) !important; }
 </style>
 </head>
 <body>
@@ -810,7 +829,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 
 <!-- COMING SOON BANNER -->
 <div style="background:var(--ink); color:white; text-align:center; padding:0.65rem 1.5rem; font-size:0.82rem; letter-spacing:0.06em; position:relative; z-index:900;">
-  🌿 <strong style="color:var(--sage-light);">Coming Winter 2026</strong> — We're building something exciting. Stay tuned.
+  🌿 <strong style="color:var(--sage-light);">Coming January 2027</strong> — We're building something exciting. Stay tuned.
 </div>
 
 <!-- MENU TOGGLE -->
@@ -821,7 +840,17 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
+    <li class="nav-dropdown">
+      <a href="services.html">Services</a>
+      <div class="dropdown-menu">
+        <a href="services.html#hrt">01 · Hormone Therapy</a>
+        <a href="services.html#nonhormonal">02 · Non-Hormonal Treatment</a>
+        <a href="services.html#glp1">03 · GLP-1 Weight Management</a>
+        <a href="services.html#ongoing">04 · Ongoing Management</a>
+        <a href="services.html#holistic">05 · Lifestyle & Wellness</a>
+        <a href="services.html#labs">06 · Lab Work</a>
+      </div>
+    </li>
     <li><a href="pricing.html">Pricing</a></li>
     <li><a href="faq.html">FAQ</a></li>
     <li><a href="resources.html">Resources</a></li>
@@ -855,7 +884,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
     </h1>
     <p class="hero-sub">Not just "this is normal for your age." Specialized menopause care from a Certified Nurse Midwife — on your schedule, from your home, with the time your symptoms actually deserve.</p>
     <div class="hero-btns">
-      <a href="contact.html" class="btn-primary">Scheduling Opening Winter 2026 →</a>
+      <a href="contact.html" class="btn-primary">Scheduling Opening January 2027 →</a>
       <a href="services.html" class="btn-outline">See Our Services</a>
     </div>
   </div>
@@ -906,43 +935,35 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   </div>
 </section>
 
-<!-- WHO WE SERVE -->
-<section class="section" id="who">
-  <div class="section-tag">Who We Serve</div>
-  <h2 class="section-title">You deserve care from someone<br>who truly specializes in this.</h2>
-  <p class="section-sub">Menopause is often undertreated — not because providers don't care, but because most aren't trained in it. The Next Chapter Clinic offers longer visits, up-to-date evidence-based care, and a provider whose entire focus is menopause. So you leave with real answers and a plan that actually fits your life.</p>
-  <div class="wc-grid">
-    <div class="wc-card" id="wc1"><p>🌡️ <strong>Hot flashes and night sweats</strong> disrupting your sleep and daily life</p></div>
-    <div class="wc-card" id="wc2"><p>😔 <strong>Mood changes, anxiety, or brain fog</strong> that feel unlike your usual self</p></div>
-    <div class="wc-card" id="wc3"><p>😴 <strong>Chronic sleep disruption</strong> that no amount of melatonin is fixing</p></div>
-    <div class="wc-card" id="wc4"><p>💗 <strong>Vaginal dryness or discomfort</strong> affecting your comfort and relationships</p></div>
-    <div class="wc-card" id="wc5"><p>⚖️ <strong>Unexplained weight changes</strong> or metabolic shifts you can't explain</p></div>
-    <div class="wc-card" id="wc6"><p>🔍 <strong>Questions about HRT</strong> and whether it's safe and right for you</p></div>
-    <div class="wc-card" id="wc7"><p>📋 <strong>Perimenopause confusion</strong>, irregular cycles, symptoms but no answers</p></div>
-    <div class="wc-card" id="wc8"><p>💬 <strong>Someone who will spend real time</strong> listening and building a plan with you</p></div>
-    <div class="wc-card" id="wc9"><p>⚡ <strong>GLP-1 weight management</strong> integrated with your menopause care plan</p></div>
-  </div>
-</section>
-
 <!-- CTA -->
 <section class="cta-section" id="book">
   <h2>Your next chapter starts here.</h2>
   <p>Book a telehealth visit today, same-week appointments available for women.</p>
-  <a href="contact.html" class="btn-white">Scheduling Opening Winter 2026 →</a>
+  <a href="contact.html" class="btn-white">Scheduling Opening January 2027 →</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div>
     <div class="footer-brand">The Next Chapter <span>Clinic</span></div>
-    <p>Telehealth menopause care for women across the country. Led by Megan Nelson, CNM, MSCP — a Certified Nurse Midwife and Menopause Society Certified Practitioner.</p>
+    <p>Led by Megan Nelson, CNM, MSCP — a Certified Nurse Midwife and Menopause Society Certified Practitioner specializing in menopause and GLP-1 care.</p>
   </div>
   <div class="footer-col">
     <h5>Navigate</h5>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li class="nav-dropdown">
+      <a href="services.html">Services</a>
+      <div class="dropdown-menu">
+        <a href="services.html#hrt">01 · Hormone Therapy</a>
+        <a href="services.html#nonhormonal">02 · Non-Hormonal Treatment</a>
+        <a href="services.html#glp1">03 · GLP-1 Weight Management</a>
+        <a href="services.html#ongoing">04 · Ongoing Management</a>
+        <a href="services.html#holistic">05 · Lifestyle & Wellness</a>
+        <a href="services.html#labs">06 · Lab Work</a>
+      </div>
+    </li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="resources.html">Resources</a></li>

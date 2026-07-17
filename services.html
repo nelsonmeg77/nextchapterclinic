@@ -763,13 +763,58 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   .modal-content { padding: 0.75rem 1.25rem 2rem; }
   .modal-content h1 { font-size: 1.5rem; }
 }
+
+/* ── SERVICE DROPDOWN ────────────── */
+.nav-dropdown {
+  position: relative;
+}
+.nav-dropdown > a::after {
+  content: ' ▾';
+  font-size: 0.7rem;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(26,26,46,0.12);
+  border: 1px solid rgba(122,158,135,0.15);
+  padding: 0.5rem 0;
+  min-width: 220px;
+  z-index: 9999;
+  white-space: nowrap;
+}
+.nav-dropdown:hover .dropdown-menu {
+  display: block;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.82rem;
+  color: var(--muted) !important;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+  letter-spacing: 0.04em;
+}
+.dropdown-menu a:hover {
+  background: var(--sage-pale);
+  color: var(--sage-dark) !important;
+}
+.dropdown-menu .dropdown-divider {
+  height: 1px;
+  background: rgba(122,158,135,0.15);
+  margin: 0.25rem 0;
+}
 </style>
 </head>
 <body>
 
 <!-- COMING SOON BANNER -->
 <div style="background:var(--ink); color:white; text-align:center; padding:0.65rem 1.5rem; font-size:0.82rem; letter-spacing:0.06em; position:relative; z-index:900;">
-  🌿 <strong style="color:var(--sage-light);">Coming Winter 2026</strong> — We're building something exciting. Stay tuned.
+  🌿 <strong style="color:var(--sage-light);">Coming January 2027</strong> — We're building something exciting. Stay tuned.
 </div>
 
 <!-- MENU TOGGLE -->
@@ -780,7 +825,17 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
+    <li class="nav-dropdown">
+      <a href="services.html">Services</a>
+      <div class="dropdown-menu">
+        <a href="services.html#hrt">01 · Hormone Therapy</a>
+        <a href="services.html#nonhormonal">02 · Non-Hormonal Treatment</a>
+        <a href="services.html#glp1">03 · GLP-1 Weight Management</a>
+        <a href="services.html#ongoing">04 · Ongoing Management</a>
+        <a href="services.html#holistic">05 · Lifestyle & Wellness</a>
+        <a href="services.html#labs">06 · Lab Work</a>
+      </div>
+    </li>
     <li><a href="pricing.html">Pricing</a></li>
     <li><a href="faq.html">FAQ</a></li>
     <li><a href="resources.html">Resources</a></li>
@@ -818,12 +873,12 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 
 <!-- OVERVIEW PILLS -->
 <div class="overview-strip">
-  <a href="#hrt" class="overview-pill">🌿 Hormone Therapy</a>
-  <a href="#nonhormonal" class="overview-pill">💊 Non-Hormonal Treatment</a>
-  <a href="#labs" class="overview-pill">🔬 Lab Ordering & Review</a>
-  <a href="#ongoing" class="overview-pill">💬 Ongoing Management</a>
-  <a href="#glp1" class="overview-pill">⚡ GLP-1 Weight Management</a>
-  <a href="#holistic" class="overview-pill">🌿 Whole-Person Care</a>
+  <a href="#hrt" class="overview-pill">01 · 🌿 Hormone Therapy</a>
+  <a href="#nonhormonal" class="overview-pill">02 · 💊 Non-Hormonal Treatment</a>
+  <a href="#glp1" class="overview-pill">03 · ⚡ GLP-1</a>
+  <a href="#ongoing" class="overview-pill">04 · 💬 Ongoing Management</a>
+  <a href="#holistic" class="overview-pill">05 · 🌱 Lifestyle & Wellness</a>
+  <a href="#labs" class="overview-pill">06 · 🔬 Lab Work</a>
 </div>
 
 <!-- SERVICE 1: HORMONE THERAPY -->
@@ -874,7 +929,6 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   </div>
 </section>
 
-<!-- SERVICE 2: NON-HORMONAL -->
 <section class="service-block reverse alt-bg" id="nonhormonal">
   <div class="service-visual blush-theme fade-up" id="sv2">
     <div class="service-icon-large">💊</div>
@@ -921,50 +975,6 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   </div>
 </section>
 
-<!-- SERVICE 3: PERIMENOPAUSE -->
-<!-- SERVICE 4: ONGOING MANAGEMENT -->
-<section class="service-block reverse alt-bg" id="ongoing">
-  <div class="service-visual sage-theme fade-up" id="sv4">
-    <div class="service-icon-large">💬</div>
-    <div class="service-visual-title">Ongoing Management</div>
-    <div class="service-visual-points">
-      <div class="svp"><span class="svp-dot"></span>Quarterly follow-up visits</div>
-      <div class="svp"><span class="svp-dot"></span>Secure messaging for clinical questions</div>
-      <div class="svp"><span class="svp-dot"></span>Prescription renewals and adjustments</div>
-      <div class="svp"><span class="svp-dot"></span>Lab monitoring and review</div>
-      <div class="svp"><span class="svp-dot"></span>Long-term care planning</div>
-      <div class="svp"><span class="svp-dot"></span>Same provider every visit</div>
-    </div>
-  </div>
-  <div class="service-content fade-up" id="sc4">
-    <span class="section-tag">Service 03</span>
-    <h2>Long-term care from a provider<br>who knows your story.</h2>
-    <p>Menopause isn't a one-appointment fix. Hormone levels shift, symptoms evolve, and your care plan needs to evolve with them. <strong>Long-term management is where this practice truly shines</strong>, because you'll always see the same provider who knows your full history.</p>
-    <p>Most patients follow up every 6–8 weeks initially, then every 6–12 months once stable, depending on treatment. Secure messaging is available to all patients for clinical questions — you never have to wait for a full appointment to ask a question or report a symptom.</p>
-    <div class="treatment-options">
-      <div class="treatment-option">
-        <span class="to-icon">📅</span>
-        <div>
-          <strong>Quarterly Follow-Ups</strong>
-          <span>Regular check-ins to monitor your response to treatment, review labs, and adjust your plan as needed</span>
-        </div>
-      </div>
-      <div class="treatment-option">
-        <span class="to-icon">💬</span>
-        <div>
-          <strong>Secure Messaging</strong>
-          <span>Included with The Next Chapter Membership — reach your provider between visits through our HIPAA-compliant patient portal without waiting for your next appointment</span>
-        </div>
-      </div>
-    </div>
-    <div class="good-for">
-      <p><strong>Good for:</strong> All patients, ongoing management is a core part of every care plan, not an add-on.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- SERVICE 5: GLP-1 -->
 <section class="service-block" id="glp1">
   <div class="service-visual blush-theme fade-up" id="sv5">
     <div class="service-icon-large">⚡</div>
@@ -978,7 +988,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
     </div>
   </div>
   <div class="service-content fade-up" id="sc5">
-    <span class="section-tag">Service 04</span>
+    <span class="section-tag">Service 03</span>
     <h2>GLP-1 therapy, integrated with<br>your menopause care.</h2>
     <p>Weight changes during perimenopause and menopause are real and frustrating — and they're not just about calories. <strong>The hormonal shifts of menopause directly affect metabolism, fat distribution, and appetite regulation.</strong> For many women, GLP-1 medications are a meaningful part of addressing this.</p>
     <p>Because we're already managing your hormonal health, we can prescribe and monitor GLP-1 therapy as part of your overall care plan — not as a separate program you have to find elsewhere.</p>
@@ -1006,11 +1016,53 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
       </div>
     </div>
     <div class="good-for">
-      <p><strong>On medication cost:</strong> GLP-1 medications are filled at your pharmacy separately from your visit fee. We help you find the most affordable cash-pay option — whether that's GoodRx, LillyDirect ($299/month), or a manufacturer savings card that can bring costs to as little as $25/month with commercial insurance.</p>
+      <p><strong>On medication cost:</strong> GLP-1 medications are filled at your pharmacy separately from your visit fee. We help you find the most affordable cash-pay option — LillyDirect offers Zepbound starting at $299/month, and GoodRx can reduce costs at your local pharmacy.</p>
     </div>
   </div>
 </section>
 
+<section class="service-block reverse alt-bg" id="ongoing">
+  <div class="service-visual sage-theme fade-up" id="sv4">
+    <div class="service-icon-large">💬</div>
+    <div class="service-visual-title">Ongoing Management</div>
+    <div class="service-visual-points">
+      <div class="svp"><span class="svp-dot"></span>Quarterly follow-up visits</div>
+      <div class="svp"><span class="svp-dot"></span>Secure messaging for clinical questions</div>
+      <div class="svp"><span class="svp-dot"></span>Prescription renewals and adjustments</div>
+      <div class="svp"><span class="svp-dot"></span>Lab monitoring and review</div>
+      <div class="svp"><span class="svp-dot"></span>Long-term care planning</div>
+      <div class="svp"><span class="svp-dot"></span>Same provider every visit</div>
+    </div>
+  </div>
+  <div class="service-content fade-up" id="sc4">
+    <span class="section-tag">Service 04</span>
+    <h2>Long-term care from a provider<br>who knows your story.</h2>
+    <p>Menopause isn't a one-appointment fix. Hormone levels shift, symptoms evolve, and your care plan needs to evolve with them. <strong>Long-term management is where this practice truly shines</strong>, because you'll always see the same provider who knows your full history.</p>
+    <p>Most patients follow up every 6–8 weeks initially, then every 6–12 months once stable, depending on treatment. Secure messaging is available to all patients for clinical questions — you never have to wait for a full appointment to ask a question or report a symptom.</p>
+    <div class="treatment-options">
+      <div class="treatment-option">
+        <span class="to-icon">📅</span>
+        <div>
+          <strong>Quarterly Follow-Ups</strong>
+          <span>Regular check-ins to monitor your response to treatment, review labs, and adjust your plan as needed</span>
+        </div>
+      </div>
+      <div class="treatment-option">
+        <span class="to-icon">💬</span>
+        <div>
+          <strong>Secure Messaging</strong>
+          <span>Included with The Next Chapter Membership — reach your provider between visits through our HIPAA-compliant patient portal without waiting for your next appointment</span>
+        </div>
+      </div>
+    </div>
+    <div class="good-for">
+      <p><strong>Good for:</strong> All patients, ongoing management is a core part of every care plan, not an add-on.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- SERVICE 5: GLP-1 -->
 <!-- HOLISTIC CARE -->
 <section class="service-block reverse alt-bg" id="holistic">
   <div class="service-visual fade-up" id="svh">
@@ -1024,7 +1076,8 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
     </div>
   </div>
   <div class="service-content fade-up" id="sch">
-    <span class="section-tag">Lifestyle & Wellness</span>
+    <span class="section-tag">Service 05</span>
+    <span class="section-tag" style="margin-top:0.25rem;">Lifestyle & Wellness</span>
     <h2>Menopause care is about<br>more than hormones.</h2>
     <p>Hormone therapy and medication are powerful tools, but they work best alongside the foundations of good health. <strong>Nutrition, movement, sleep, and stress management all play a meaningful role</strong> in how you feel during this stage of life.</p>
     <p>While I don't provide specialized nutrition or fitness programming, I believe in caring for the whole person. The research is clear that strength training, quality sleep, balanced nutrition, and stress management all directly affect how you feel during the menopause transition — and how well your treatment works.</p><p>We'll talk about lifestyle factors that are relevant to your symptoms and care plan. I'll share what the evidence actually says and help you think through realistic changes that make sense for your life.</p>
@@ -1035,40 +1088,38 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 </section>
 
 <!-- LAB SECTION -->
-<section class="labs-section" id="labs">
-  <span class="section-tag">Lab Work</span>
-  <h2 class="section-title">Comprehensive lab ordering<br>and review, included.</h2>
-  <p class="section-sub">Labs are an essential part of menopause care, for diagnosis, treatment monitoring, and ongoing health screening. We order through Labcorp and Quest, billed directly to your insurance or available at competitive self-pay rates.</p>
-  <div class="labs-grid">
-    <div class="lab-card" id="lc1">
-      <div class="lab-icon">🧪</div>
-      <h4>Hormone Panel</h4>
-      <p>Estradiol, FSH, LH, progesterone, and testosterone, the foundation of any menopause evaluation.</p>
+<section class="service-block" id="labs">
+  <div class="service-visual fade-up" id="svl">
+    <div class="service-icon-large">🧪</div>
+    <div class="service-visual-title">Lab Ordering & Review</div>
+    <div class="service-visual-points">
+      <div class="svp"><span class="svp-dot"></span>Hormone panel (estradiol, FSH, LH, testosterone)</div>
+      <div class="svp"><span class="svp-dot"></span>Thyroid function</div>
+      <div class="svp"><span class="svp-dot"></span>Vitamin D and metabolic markers</div>
+      <div class="svp"><span class="svp-dot"></span>Cardiovascular and lipid panel</div>
+      <div class="svp"><span class="svp-dot"></span>Treatment monitoring over time</div>
     </div>
-    <div class="lab-card" id="lc2">
-      <div class="lab-icon">🦋</div>
-      <h4>Thyroid Function</h4>
-      <p>TSH and related markers, thyroid dysfunction is common in midlife women and mimics menopause symptoms.</p>
-    </div>
-    <div class="lab-card" id="lc3">
-      <div class="lab-icon">☀️</div>
-      <h4>Vitamin D</h4>
-      <p>Critical for bone health, immune function, and mood, especially important during the menopause transition.</p>
-    </div>
-    <div class="lab-card" id="lc4">
-      <div class="lab-icon">🩸</div>
-      <h4>Iron Studies</h4>
-      <p>CBC, ferritin, and iron panel, particularly important for women with heavy or irregular perimenopausal bleeding.</p>
-    </div>
-    <div class="lab-card" id="lc5">
-      <div class="lab-icon">❤️</div>
-      <h4>Metabolic & Cardiovascular</h4>
-      <p>Lipid panel, fasting glucose, and metabolic markers, estrogen loss increases cardiovascular risk and metabolic changes are common.</p>
-    </div>
-    <div class="lab-card" id="lc6">
-      <div class="lab-icon">📊</div>
-      <h4>Treatment Monitoring</h4>
-      <p>Ongoing hormone level monitoring to ensure your treatment is working optimally and safely over time.</p>
+  </div>
+  <div class="service-content fade-up" id="scl">
+    <span class="section-tag">Service 06</span>
+    <h2>Lab ordering and review<br>built into your care.</h2>
+    <p>Labs are an essential part of menopause care — for diagnosis, treatment monitoring, and ongoing health screening. We order through Labcorp and Quest, billed directly to your insurance or available at self-pay rates.</p>
+    <p>Every lab result is reviewed thoroughly and communicated to you with a clear explanation of what it means for your care — never just a portal notification with no context.</p>
+    <div class="treatment-options">
+      <div class="treatment-option">
+        <span class="to-icon">🩺</span>
+        <div>
+          <strong>Diagnostic Labs</strong>
+          <span>Ordered at your initial visit or when clinically indicated — hormone panels, thyroid, metabolic markers, vitamin D, and more</span>
+        </div>
+      </div>
+      <div class="treatment-option">
+        <span class="to-icon">📊</span>
+        <div>
+          <strong>Treatment Monitoring</strong>
+          <span>Ongoing hormone level and safety monitoring to ensure your treatment is working optimally over time</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1089,7 +1140,6 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
       <div class="scope-item"><span class="scope-icon">✓</span>Bone health monitoring and prevention</div>
       <div class="scope-item"><span class="scope-icon">✓</span>Metabolic changes in midlife</div>
       <div class="scope-item"><span class="scope-icon">✓</span>GLP-1 weight management therapy</div>
-      <div class="scope-item"><span class="scope-icon">✓</span>Prior authorization processing</div>
     </div>
   </div>
   <div class="scope-col no">
@@ -1106,81 +1156,11 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   </div>
 </section>
 
-<!-- VISIT TYPES -->
-<section class="visits-section" id="visits">
-  <span class="section-tag">Pricing</span>
-  <h2 class="section-title">Transparent pricing.<br>No surprises.</h2>
-  <p class="section-sub">Cash-pay telehealth with two ongoing-care paths. Every patient starts with an Initial Consultation, then chooses the model that fits their life. HSA and FSA cards accepted.</p>
-
-  <!-- ROW 1: Initial Consultation spanning full width -->
-  <div style="margin-bottom:1.5rem;">
-    <div class="visit-card" id="vc0" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;max-width:100%;">
-      <div>
-        <div class="visit-icon">🌱</div>
-        <h3>Initial Consultation</h3>
-        <div class="visit-duration">60 minutes · Required first visit · One time</div>
-        <div class="visit-price">$200</div>
-      </div>
-      <div>
-        <ul class="visit-includes" style="margin-top:0.5rem;">
-          <li>Full symptom & health history review</li>
-          <li>Personalized care plan</li>
-          <li>Prescription if appropriate</li>
-          <li>Lab orders if needed</li>
-          <li>Patient portal access</li>
-        </ul>
-        <a href="contact.html" class="btn-book" style="margin-top:1rem;display:block;">Scheduling Opening Winter 2026</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ROW 2: Two ongoing paths -->
-  <p style="font-size:0.82rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--sage);font-weight:500;margin-bottom:1rem;">After your initial visit — choose your ongoing care path:</p>
-  <div class="visits-grid">
-    <div class="visit-card" id="vc1">
-      <div class="visit-icon">💊</div>
-      <h3>Pay-As-You-Go</h3>
-      <div class="visit-duration">No commitment · Use as needed</div>
-      <div class="visit-price" style="font-size:1.3rem;margin:0.5rem 0 0.25rem;">À la carte</div>
-      <ul class="visit-includes">
-        <li>Follow-up visit — <strong>$125</strong></li>
-        <li>Lab review between visits — <strong>$75</strong></li>
-        <li>Prescription refills tied to follow-up visits</li>
-        <li>Secure messaging for clinical questions</li>
-      </ul>
-      <p style="font-size:0.82rem;color:var(--muted);margin:0.75rem 0 1rem;line-height:1.6;">Labs reviewed promptly — never a weeks-long wait. Note: lab review between visits is billed at the $75 fee above. Each review includes a written summary and next steps.</p>
-      <a href="contact.html" class="btn-book">Scheduling Opening Winter 2026</a>
-    </div>
-
-    <div class="visit-card featured" id="vc2">
-      <div class="visit-icon">⭐</div>
-      <h3>The Next Chapter Membership</h3>
-      <div class="visit-duration">Month-to-month · Cancel anytime</div>
-      <div class="visit-price">$89<span style="font-size:1rem;font-weight:300;">/mo</span></div>
-      <p style="font-size:0.78rem;color:rgba(255,255,255,0.55);margin-bottom:1rem;">Prepay & save: <strong>6 months = 1 month free</strong> · <strong>12 months = 2 months free</strong></p>
-      <ul class="visit-includes">
-        <li>Follow-up visits as your care plan requires (up to 1 per month)</li>
-        <li>Prompt lab review + results communication</li>
-        <li>Unlimited secure messaging for clinical questions</li>
-        <li>Refill support included</li>
-      </ul>
-      <p style="font-size:0.82rem;color:rgba(255,255,255,0.45);margin:0.75rem 0 1rem;line-height:1.6;">Monthly members can cancel anytime — ends at close of billing month. Prepaid 6 and 12-month plans are non-refundable. Appointment cancellations within 24 hours are subject to a $25 fee.</p>
-      <a href="contact.html" class="btn-book">Scheduling Opening Winter 2026</a>
-    </div>
-  </div>
-
-  <p class="hsa-note" style="margin-top:1.5rem;">💳 <strong>HSA and FSA cards accepted.</strong> Superbills provided for insurance self-submission. Labs billed directly to your insurance through Labcorp or Quest.</p>
-  <p class="hsa-note" style="margin-top:0.5rem;">💊 <strong>GLP-1 medications</strong> are filled at your pharmacy and billed separately. We help you find the best cash-pay pricing through GoodRx, LillyDirect, and manufacturer savings programs.</p>
-  <div style="background:var(--cream);border:1px solid var(--sage-light);border-radius:12px;padding:1.25rem 1.5rem;margin-top:1.5rem;">
-    <p style="font-size:0.88rem;color:var(--ink);line-height:1.7;"><strong>A note on follow-up care:</strong> A follow-up visit is required approximately 6–8 weeks after any medication or dose change to ensure safe, appropriate care and management. Once your doses are stable and working well, follow-up every 6–12 months is recommended depending on your treatment. This applies to all patients regardless of care path.</p>
-  </div>
-</section>
-
 <!-- CTA -->
 <section class="cta-section">
   <h2>Ready to get the care you deserve?</h2>
   <p>Book your initial consultation and leave with a real plan, not just a pamphlet.</p>
-  <a href="contact.html" class="btn-white">Scheduling Opening Winter 2026 →</a>
+  <a href="contact.html" class="btn-white">Scheduling Opening January 2027 →</a>
 </section>
 
 <!-- FOOTER -->
@@ -1194,7 +1174,17 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li class="nav-dropdown">
+      <a href="services.html">Services</a>
+      <div class="dropdown-menu">
+        <a href="services.html#hrt">01 · Hormone Therapy</a>
+        <a href="services.html#nonhormonal">02 · Non-Hormonal Treatment</a>
+        <a href="services.html#glp1">03 · GLP-1 Weight Management</a>
+        <a href="services.html#ongoing">04 · Ongoing Management</a>
+        <a href="services.html#holistic">05 · Lifestyle & Wellness</a>
+        <a href="services.html#labs">06 · Lab Work</a>
+      </div>
+    </li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="resources.html">Resources</a></li>
