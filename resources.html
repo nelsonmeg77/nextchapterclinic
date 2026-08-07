@@ -669,12 +669,21 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 .nav-dropdown { position: relative; }
 .nav-dropdown > a::after { content: ' ▾'; font-size: 0.7rem; }
 .dropdown-menu {
-  display: none; position: absolute; top: calc(100% + 0.75rem);
+  display: none; position: absolute; top: 100%;
   left: 50%; transform: translateX(-50%);
   background: white; border-radius: 12px;
   box-shadow: 0 8px 32px rgba(26,26,46,0.12);
   border: 1px solid rgba(122,158,135,0.15);
-  padding: 0.5rem 0; min-width: 220px; z-index: 9999; white-space: nowrap;
+  padding: 0.75rem 0 0.5rem; min-width: 220px; z-index: 9999; white-space: nowrap;
+  margin-top: 0;
+}
+.nav-dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 12px;
 }
 .nav-dropdown:hover .dropdown-menu { display: block; }
 .dropdown-menu a {
