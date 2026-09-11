@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://nextchapterclinic.com/right-for-me.html">
+<title>Is This Right For Me? — The Next Chapter Clinic</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a2e; --sage: #7a9e87; --sage-dark: #5d8a6e;
+  --sage-light: #b8d4c0; --sage-pale: #eef5f0; --blush: #e8c4b0;
+  --blush-deep: #c9896e; --cream: #faf7f2; --text: #2d2d3a; --muted: #7a7a8a;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+/* ── NAV ─────────────────────────── */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 1500;
+  padding: 1.25rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(250,247,242,0.98); backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(122,158,135,0.2); transition: box-shadow 0.3s;
+  box-shadow: 0 2px 24px rgba(26,26,46,0.08);
+}
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--ink); text-decoration: none; }
+.nav-logo span { color: var(--sage); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--sage); }
+.nav-cta { background: var(--sage) !important; color: white !important; padding: 0.55rem 1.25rem !important; border-radius: 50px !important; }
+.nav-cta:hover { background: var(--sage-dark) !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; z-index: 2000; position: relative; -webkit-tap-highlight-color: transparent; touch-action: manipulation; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: all 0.3s; }
+.menu-toggle-input { display: none; }
+.menu-toggle-input:checked ~ .mobile-menu { display: flex !important; pointer-events: all; }
+.mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(250,247,242,0.98); backdrop-filter: blur(20px); z-index: 1999; flex-direction: column; align-items: center; justify-content: center; gap: 0; pointer-events: none; }
+.mobile-menu.open { pointer-events: all; display: flex; }
+.mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--ink); text-decoration: none; padding: 0.75rem 2rem; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+.menu-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.5rem; color: var(--muted); cursor: pointer; padding: 0.5rem; z-index: 2001; }
+.mobile-book { background: var(--sage); color: white !important; padding: 0.75rem 2.5rem !important; border-radius: 50px; margin-top: 1rem; }
+
+/* ── DROPDOWN ────────────────────── */
+.nav-dropdown { position: relative; }
+.nav-dropdown > a::after { content: ' ▾'; font-size: 0.7rem; }
+.dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border-radius: 12px; box-shadow: 0 8px 32px rgba(26,26,46,0.12); border: 1px solid rgba(122,158,135,0.15); padding: 0.75rem 0 0.5rem; min-width: 220px; z-index: 9999; white-space: nowrap; margin-top: 0; }
+.nav-dropdown::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 12px; }
+.nav-dropdown:hover .dropdown-menu { display: block; }
+.dropdown-menu a { display: block; padding: 0.6rem 1.25rem; font-size: 0.82rem; color: var(--muted) !important; text-decoration: none; transition: background 0.15s, color 0.15s; letter-spacing: 0.04em; text-transform: none !important; }
+.dropdown-menu a:hover { background: var(--sage-pale); color: var(--sage-dark) !important; }
+
+/* ── PAGE HERO ───────────────────── */
+.page-hero {
+  background: var(--ink); padding: 10rem 5rem 6rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: end; position: relative; overflow: hidden;
+}
+.page-hero::before { content: ''; position: absolute; top: -100px; right: -80px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(122,158,135,0.15) 0%, transparent 70%); pointer-events: none; }
+.hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage-light); margin-bottom: 1rem; }
+.page-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 3.8rem); font-weight: 300; color: white; line-height: 1.1; }
+.page-hero h1 em { font-style: italic; color: var(--blush); }
+.hero-right-text p { font-size: 1.05rem; line-height: 1.8; color: rgba(255,255,255,0.6); font-weight: 300; }
+
+/* ── SECTIONS ────────────────────── */
+.section { padding: 6rem 5rem; }
+.section.alt { background: white; }
+.section.sage-bg { background: var(--sage-pale); }
+.section-inner { max-width: 860px; margin: 0 auto; }
+.section-tag { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage); font-weight: 500; display: block; margin-bottom: 1rem; }
+.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 2.8vw, 2.6rem); font-weight: 300; color: var(--ink); line-height: 1.2; margin-bottom: 1.5rem; }
+.section-title em { font-style: italic; color: var(--sage-dark); }
+.body-text { font-size: 1rem; line-height: 1.9; color: var(--muted); margin-bottom: 1.25rem; }
+.body-text strong { color: var(--text); font-weight: 500; }
+
+/* ── RECOGNITION CARDS ───────────── */
+.recognition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 2.5rem 0; }
+.rec-card { background: white; border-radius: 16px; padding: 1.75rem; border: 1px solid rgba(122,158,135,0.15); box-shadow: 0 4px 20px rgba(26,26,46,0.05); }
+.rec-card .rec-icon { font-size: 1.6rem; margin-bottom: 0.75rem; }
+.rec-card p { font-size: 0.95rem; line-height: 1.75; color: var(--muted); }
+.rec-card p strong { color: var(--text); }
+
+/* ── DIVIDER ─────────────────────── */
+.divider { width: 60px; height: 3px; background: var(--sage); border-radius: 2px; margin: 1.5rem 0; }
+
+/* ── WHAT YOU GET ────────────────── */
+.get-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
+.get-item { display: flex; gap: 1rem; align-items: flex-start; }
+.get-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sage); margin-top: 0.5rem; flex-shrink: 0; }
+.get-text strong { display: block; font-size: 0.95rem; color: var(--ink); font-weight: 500; margin-bottom: 0.25rem; }
+.get-text span { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+/* ── NOT RIGHT FOR ───────────────── */
+.not-right { background: var(--cream); border: 1px solid rgba(122,158,135,0.2); border-radius: 16px; padding: 2rem 2.5rem; margin: 2rem 0; }
+.not-right h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--ink); margin-bottom: 1rem; }
+.not-list { list-style: none; }
+.not-list li { font-size: 0.93rem; color: var(--muted); padding: 0.4rem 0; display: flex; gap: 0.75rem; align-items: flex-start; line-height: 1.6; }
+.not-list li::before { content: '·'; color: var(--sage); font-size: 1.2rem; line-height: 1.4; flex-shrink: 0; }
+
+/* ── QUOTE ───────────────────────── */
+.pull-quote { border-left: 4px solid var(--sage); padding: 1.25rem 2rem; margin: 2.5rem 0; background: var(--sage-pale); border-radius: 0 12px 12px 0; }
+.pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 300; font-style: italic; color: var(--ink); line-height: 1.6; }
+
+/* ── CTA ─────────────────────────── */
+.cta-section { background: var(--ink); padding: 6rem 5rem; text-align: center; }
+.cta-section h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3vw, 3rem); font-weight: 300; color: white; margin-bottom: 1rem; }
+.cta-section h2 em { font-style: italic; color: var(--blush); }
+.cta-section p { font-size: 1rem; color: rgba(255,255,255,0.55); margin-bottom: 2.5rem; max-width: 540px; margin-left: auto; margin-right: auto; }
+.btn-primary { display: inline-block; background: var(--sage); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+.btn-primary:hover { background: var(--sage-dark); transform: translateY(-2px); }
+.btn-ghost { display: inline-block; border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.6); padding: 1rem 2.5rem; border-radius: 50px; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; margin-left: 1rem; transition: all 0.2s; }
+.btn-ghost:hover { border-color: var(--sage-light); color: var(--sage-light); }
+
+/* ── FOOTER ──────────────────────── */
+footer { background: var(--ink); padding: 4rem 5rem; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; }
+.footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: white; margin-bottom: 0.75rem; }
+.footer-brand span { color: var(--sage); }
+footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height: 1.7; }
+.footer-col h5 { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage-light); margin-bottom: 1.25rem; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.75rem; }
+.footer-col ul a { font-size: 0.88rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+.footer-col ul a:hover { color: var(--sage-light); }
+.footer-bottom { background: #111827; padding: 1.25rem 5rem; display: flex; justify-content: space-between; align-items: center; }
+.footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+/* ── MOBILE ──────────────────────── */
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.25rem; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .page-hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; gap: 1.5rem; }
+  .hero-right-text { display: none; }
+  .section { padding: 3rem 1.5rem; }
+  .recognition-grid { grid-template-columns: 1fr; }
+  .get-grid { grid-template-columns: 1fr; }
+  .cta-section { padding: 4rem 1.5rem; }
+  .btn-ghost { margin-left: 0; margin-top: 1rem; display: block; text-align: center; }
+  footer { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2rem; }
+  .footer-bottom { padding: 1rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+@media (max-width: 480px) {
+  .page-hero h1 { font-size: 2rem; }
+  .section-title { font-size: 1.6rem; }
+}
+</style>
+</head>
+<body>
+
+<input type="checkbox" id="menu-toggle" class="menu-toggle-input">
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">The Next Chapter <span>Clinic</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="right-for-me.html" class="active">Is This Right For Me?</a></li>
+    <li class="nav-dropdown">
+      <a href="services.html">Services</a>
+      <div class="dropdown-menu">
+        <a href="services.html#hrt">01 · Hormone Therapy</a>
+        <a href="services.html#nonhormonal">02 · Non-Hormonal Treatment</a>
+        <a href="services.html#glp1">03 · GLP-1 Weight Management</a>
+        <a href="services.html#holistic">04 · Lifestyle &amp; Wellness</a>
+        <a href="services.html#labs">05 · Lab Work</a>
+      </div>
+    </li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html" class="nav-cta">Book a Visit</a></li>
+  </ul>
+  <label for="menu-toggle" class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </label>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <label for="menu-toggle" class="menu-close">✕</label>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="right-for-me.html">Is This Right For Me?</a>
+  <a href="services.html">Services</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="faq.html">FAQ</a>
+  <a href="resources.html">Resources</a>
+  <a href="contact.html" class="mobile-book">Book a Visit</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div>
+    <p class="hero-eyebrow">Is This Right For Me?</p>
+    <h1>You've been looking for answers.<br><em>This is where to find them.</em></h1>
+  </div>
+  <div class="hero-right-text">
+    <p>The traditional medical system wasn't designed for the kind of care menopause actually requires. That's not a criticism, it's just the reality. And understanding that gap is the first step to getting the help you deserve.</p>
+  </div>
+</section>
+
+<!-- SECTION 1: THE SYSTEM -->
+<section class="section alt">
+  <div class="section-inner">
+    <span class="section-tag">Why This Practice Exists</span>
+    <h2 class="section-title">The system wasn't built<br>for <em>this kind of care.</em></h2>
+    <div class="divider"></div>
+    <p class="body-text">Your primary care provider genuinely cares about you. Your OB/GYN is a skilled clinician. The problem isn't the people. It's the structure they're working within.</p>
+    <p class="body-text">A typical appointment runs 15 minutes. After vital signs, prescription refills, and whatever else is on the agenda that day, there simply isn't time to talk about how you've been sleeping, how your mood has shifted, why your brain feels like it's running through fog, or why your body doesn't feel like yours anymore.</p>
+    <p class="body-text"><strong>Menopause care requires time.</strong> It requires someone asking about your whole life, not just your hormone levels. It requires a provider who has made this their entire clinical focus, not one who manages it alongside obstetrics, gynecology, and a full panel of general patients.</p>
+
+    <div class="pull-quote">
+      <p>"Most women spend years being told their labs are normal, their symptoms are stress, and that this is just part of getting older. It usually isn't, or at least it doesn't have to feel this hard."</p>
+    </div>
+
+    <p class="body-text">At the same time, the wellness industry has stepped into this gap with products, protocols, and promises that aren't always grounded in evidence. Supplements that don't work. Detoxes that don't address the real problem. Influencers who make complex clinical decisions sound simple.</p>
+    <p class="body-text"><strong>You deserve something in between.</strong> The clinical rigor of medicine, with the time and whole-person attention that medicine rarely offers.</p>
+  </div>
+</section>
+
+<!-- SECTION 2: RECOGNITION -->
+<section class="section sage-bg">
+  <div class="section-inner">
+    <span class="section-tag">You Might Be in the Right Place If...</span>
+    <h2 class="section-title">These experiences<br>sound <em>familiar.</em></h2>
+    <div class="divider"></div>
+    <p class="body-text">This practice was built for women who recognize themselves in these moments. If any of these feel true, you're in the right place.</p>
+
+    <div class="recognition-grid">
+      <div class="rec-card">
+        <div class="rec-icon">🩺</div>
+        <p><strong>Your tests came back normal.</strong> But you don't feel normal. You've been told there's nothing wrong, but something is clearly different, and you're tired of being sent home with no answers.</p>
+      </div>
+      <div class="rec-card">
+        <div class="rec-icon">🧠</div>
+        <p><strong>Brain fog is real and it's affecting your life.</strong> You're forgetting words, losing your train of thought, struggling to concentrate at work. You've been told it's stress or anxiety. It might be hormones.</p>
+      </div>
+      <div class="rec-card">
+        <div class="rec-icon">😴</div>
+        <p><strong>You haven't slept well in months.</strong> You wake at 3am, you're drenched in sweat, you lie awake unable to settle. Melatonin isn't cutting it and nobody has talked to you about why this is happening.</p>
+      </div>
+      <div class="rec-card">
+        <div class="rec-icon">💬</div>
+        <p><strong>You felt rushed or dismissed.</strong> You left your last appointment feeling like your concerns weren't fully heard. There wasn't enough time to actually get into it. You want a provider who will sit with you.</p>
+      </div>
+      <div class="rec-card">
+        <div class="rec-icon">🌡️</div>
+        <p><strong>Hot flashes are disrupting your daily life.</strong> They wake you up, they happen at work, they're unpredictable and exhausting. You want actual treatment options, not just advice to dress in layers.</p>
+      </div>
+      <div class="rec-card">
+        <div class="rec-icon">🤔</div>
+        <p><strong>You've heard mixed things about hormones.</strong> You want someone to explain the real evidence, not the 2002 headlines that still shape how most providers talk about HRT, and help you make an informed decision.</p>
+      </div>
+      <div class="rec-card">
+        <div class="rec-icon">⚖️</div>
+        <p><strong>Your weight has changed and nothing is working.</strong> You're eating the same way you always have, exercising, doing everything right, and your body isn't responding. Metabolic changes in menopause are real and treatable.</p>
+      </div>
+      <div class="rec-card">
+        <div class="rec-icon">💛</div>
+        <p><strong>You just want someone who specializes in this.</strong> Not a generalist who will fit you into 15 minutes. Someone who has made menopause their entire clinical focus and stays current on the evidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: NOT RIGHT FOR -->
+<section class="section alt">
+  <div class="section-inner">
+    <span class="section-tag">Honest Transparency</span>
+    <h2 class="section-title">When this might<br><em>not be the right fit.</em></h2>
+    <div class="divider"></div>
+    <p class="body-text">This practice is specialized and focused. That means there are some situations where we aren't the right fit. We'd rather tell you upfront than have you book a visit and find out later.</p>
+
+    <div class="not-right">
+      <h3>This practice may not be right for you if:</h3>
+      <ul class="not-list">
+        <li>You are looking for a primary care provider or general OB/GYN. This practice focuses exclusively on menopause and GLP-1 weight management.</li>
+        <li>You have an active or recent history of hormone-sensitive cancer. Prescribing HRT in this situation requires oncologist collaboration and may be outside the scope of this practice.</li>
+        <li>You need prescribing that falls outside the scope of menopause and GLP-1 care. Please note that while testosterone is offered here as part of hormone therapy, other controlled substances are not within the scope of this practice.</li>
+        <li>You are not physically located in Michigan at the time of your visits. This is currently a Michigan-based practice.</li>
+        <li>You are pregnant or trying to conceive. This is not the right specialty for that stage of care.</li>
+        <li>You need emergency or urgent care. Telehealth is not appropriate for acute medical situations.</li>
+      </ul>
+    </div>
+
+    <p class="body-text">If you're not sure whether your situation fits, send us a message through the contact form. We'll give you an honest answer.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready to find out<br><em>what's actually going on?</em></h2>
+  <p>Scheduling opens January 2027. Join the waitlist or send us a question — we're happy to help you figure out if this is the right fit before you book.</p>
+  <div>
+    <a href="contact.html" class="btn-primary">Join the Waitlist</a>
+    <a href="about.html" class="btn-ghost">Meet Your Provider</a>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-brand">The Next Chapter <span>Clinic</span></div>
+    <p>Led by Megan Nelson, CNM, MSCP — a Certified Nurse Midwife and menopause specialist.</p>
+  </div>
+  <div class="footer-col">
+    <h5>Navigate</h5>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="right-for-me.html">Is This Right For Me?</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="contact.html">Book a Visit</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h5>Resources</h5>
+    <ul>
+      <li><a href="resources.html">Understanding Menopause</a></li>
+      <li><a href="resources.html">Perimenopause Guide</a></li>
+      <li><a href="resources.html">The Truth About HRT</a></li>
+      <li><a href="resources.html">Exercise, Sleep & Nutrition</a></li>
+      <li><a href="faq.html">Patient FAQ</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 The Next Chapter Clinic · Telehealth Practice · HIPAA Compliant</p>
+  <p><a href="privacy.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a> · <a href="terms.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Terms of Use</a> · <a href="accessibility.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Accessibility</a></p>
+</div>
+
+<script>
+function toggleMenu(e) {
+  if (e) { e.preventDefault(); }
+  const menu = document.getElementById('mobile-menu');
+  const btn = document.getElementById('hamburger');
+  const isOpen = menu.classList.contains('open');
+  if (isOpen) {
+    menu.classList.remove('open');
+    document.body.style.overflow = '';
+  } else {
+    menu.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeMenu() {
+  const menu = document.getElementById('mobile-menu');
+  if (menu) menu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+(function() {
+  var lastTouch = 0;
+  var btn = document.getElementById('hamburger');
+  if (btn) {
+    btn.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      var now = Date.now();
+      if (now - lastTouch > 300) { lastTouch = now; toggleMenu(e); }
+    }, { passive: false });
+  }
+})();
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').style.boxShadow =
+    window.scrollY > 20 ? '0 2px 24px rgba(26,26,46,0.08)' : 'none';
+});
+</script>
+</body>
+</html>
