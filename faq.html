@@ -964,20 +964,14 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 
       <div class="faq-item" id="f-medicare">
         <button class="faq-question" onclick="toggle(this)">
-          <span class="q-text">I have Medicare. Can I still be seen?</span>
+          <span class="q-text">Do you accept Medicare or Medicaid?</span>
           <span class="q-icon">+</span>
         </button>
         <div class="faq-answer">
-          <p>Yes, Medicare patients are welcome. However, because this is a cash-pay practice that does not bill Medicare, there is an important legal requirement we must fulfill before your visit.</p>
-          <p>Under federal law, Medicare patients seen by providers who do not bill Medicare must sign a <strong>Private Contract</strong> prior to their first visit. This document acknowledges that:</p>
-          <ul>
-            <li>Medicare will not be billed for services provided at this practice</li>
-            <li>You agree to pay out of pocket for all visit fees</li>
-            <li>You understand Medicare will not reimburse you for these visits</li>
-            <li>This agreement applies to all future visits at this practice</li>
-          </ul>
-          <p>This is a standard requirement and not unique to this practice. You will receive the private contract as part of your intake paperwork to review and sign before your first appointment. Labs and prescriptions are still billed through Medicare as normal — this agreement applies to visit fees only.</p>
-          <div class="answer-note"><p>If you have questions about this requirement before booking, feel free to reach out through our contact form and we'll be happy to explain further.</p></div>
+          <p>We are not able to accept patients who are enrolled in or entitled to Medicare, including Medicare Advantage plans. We're sorry we can't make exceptions.</p>
+          <p>Because our provider has not opted out of Medicare, federal law does not allow us to see Medicare patients in this cash-pay practice. This is a legal requirement, not a choice.</p>
+          <p>If you have Medicare and are looking for menopause care, we recommend speaking with your primary care provider or OB/GYN, or contacting your Medicare plan to ask about covered menopause services in your area.</p>
+          <div class="answer-note"><p><strong>Medicaid:</strong> You are welcome as a self-pay patient. We do not participate in or bill Michigan Medicaid, and Medicaid will not reimburse you for our visit fees. You will confirm this in your intake forms.</p></div>
         </div>
       </div>
 
@@ -1358,49 +1352,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 
     </section>
 
-    <!-- STILL HAVE QUESTIONS + CONTACT FORM -->
-    <div class="still-questions" id="contact">
-      <h3>Still have a question?</h3>
-      <p>Send us a message and we'll get back to you within 1–2 business days, no obligation to book.</p>
-      <form class="contact-form" action="https://formspree.io/f/meeddpvz" method="POST">
-      <input type="hidden" name="_subject" value="New Contact — The Next Chapter Clinic">
-      <input type="hidden" name="_next" value="https://nextchapterclinic.com/contact.html">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="cf-name">Your Name</label>
-            <input type="text" id="cf-name" name="name" placeholder="Jane Smith" required>
-          </div>
-          <div class="form-group">
-            <label for="cf-email">Email Address</label>
-            <input type="email" id="cf-email" name="email" placeholder="jane@email.com" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="cf-state">Your State</label>
-          <select id="cf-state" name="state" required>
-            <option value="" disabled selected>Select your state</option>
-            <option value="MI">Michigan</option>
-            <option value="CO">Colorado</option>
-            <option value="AZ">Arizona</option>
-            <option value="other">Other, notify me when you expand</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="cf-message">Your Question</label>
-          <textarea id="cf-message" name="message" rows="4" placeholder="What would you like to know before booking?" required></textarea>
-        </div>
-        <div class="form-footer">
-          <p class="form-note">🔒 Your information is private and will never be shared or used for marketing.</p>
-          <button type="submit" class="btn-submit">Send My Question →</button>
-        </div>
-      </form>
-      <div class="form-success" id="form-success">
-        <div class="success-icon">✓</div>
-        <h4>Message received!</h4>
-        <p>Thank you for reaching out. We'll respond within 1–2 business days.</p>
-        <a href="contact.html" class="btn-primary" style="margin-top:1rem;display:inline-block;">Ready to book? Schedule your visit →</a>
-      </div>
-    </div>
+
 
   </div>
 </div>
