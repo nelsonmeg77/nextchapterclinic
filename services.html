@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://nextchapterclinic.com/services.html">
 <title>Services, The Next Chapter Clinic</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
@@ -114,12 +113,7 @@ nav {
   background: white; border: 1px solid var(--sage-light);
   border-radius: 99px; padding: 0.6rem 1.4rem;
   font-size: 0.85rem; color: var(--sage-dark); font-weight: 400;
-  white-space: nowrap; text-decoration: none;
-  transition: all 0.2s; cursor: pointer;
-}
-.overview-pill:hover {
-  background: var(--sage); color: white;
-  border-color: var(--sage);
+  white-space: nowrap;
 }
 
 /* ── SHARED SECTION STYLES ────────── */
@@ -273,14 +267,14 @@ nav {
   background: var(--sage-pale); padding: 6rem 5rem;
 }
 .visits-grid {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; align-items: stretch;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
 }
 .visit-card {
   background: white; border-radius: 20px; padding: 2.5rem 2rem;
   text-align: center;
   box-shadow: 0 4px 24px rgba(26,26,46,0.05);
   border: 1px solid rgba(122,158,135,0.12);
-  opacity: 1; transform: translateY(0); transition: all 0.5s ease;
+  opacity: 0; transform: translateY(20px); transition: all 0.5s ease;
 }
 .visit-card.visible { opacity: 1; transform: translateY(0); }
 .visit-card.featured {
@@ -532,17 +526,11 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  padding: 8px;
+  padding: 4px;
   background: none;
   border: none;
   z-index: 2000;
   position: relative;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-  min-width: 44px;
-  min-height: 44px;
-  align-items: center;
-  justify-content: center;
 }
 .hamburger span {
   display: block;
@@ -567,7 +555,6 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   align-items: center;
   justify-content: center;
   gap: 0;
-  pointer-events: none;
 }
 .mobile-menu.open { display: flex; }
 .mobile-menu a {
@@ -578,9 +565,6 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   letter-spacing: 0.02em;
   transition: color 0.2s;
   text-align: center;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-  cursor: pointer;
 }
 .mobile-menu a:hover { color: var(--sage); }
 .mobile-menu .mobile-book {
@@ -655,167 +639,8 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   padding: 0.5rem;
   z-index: 2001;
 }
-
-
-/* ── CHECKBOX MENU TOGGLE ─────────── */
-.menu-toggle-input {
-  display: none;
-}
-.menu-toggle-input:checked ~ .mobile-menu {
-  display: flex !important;
-  pointer-events: all;
-}
-.menu-toggle-input:checked ~ nav .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.menu-toggle-input:checked ~ nav .hamburger span:nth-child(2) { opacity: 0; }
-.menu-toggle-input:checked ~ nav .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-/* ── GLOBAL MOBILE FIX ───────────── */
-@media (max-width: 480px) {
-  html { font-size: 15px; }
-  body { overflow-x: hidden; }
-
-  /* Ensure nothing overflows */
-  * { max-width: 100%; box-sizing: border-box; }
-
-  /* Nav */
-  nav { padding: 1rem; }
-  .nav-logo { font-size: 1.1rem; }
-
-  /* Hero sections */
-  .page-hero { padding: 6rem 1.25rem 3rem; grid-template-columns: 1fr; gap: 1rem; }
-  .page-hero h1 { font-size: 1.9rem; line-height: 1.15; }
-  .hero-right-text { display: none; }
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left { padding: 5.5rem 1.25rem 2.5rem; }
-  .hero-right { padding: 1.5rem 1.25rem; }
-  .hero-h1 { font-size: 1.9rem; }
-
-  /* Section padding */
-  .section { padding: 2.5rem 1.25rem; }
-  .wc-section { padding: 2.5rem 1.25rem; }
-  .services-section { padding: 2.5rem 1.25rem; }
-  .how-section { padding: 2.5rem 1.25rem; }
-  .pricing-section { padding: 2.5rem 1.25rem; }
-  .about-section { padding: 2.5rem 1.25rem; }
-  .cta-section { padding: 2.5rem 1.25rem; }
-  .labs-section { padding: 2.5rem 1.25rem; }
-  .visits-section { padding: 2.5rem 1.25rem; }
-  .scope-section { padding: 2.5rem 1.25rem; }
-  .service-block { padding: 2.5rem 1.25rem; gap: 2rem; }
-  .articles-section { padding: 2.5rem 1.25rem; }
-  .content { padding: 3rem 1.25rem; }
-  footer { padding: 2.5rem 1.25rem 1.5rem; grid-template-columns: 1fr; gap: 2rem; }
-  .footer-bottom { padding: 1rem 1.25rem; flex-direction: column; gap: 0.5rem; }
-
-  /* Typography */
-  .section-title { font-size: 1.6rem; }
-  .section-sub { font-size: 0.9rem; }
-  h1 { font-size: 1.9rem; }
-  h2 { font-size: 1.5rem; }
-
-  /* Grids — single column on phone */
-  .services-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .steps { grid-template-columns: 1fr; gap: 1rem; }
-  .pricing-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .visits-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .labs-grid { grid-template-columns: 1fr; gap: 0.75rem; }
-  .wc-grid { grid-template-columns: 1fr; }
-  .articles-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .expect-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .expect-strip { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 1.25rem; }
-  .service-block { grid-template-columns: 1fr !important; }
-  .treatment-options { gap: 0.75rem; }
-
-  /* Cards */
-  .service-card { padding: 1.25rem; }
-  .price-card { padding: 1.5rem 1.25rem; }
-  .step-card { padding: 1.25rem; }
-  .lab-card { padding: 1.25rem; }
-  .visit-card { padding: 1.5rem; }
-  .article-card { border-radius: 14px; }
-  .book-detail { padding: 0.75rem 1rem; }
-
-  /* FAQ */
-  .faq-layout { grid-template-columns: 1fr; padding: 2rem 1.25rem; }
-  .faq-sidebar { display: none; }
-  .cat-nav { padding: 0.75rem 1.25rem; gap: 0.5rem; }
-  .cat-pill { font-size: 0.76rem; padding: 0.4rem 0.9rem; }
-  .faq-question { padding: 1rem 1.25rem; }
-  .faq-item.open .faq-answer { padding: 0 1.25rem 1.25rem; }
-
-  /* Hero stats */
-  .hero-stats { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-  .hero-stat { padding: 0.875rem 1rem; }
-
-  /* Buttons */
-  .btn-primary { padding: 0.875rem 1.5rem; font-size: 0.9rem; }
-  .btn-white { padding: 0.875rem 1.5rem; font-size: 0.9rem; }
-  .btn-book { padding: 0.7rem 1.25rem; font-size: 0.85rem; }
-  .hero-btns { flex-direction: column; gap: 0.75rem; }
-
-  /* Contact page */
-  .book-side { padding: 2.5rem 1.25rem; }
-  .contact-side { padding: 2.5rem 1.25rem; border-left: none; border-top: 1px solid rgba(122,158,135,0.12); }
-  .form-row { grid-template-columns: 1fr; }
-
-  /* Modal */
-  .article-modal { margin: 0.75rem; border-radius: 14px; }
-  .modal-content { padding: 0.75rem 1.25rem 2rem; }
-  .modal-content h1 { font-size: 1.5rem; }
-}
-
-/* ── SERVICE DROPDOWN ────────────── */
-.nav-dropdown {
-  position: relative;
-}
-.nav-dropdown > a::after {
-  content: ' ▾';
-  font-size: 0.7rem;
-}
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(26,26,46,0.12);
-  border: 1px solid rgba(122,158,135,0.15);
-  padding: 0.75rem 0 0.5rem;
-  min-width: 220px;
-  z-index: 9999;
-  white-space: nowrap;
-  margin-top: 0;
-}
-.nav-dropdown::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  height: 12px;
-}
-.nav-dropdown:hover .dropdown-menu {
-  display: block;
-}
-.dropdown-menu a {
-  display: block;
-  padding: 0.6rem 1.25rem;
-  font-size: 0.82rem;
-  color: var(--muted) !important;
-  text-decoration: none;
-  transition: background 0.15s, color 0.15s;
-  letter-spacing: 0.04em;
-}
-.dropdown-menu a:hover {
-  background: var(--sage-pale);
-  color: var(--sage-dark) !important;
-}
-.dropdown-menu .dropdown-divider {
-  height: 1px;
-  background: rgba(122,158,135,0.15);
-  margin: 0.25rem 0;
+.mobile-menu {
+  position: fixed !important;
 }
 </style>
 </head>
@@ -823,51 +648,38 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 
 <!-- COMING SOON BANNER -->
 <div style="background:var(--ink); color:white; text-align:center; padding:0.65rem 1.5rem; font-size:0.82rem; letter-spacing:0.06em; position:relative; z-index:900;">
-  🌿 <strong style="color:var(--sage-light);">Coming early 2027</strong> — We're building something exciting. Stay tuned.
+  🌿 <strong style="color:var(--sage-light);">Coming Fall 2026</strong> — We're building something exciting. Stay tuned.
 </div>
 
-<!-- MENU TOGGLE -->
-<input type="checkbox" id="menu-toggle" class="menu-toggle-input">
 <!-- NAV -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo">The Next Chapter <span>Clinic</span></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="right-for-me.html">Is This Right For Me?</a></li>
-    <li class="nav-dropdown">
-      <a href="services.html">Services</a>
-      <div class="dropdown-menu">
-        <a href="services.html#hrt">01 · Hormone Therapy</a>
-        <a href="services.html#nonhormonal">02 · Non-Hormonal Treatment</a>
-        <a href="services.html#glp1">03 · GLP-1 Weight Management</a>
-        <a href="services.html#holistic">04 · Lifestyle &amp; Wellness</a>
-        <a href="services.html#labs">05 · Lab Work</a>
-      </div>
-    </li>
+    <li><a href="services.html">Services</a></li>
     <li><a href="pricing.html">Pricing</a></li>
     <li><a href="faq.html">FAQ</a></li>
-    <li><a href="resources.html">Resources</a></li>
-    <li><a href="contact.html" class="nav-cta">Join Waitlist</a></li>
+    <li><a href="resources.html">Patient Resources</a></li>
+    <li><a href="contact.html" class="nav-cta">Book a Visit</a></li>
   </ul>
 
   <!-- Mobile Menu Button -->
-  <label for="menu-toggle" class="hamburger" aria-label="Menu">
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
-  </label>
+  </button>
 </nav>
 
 <!-- Mobile Menu Overlay (outside nav so it covers full screen) -->
 <div class="mobile-menu" id="mobile-menu">
-  <label for="menu-toggle" class="menu-close">✕</label>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="right-for-me.html">Is This Right For Me?</a>
-  <a href="services.html">Services</a>
-  <a href="pricing.html">Pricing</a>
-  <a href="faq.html">FAQ</a>
-  <a href="resources.html">Resources</a>
-  <a href="contact.html" class="mobile-book">Join Waitlist</a>
+  <button class="menu-close" onclick="closeMenu()">✕</button>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="pricing.html" onclick="closeMenu()">Pricing</a>
+  <a href="faq.html" onclick="closeMenu()">FAQ</a>
+  <a href="resources.html" onclick="closeMenu()">Patient Resources</a>
+  <a href="contact.html" class="mobile-book" onclick="closeMenu()">Book a Visit</a>
 </div>
 
 <!-- PAGE HERO -->
@@ -883,11 +695,13 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 
 <!-- OVERVIEW PILLS -->
 <div class="overview-strip">
-  <a href="#hrt" class="overview-pill">01 · 🌿 Hormone Therapy</a>
-  <a href="#nonhormonal" class="overview-pill">02 · 💊 Non-Hormonal Treatment</a>
-  <a href="#glp1" class="overview-pill">03 · ⚡ GLP-1</a>
-  <a href="#holistic" class="overview-pill">04 · 🌱 Lifestyle & Wellness</a>
-  <a href="#labs" class="overview-pill">05 · 🔬 Lab Work</a>
+  <span class="overview-pill">🌿 Hormone Therapy</span>
+  <span class="overview-pill">💊 Non-Hormonal Treatment</span>
+  <span class="overview-pill">🔬 Lab Ordering & Review</span>
+  <span class="overview-pill">💬 Ongoing Management</span>
+  <span class="overview-pill">📋 Symptom Assessment</span>
+  <span class="overview-pill">🩺 Perimenopause Care</span>
+  <span class="overview-pill">⚡ GLP-1 Weight Management</span>
 </div>
 
 <!-- SERVICE 1: HORMONE THERAPY -->
@@ -938,6 +752,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   </div>
 </section>
 
+<!-- SERVICE 2: NON-HORMONAL -->
 <section class="service-block reverse alt-bg" id="nonhormonal">
   <div class="service-visual blush-theme fade-up" id="sv2">
     <div class="service-icon-large">💊</div>
@@ -984,6 +799,89 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   </div>
 </section>
 
+<!-- SERVICE 3: PERIMENOPAUSE -->
+<section class="service-block" id="perimenopause">
+  <div class="service-visual mid-theme fade-up" id="sv3">
+    <div class="service-icon-large">🌙</div>
+    <div class="service-visual-title">Perimenopause Care</div>
+    <div class="service-visual-points">
+      <div class="svp"><span class="svp-dot"></span>Early symptom recognition and diagnosis</div>
+      <div class="svp"><span class="svp-dot"></span>Cycle change evaluation</div>
+      <div class="svp"><span class="svp-dot"></span>Proactive hormone management</div>
+      <div class="svp"><span class="svp-dot"></span>Lab monitoring over time</div>
+      <div class="svp"><span class="svp-dot"></span>Transition planning into menopause</div>
+    </div>
+  </div>
+  <div class="service-content fade-up" id="sc3">
+    <span class="section-tag">Service 03</span>
+    <h2>Perimenopause, the transition<br>that starts years before menopause.</h2>
+    <p>Many women don't realize their symptoms have started. Irregular periods, disrupted sleep, mood changes, and brain fog can begin <strong>years before your last period</strong>, and most women are told everything is "fine" because their labs look normal.</p>
+    <p>Perimenopause is a clinical diagnosis, not just a lab value. We understand the full picture and can start treatment early, before symptoms become disruptive, if that's right for you.</p>
+    <div class="treatment-options">
+      <div class="treatment-option">
+        <span class="to-icon">🔍</span>
+        <div>
+          <strong>Symptom-Based Diagnosis</strong>
+          <span>We diagnose and treat based on your symptoms and history, not just your labs, which are often normal early in perimenopause</span>
+        </div>
+      </div>
+      <div class="treatment-option">
+        <span class="to-icon">📈</span>
+        <div>
+          <strong>Proactive Management</strong>
+          <span>Getting ahead of symptoms early can really improve quality of life and long-term health outcomes</span>
+        </div>
+      </div>
+    </div>
+    <div class="good-for">
+      <p><strong>Good for:</strong> Women in their 40s (sometimes late 30s) noticing cycle changes, new sleep problems, mood shifts, or other symptoms that feel "off" but haven't been explained.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 4: ONGOING MANAGEMENT -->
+<section class="service-block reverse alt-bg" id="ongoing">
+  <div class="service-visual sage-theme fade-up" id="sv4">
+    <div class="service-icon-large">💬</div>
+    <div class="service-visual-title">Ongoing Management</div>
+    <div class="service-visual-points">
+      <div class="svp"><span class="svp-dot"></span>Quarterly follow-up visits</div>
+      <div class="svp"><span class="svp-dot"></span>Secure messaging between visits</div>
+      <div class="svp"><span class="svp-dot"></span>Prescription renewals and adjustments</div>
+      <div class="svp"><span class="svp-dot"></span>Lab monitoring and review</div>
+      <div class="svp"><span class="svp-dot"></span>Long-term care planning</div>
+      <div class="svp"><span class="svp-dot"></span>Same provider every visit</div>
+    </div>
+  </div>
+  <div class="service-content fade-up" id="sc4">
+    <span class="section-tag">Service 04</span>
+    <h2>Long-term care from a provider<br>who knows your story.</h2>
+    <p>Menopause isn't a one-appointment fix. Hormone levels shift, symptoms evolve, and your care plan needs to evolve with them. <strong>Long-term management is where this practice truly shines</strong>, because you'll always see the same provider who knows your full history.</p>
+    <p>Most patients follow up every 3 months initially, then every 6 months once stable. In between visits, secure messaging means you never have to wait for a full appointment to ask a question or report a new symptom.</p>
+    <div class="treatment-options">
+      <div class="treatment-option">
+        <span class="to-icon">📅</span>
+        <div>
+          <strong>Quarterly Follow-Ups</strong>
+          <span>Regular check-ins to monitor your response to treatment, review labs, and adjust your plan as needed</span>
+        </div>
+      </div>
+      <div class="treatment-option">
+        <span class="to-icon">💬</span>
+        <div>
+          <strong>Secure Messaging</strong>
+          <span>Reach your provider between visits through our HIPAA-compliant patient portal, no waiting for your next appointment</span>
+        </div>
+      </div>
+    </div>
+    <div class="good-for">
+      <p><strong>Good for:</strong> All patients, ongoing management is a core part of every care plan, not an add-on.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- SERVICE 5: GLP-1 -->
 <section class="service-block" id="glp1">
   <div class="service-visual blush-theme fade-up" id="sv5">
     <div class="service-icon-large">⚡</div>
@@ -992,15 +890,16 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
       <div class="svp"><span class="svp-dot"></span>Zepbound (tirzepatide) prescribing</div>
       <div class="svp"><span class="svp-dot"></span>Wegovy (semaglutide) prescribing</div>
       <div class="svp"><span class="svp-dot"></span>Dose titration and monitoring</div>
+      <div class="svp"><span class="svp-dot"></span>Insurance prior authorization support</div>
       <div class="svp"><span class="svp-dot"></span>Lab monitoring throughout treatment</div>
       <div class="svp"><span class="svp-dot"></span>Integrated with your menopause care</div>
     </div>
   </div>
   <div class="service-content fade-up" id="sc5">
-    <span class="section-tag">Service 03</span>
+    <span class="section-tag">Service 05</span>
     <h2>GLP-1 therapy, integrated with<br>your menopause care.</h2>
-    <p>Weight changes during perimenopause and menopause are real and frustrating, and they're not just about calories. <strong>The hormonal shifts of menopause directly affect metabolism, fat distribution, and appetite regulation.</strong> For many women, GLP-1 medications are a meaningful part of addressing this.</p>
-    <p>Because we're already managing your hormonal health, we can prescribe and monitor GLP-1 therapy as part of your overall care plan, not as a separate program you have to find elsewhere.</p>
+    <p>Weight changes during perimenopause and menopause are real and frustrating — and they're not just about calories. <strong>The hormonal shifts of menopause directly affect metabolism, fat distribution, and appetite regulation.</strong> For many women, GLP-1 medications are a meaningful part of addressing this.</p>
+    <p>Because we're already managing your hormonal health, we can prescribe and monitor GLP-1 therapy as part of your overall care plan — not as a separate program you have to find elsewhere.</p>
     <div class="treatment-options">
       <div class="treatment-option">
         <span class="to-icon">💊</span>
@@ -1013,82 +912,58 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
         <span class="to-icon">📈</span>
         <div>
           <strong>Titration and Monitoring</strong>
-          <span>Regular follow-up visits to assess your response, manage side effects, and adjust your dose. the clinical oversight that makes treatment safe and effective</span>
+          <span>Regular follow-up visits to assess your response, manage side effects, and adjust your dose — the clinical oversight that makes treatment safe and effective</span>
         </div>
       </div>
       <div class="treatment-option">
-        <span class="to-icon">💰</span>
+        <span class="to-icon">📋</span>
         <div>
-          <strong>Cash Pricing Guidance</strong>
-          <span>Brand name options include LillyDirect starting at $299/month for Zepbound. Compounded semaglutide and tirzepatide are available at significantly lower cost through licensed compounding pharmacies. We will help you understand your options at your visit.</span>
+          <strong>Prior Authorization Support</strong>
+          <span>If your insurance requires a PA, we complete and submit the paperwork on your behalf for a $75 processing fee — because your time shouldn't be spent fighting with insurance</span>
         </div>
       </div>
     </div>
     <div class="good-for">
-      <p><strong>On medication cost:</strong> GLP-1 medications are filled at your pharmacy separately from your visit fee. We help you find the most affordable cash-pay option — LillyDirect offers Zepbound starting at $299/month, and GoodRx can reduce costs at your local pharmacy.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- SERVICE 5: GLP-1 -->
-<!-- HOLISTIC CARE -->
-<section class="service-block reverse alt-bg" id="holistic">
-  <div class="service-visual fade-up" id="svh">
-    <div class="service-icon-large">🌿</div>
-    <div class="service-visual-title">Whole-Person Care</div>
-    <div class="service-visual-points">
-      <div class="svp"><span class="svp-dot"></span>Nutrition's role in menopause</div>
-      <div class="svp"><span class="svp-dot"></span>Movement & strength for midlife</div>
-      <div class="svp"><span class="svp-dot"></span>Sleep & stress support</div>
-      <div class="svp"><span class="svp-dot"></span>Bone & heart health awareness</div>
-    </div>
-  </div>
-  <div class="service-content fade-up" id="sch">
-    <span class="section-tag">Service 04</span>
-    <span class="section-tag" style="margin-top:0.25rem;">Lifestyle & Wellness</span>
-    <h2>Menopause care is about<br>more than hormones.</h2>
-    <p>Hormone therapy and medication are powerful tools, but they work best alongside the foundations of good health. <strong>Nutrition, movement, sleep, and stress management all play a meaningful role</strong> in how you feel during this stage of life.</p>
-    <p>While I don't provide specialized nutrition or fitness programming, I believe in caring for the whole person. The research is clear that strength training, quality sleep, balanced nutrition, and stress management all directly affect how you feel during the menopause transition and how well your treatment works.</p><p>We'll talk about lifestyle factors that are relevant to your symptoms and care plan. I'll share what the evidence actually says and help you think through realistic changes that make sense for your life.</p>
-    <div class="good-for">
-      <p><strong>The goal:</strong> a complete picture of your health, not just a prescription. You deserve care that recognizes how all the pieces of midlife wellness fit together.</p>
+      <p><strong>On medication cost:</strong> GLP-1 medications are prescribed and filled at your pharmacy separately from your visit fee. Patients with commercial insurance using the manufacturer savings card often pay as little as $25/month. Cash-pay options start at $299/month through LillyDirect. We walk you through your options at your first visit.</p>
     </div>
   </div>
 </section>
 
 <!-- LAB SECTION -->
-<section class="service-block" id="labs">
-  <div class="service-visual fade-up" id="svl">
-    <div class="service-icon-large">🧪</div>
-    <div class="service-visual-title">Lab Ordering & Review</div>
-    <div class="service-visual-points">
-      <div class="svp"><span class="svp-dot"></span>Hormone panel (estradiol, FSH, LH, testosterone)</div>
-      <div class="svp"><span class="svp-dot"></span>Thyroid function</div>
-      <div class="svp"><span class="svp-dot"></span>Vitamin D and metabolic markers</div>
-      <div class="svp"><span class="svp-dot"></span>Cardiovascular and lipid panel</div>
-      <div class="svp"><span class="svp-dot"></span>Treatment monitoring over time</div>
+<section class="labs-section" id="labs">
+  <span class="section-tag">Lab Work</span>
+  <h2 class="section-title">Comprehensive lab ordering<br>and review, included.</h2>
+  <p class="section-sub">Labs are an essential part of menopause care, for diagnosis, treatment monitoring, and ongoing health screening. We order through Labcorp and Quest, billed directly to your insurance or available at competitive self-pay rates.</p>
+  <div class="labs-grid">
+    <div class="lab-card" id="lc1">
+      <div class="lab-icon">🧪</div>
+      <h4>Hormone Panel</h4>
+      <p>Estradiol, FSH, LH, progesterone, and testosterone, the foundation of any menopause evaluation.</p>
     </div>
-  </div>
-  <div class="service-content fade-up" id="scl">
-    <span class="section-tag">Service 05</span>
-    <h2>Lab ordering and review<br>built into your care.</h2>
-    <p>Labs are an essential part of menopause care, covering diagnosis, treatment monitoring, and ongoing health screening. We order through Labcorp and Quest, billed directly to your insurance or available at self-pay rates.</p>
-    <p>Every lab result is reviewed thoroughly and communicated to you with a clear explanation of what it means for your care. Never just a portal notification with no context.</p>
-    <div class="treatment-options">
-      <div class="treatment-option">
-        <span class="to-icon">🩺</span>
-        <div>
-          <strong>Diagnostic Labs</strong>
-          <span>Ordered at your initial visit or when clinically indicated, including hormone panels, thyroid, metabolic markers, vitamin D, and more</span>
-        </div>
-      </div>
-      <div class="treatment-option">
-        <span class="to-icon">📊</span>
-        <div>
-          <strong>Treatment Monitoring</strong>
-          <span>Ongoing hormone level and safety monitoring to ensure your treatment is working optimally over time</span>
-        </div>
-      </div>
+    <div class="lab-card" id="lc2">
+      <div class="lab-icon">🦋</div>
+      <h4>Thyroid Function</h4>
+      <p>TSH and related markers, thyroid dysfunction is common in midlife women and mimics menopause symptoms.</p>
+    </div>
+    <div class="lab-card" id="lc3">
+      <div class="lab-icon">☀️</div>
+      <h4>Vitamin D</h4>
+      <p>Critical for bone health, immune function, and mood, especially important during the menopause transition.</p>
+    </div>
+    <div class="lab-card" id="lc4">
+      <div class="lab-icon">🩸</div>
+      <h4>Iron Studies</h4>
+      <p>CBC, ferritin, and iron panel, particularly important for women with heavy or irregular perimenopausal bleeding.</p>
+    </div>
+    <div class="lab-card" id="lc5">
+      <div class="lab-icon">❤️</div>
+      <h4>Metabolic & Cardiovascular</h4>
+      <p>Lipid panel, fasting glucose, and metabolic markers, estrogen loss increases cardiovascular risk and metabolic changes are common.</p>
+    </div>
+    <div class="lab-card" id="lc6">
+      <div class="lab-icon">📊</div>
+      <h4>Treatment Monitoring</h4>
+      <p>Ongoing hormone level monitoring to ensure your treatment is working optimally and safely over time.</p>
     </div>
   </div>
 </section>
@@ -1109,6 +984,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
       <div class="scope-item"><span class="scope-icon">✓</span>Bone health monitoring and prevention</div>
       <div class="scope-item"><span class="scope-icon">✓</span>Metabolic changes in midlife</div>
       <div class="scope-item"><span class="scope-icon">✓</span>GLP-1 weight management therapy</div>
+      <div class="scope-item"><span class="scope-icon">✓</span>Prior authorization processing</div>
     </div>
   </div>
   <div class="scope-col no">
@@ -1125,29 +1001,81 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   </div>
 </section>
 
+<!-- VISIT TYPES -->
+<section class="visits-section" id="visits">
+  <span class="section-tag">Visit Types & Pricing</span>
+  <h2 class="section-title">Transparent pricing.<br>No surprises.</h2>
+  <p class="section-sub">Cash-pay telehealth means you know exactly what you'll pay before you book. HSA and FSA cards accepted for all visits.</p>
+  <div class="visits-grid">
+    <div class="visit-card" id="vc1">
+      <div class="visit-icon">🌱</div>
+      <h3>Initial Consultation</h3>
+      <div class="visit-duration">60 minutes · First visit</div>
+      <div class="visit-price">$200</div>
+      <ul class="visit-includes">
+        <li>Full symptom & health history review</li>
+        <li>Personalized care plan</li>
+        <li>Prescription if appropriate</li>
+        <li>Lab orders if needed</li>
+        <li>Patient portal access</li>
+      </ul>
+      <a href="contact.html" class="btn-book">Book Now</a>
+    </div>
+    <div class="visit-card featured" id="vc2">
+      <div class="visit-icon">⭐</div>
+      <h3>Follow-Up Visit</h3>
+      <div class="visit-duration">30 minutes · Ongoing care</div>
+      <div class="visit-price">$125</div>
+      <ul class="visit-includes">
+        <li>Symptom check & medication review</li>
+        <li>Prescription adjustments</li>
+        <li>Lab results review</li>
+        <li>Care plan updates</li>
+        <li>Secure messaging access</li>
+      </ul>
+      <a href="contact.html" class="btn-book">Book Now</a>
+    </div>
+    <div class="visit-card" id="vc3">
+      <div class="visit-icon">🔬</div>
+      <h3>Lab Review</h3>
+      <div class="visit-duration">Outside of scheduled visits</div>
+      <div class="visit-price">$75</div>
+      <ul class="visit-includes">
+        <li>Full lab panel interpretation</li>
+        <li>Written summary of findings</li>
+        <li>Recommendations & next steps</li>
+        <li>Portal messaging for questions</li>
+        <li>Results in your patient portal</li>
+      </ul>
+      <a href="contact.html" class="btn-book">Get Started</a>
+    </div>
+  </div>
+  <p class="hsa-note">💳 <strong>HSA and FSA cards accepted.</strong> Superbills provided for insurance self-submission. Labs billed directly to your insurance through Labcorp or Quest.</p>
+  <p class="hsa-note" style="margin-top:0.5rem;">📋 <strong>Prior authorization processing: $75.</strong> GLP-1 medication costs are separate and filled at your pharmacy — not included in visit fees.</p>
+</section>
+
 <!-- CTA -->
 <section class="cta-section">
   <h2>Ready to get the care you deserve?</h2>
   <p>Book your initial consultation and leave with a real plan, not just a pamphlet.</p>
-  <a href="contact.html" class="btn-white">Scheduling Opening early 2027 →</a>
+  <a href="contact.html" class="btn-white">Book Your First Visit →</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div>
     <div class="footer-brand">The Next Chapter <span>Clinic</span></div>
-    <p>Led by Megan Nelson, CNM, MSCP — a Certified Nurse Midwife and menopause specialist. All clinical services are provided by Regional Medical Health Services, P.A. The Next Chapter Clinic is a registered name of Regional Medical Health Services, P.A.</p>
+    <p>Telehealth menopause care for women across the country. Led by Megan Nelson, CNM, MSCP, a Certified Nurse Midwife and Menopause Society Certified Practitioner.</p>
   </div>
   <div class="footer-col">
     <h5>Navigate</h5>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="right-for-me.html">Is This Right For Me?</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="faq.html">FAQ</a></li>
-      <li><a href="resources.html">Resources</a></li>
+      <li><a href="resources.html">Patient Resources</a></li>
       <li><a href="contact.html">Book a Visit</a></li>
     </ul>
   </div>
@@ -1157,14 +1085,13 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
       <li><a href="resources.html">Understanding Menopause</a></li>
       <li><a href="resources.html">Perimenopause Guide</a></li>
       <li><a href="resources.html">The Truth About HRT</a></li>
-      <li><a href="resources.html">Exercise, Sleep & Nutrition</a></li>
       <li><a href="faq.html">Patient FAQ</a></li>
     </ul>
   </div>
 </footer>
 <div class="footer-bottom">
   <p>© 2026 The Next Chapter Clinic · Telehealth Practice · HIPAA Compliant</p>
-  <p><a href="privacy.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a> · <a href="terms.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Terms of Use</a> · <a href="accessibility.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Accessibility</a></p>
+  <p>Privacy Policy · Terms of Use · Accessibility</p>
 </div>
 
 <script>
@@ -1195,8 +1122,7 @@ window.addEventListener('scroll', () => {
     window.scrollY > 20 ? '0 4px 24px rgba(26,26,46,0.08)' : 'none';
 });
 
-function toggleMenu(e) {
-  if (e) { e.preventDefault(); }
+function toggleMenu() {
   const menu = document.getElementById('mobile-menu');
   const btn = document.getElementById('hamburger');
   const isOpen = menu.classList.contains('open');
@@ -1217,22 +1143,6 @@ function closeMenu() {
   if (btn) btn.classList.remove('open');
   document.body.style.overflow = '';
 }
-
-// Mobile touch support for hamburger
-(function() {
-  var lastTouch = 0;
-  var btn = document.getElementById('hamburger');
-  if (btn) {
-    btn.addEventListener('touchstart', function(e) {
-      e.preventDefault();
-      var now = Date.now();
-      if (now - lastTouch > 300) {
-        lastTouch = now;
-        toggleMenu(e);
-      }
-    }, { passive: false });
-  }
-})();
 </script>
 </body>
 </html>
