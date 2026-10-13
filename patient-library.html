@@ -2312,7 +2312,13 @@ document.getElementById('menu-close').addEventListener('click', function() {
     if (i < ids.length - 1) next.textContent = titleOf(ids[i + 1]) + " →";
     prev.dataset.id = ids[i - 1] || ""; next.dataset.id = ids[i + 1] || "";
     try { localStorage.setItem("ncc-handout", id); } catch (e) {}
-    if (scroll) window.scrollTo({ top: 0 });
+    if (scroll) {
+      var wrapper = document.querySelector('.library-wrapper');
+      if (wrapper) {
+        var top = wrapper.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      }
+    }
   }
   function go(id) { if (location.hash !== "#" + id) { history.replaceState(null, "", "#" + id); } show(id, true); }
   links.forEach(function (l) { l.addEventListener("click", function (e) { e.preventDefault(); go(l.dataset.id); }); });
