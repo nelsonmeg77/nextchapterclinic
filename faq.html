@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://nextchapterclinic.com/faq.html">
 <title>FAQ, The Next Chapter Clinic</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
@@ -495,11 +496,17 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  padding: 4px;
+  padding: 8px;
   background: none;
   border: none;
   z-index: 2000;
   position: relative;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
 }
 .hamburger span {
   display: block;
@@ -524,6 +531,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   align-items: center;
   justify-content: center;
   gap: 0;
+  pointer-events: none;
 }
 .mobile-menu.open { display: flex; }
 .mobile-menu a {
@@ -534,6 +542,9 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   letter-spacing: 0.02em;
   transition: color 0.2s;
   text-align: center;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  cursor: pointer;
 }
 .mobile-menu a:hover { color: var(--sage); }
 .mobile-menu .mobile-book {
@@ -608,47 +619,193 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   padding: 0.5rem;
   z-index: 2001;
 }
-.mobile-menu {
-  position: fixed !important;
+
+
+/* ── CHECKBOX MENU TOGGLE ─────────── */
+.menu-toggle-input {
+  display: none;
 }
+.menu-toggle-input:checked ~ .mobile-menu {
+  display: flex !important;
+  pointer-events: all;
+}
+.menu-toggle-input:checked ~ nav .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle-input:checked ~ nav .hamburger span:nth-child(2) { opacity: 0; }
+.menu-toggle-input:checked ~ nav .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── GLOBAL MOBILE FIX ───────────── */
+@media (max-width: 480px) {
+  html { font-size: 15px; }
+  body { overflow-x: hidden; }
+
+  /* Ensure nothing overflows */
+  * { max-width: 100%; box-sizing: border-box; }
+
+  /* Nav */
+  nav { padding: 1rem; }
+  .nav-logo { font-size: 1.1rem; }
+
+  /* Hero sections */
+  .page-hero { padding: 6rem 1.25rem 3rem; grid-template-columns: 1fr; gap: 1rem; }
+  .page-hero h1 { font-size: 1.9rem; line-height: 1.15; }
+  .hero-right-text { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 5.5rem 1.25rem 2.5rem; }
+  .hero-right { padding: 1.5rem 1.25rem; }
+  .hero-h1 { font-size: 1.9rem; }
+
+  /* Section padding */
+  .section { padding: 2.5rem 1.25rem; }
+  .wc-section { padding: 2.5rem 1.25rem; }
+  .services-section { padding: 2.5rem 1.25rem; }
+  .how-section { padding: 2.5rem 1.25rem; }
+  .pricing-section { padding: 2.5rem 1.25rem; }
+  .about-section { padding: 2.5rem 1.25rem; }
+  .cta-section { padding: 2.5rem 1.25rem; }
+  .labs-section { padding: 2.5rem 1.25rem; }
+  .visits-section { padding: 2.5rem 1.25rem; }
+  .scope-section { padding: 2.5rem 1.25rem; }
+  .service-block { padding: 2.5rem 1.25rem; gap: 2rem; }
+  .articles-section { padding: 2.5rem 1.25rem; }
+  .content { padding: 3rem 1.25rem; }
+  footer { padding: 2.5rem 1.25rem 1.5rem; grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { padding: 1rem 1.25rem; flex-direction: column; gap: 0.5rem; }
+
+  /* Typography */
+  .section-title { font-size: 1.6rem; }
+  .section-sub { font-size: 0.9rem; }
+  h1 { font-size: 1.9rem; }
+  h2 { font-size: 1.5rem; }
+
+  /* Grids — single column on phone */
+  .services-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .steps { grid-template-columns: 1fr; gap: 1rem; }
+  .pricing-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .visits-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .labs-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+  .wc-grid { grid-template-columns: 1fr; }
+  .articles-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .expect-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .expect-strip { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 1.25rem; }
+  .service-block { grid-template-columns: 1fr !important; }
+  .treatment-options { gap: 0.75rem; }
+
+  /* Cards */
+  .service-card { padding: 1.25rem; }
+  .price-card { padding: 1.5rem 1.25rem; }
+  .step-card { padding: 1.25rem; }
+  .lab-card { padding: 1.25rem; }
+  .visit-card { padding: 1.5rem; }
+  .article-card { border-radius: 14px; }
+  .book-detail { padding: 0.75rem 1rem; }
+
+  /* FAQ */
+  .faq-layout { grid-template-columns: 1fr; padding: 2rem 1.25rem; }
+  .faq-sidebar { display: none; }
+  .cat-nav { padding: 0.75rem 1.25rem; gap: 0.5rem; }
+  .cat-pill { font-size: 0.76rem; padding: 0.4rem 0.9rem; }
+  .faq-question { padding: 1rem 1.25rem; }
+  .faq-item.open .faq-answer { padding: 0 1.25rem 1.25rem; }
+
+  /* Hero stats */
+  .hero-stats { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .hero-stat { padding: 0.875rem 1rem; }
+
+  /* Buttons */
+  .btn-primary { padding: 0.875rem 1.5rem; font-size: 0.9rem; }
+  .btn-white { padding: 0.875rem 1.5rem; font-size: 0.9rem; }
+  .btn-book { padding: 0.7rem 1.25rem; font-size: 0.85rem; }
+  .hero-btns { flex-direction: column; gap: 0.75rem; }
+
+  /* Contact page */
+  .book-side { padding: 2.5rem 1.25rem; }
+  .contact-side { padding: 2.5rem 1.25rem; border-left: none; border-top: 1px solid rgba(122,158,135,0.12); }
+  .form-row { grid-template-columns: 1fr; }
+
+  /* Modal */
+  .article-modal { margin: 0.75rem; border-radius: 14px; }
+  .modal-content { padding: 0.75rem 1.25rem 2rem; }
+  .modal-content h1 { font-size: 1.5rem; }
+}
+
+/* ── SERVICE DROPDOWN ────────────── */
+.nav-dropdown { position: relative; }
+.nav-dropdown > a::after { content: ' ▾'; font-size: 0.7rem; }
+.dropdown-menu {
+  display: none; position: absolute; top: 100%;
+  left: 50%; transform: translateX(-50%);
+  background: white; border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(26,26,46,0.12);
+  border: 1px solid rgba(122,158,135,0.15);
+  padding: 0.75rem 0 0.5rem; min-width: 220px; z-index: 9999; white-space: nowrap;
+  margin-top: 0;
+}
+.nav-dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+.nav-dropdown:hover .dropdown-menu { display: block; }
+.dropdown-menu a {
+  display: block; padding: 0.6rem 1.25rem; font-size: 0.82rem;
+  color: var(--muted) !important; text-decoration: none;
+  transition: background 0.15s, color 0.15s; letter-spacing: 0.04em;
+}
+.dropdown-menu a:hover { background: var(--sage-pale); color: var(--sage-dark) !important; }
 </style>
 </head>
 <body>
 
 <!-- COMING SOON BANNER -->
 <div style="background:var(--ink); color:white; text-align:center; padding:0.65rem 1.5rem; font-size:0.82rem; letter-spacing:0.06em; position:relative; z-index:900;">
-  🌿 <strong style="color:var(--sage-light);">Coming Fall 2026</strong> — We're building something exciting. Stay tuned.
+  🌿 <strong style="color:var(--sage-light);">Coming early 2027</strong> — We're building something exciting. Stay tuned.
 </div>
 
+<!-- MENU TOGGLE -->
+<input type="checkbox" id="menu-toggle" class="menu-toggle-input">
 <!-- NAV -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo">The Next Chapter <span>Clinic</span></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
+    <li><a href="right-for-me.html">Is This Right For Me?</a></li>
+    <li class="nav-dropdown">
+      <a href="services.html">Services</a>
+      <div class="dropdown-menu">
+        <a href="services.html#hrt">01 · Hormone Therapy</a>
+        <a href="services.html#nonhormonal">02 · Non-Hormonal Treatment</a>
+        <a href="services.html#glp1">03 · GLP-1 Weight Management</a>
+        <a href="services.html#holistic">04 · Lifestyle &amp; Wellness</a>
+        <a href="services.html#labs">05 · Lab Work</a>
+      </div>
+    </li>
     <li><a href="pricing.html">Pricing</a></li>
     <li><a href="faq.html">FAQ</a></li>
     <li><a href="resources.html">Patient Resources</a></li>
-    <li><a href="contact.html" class="nav-cta">Book a Visit</a></li>
+    <li><a href="contact.html" class="nav-cta">Join Waitlist</a></li>
   </ul>
 
   <!-- Mobile Menu Button -->
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+  <label for="menu-toggle" class="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
-  </button>
+  </label>
 </nav>
 
 <!-- Mobile Menu Overlay (outside nav so it covers full screen) -->
 <div class="mobile-menu" id="mobile-menu">
-  <button class="menu-close" onclick="closeMenu()">✕</button>
-  <a href="index.html" onclick="closeMenu()">Home</a>
-  <a href="about.html" onclick="closeMenu()">About</a>
-  <a href="services.html" onclick="closeMenu()">Services</a>
-  <a href="pricing.html" onclick="closeMenu()">Pricing</a>
-  <a href="faq.html" onclick="closeMenu()">FAQ</a>
-  <a href="resources.html" onclick="closeMenu()">Patient Resources</a>
-  <a href="contact.html" class="mobile-book" onclick="closeMenu()">Book a Visit</a>
+  <label for="menu-toggle" class="menu-close">✕</label>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="right-for-me.html">Is This Right For Me?</a>
+  <a href="services.html">Services</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="faq.html">FAQ</a>
+  <a href="resources.html">Resources</a>
+  <a href="contact.html" class="mobile-book">Join Waitlist</a>
 </div>
 
 <!-- PAGE HERO -->
@@ -720,7 +877,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
           <span class="q-icon">+</span>
         </button>
         <div class="faq-answer">
-          <p>We are currently licensed to see patients in <strong>Michigan, Colorado, and Arizona</strong>. You must be physically located in one of these states at the time of your telehealth visit.</p>
+          <p>We are a Michigan-based practice opening early 2027. You must be physically located in Michigan at the time of your telehealth visit. We plan to expand to additional states in the future — contact us to be notified when we expand.</p>
           <p>We are actively working to expand to additional states. If you are located elsewhere and would like to be notified when we launch in your state, please use the contact form to join our waitlist.</p>
         </div>
       </div>
@@ -776,7 +933,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
           <p>We are a <strong>cash-pay practice</strong> and do not bill insurance directly for visit fees. This means we are not in-network with any insurance plan, and we do not submit claims on your behalf.</p>
           <p>Here's why we made this choice: the traditional insurance billing model requires short appointments, standardized care, and an enormous amount of administrative overhead. By operating outside that system, we can offer longer visits, more personalized care, and a simpler, more transparent experience.</p>
           <p>We know this isn't the right model for everyone, and we want to be upfront about it. If in-network insurance coverage is important to you, platforms like Midi Health or your local OB/GYN practice may be better options. If you value the kind of specialized, unhurried care we offer, the out-of-pocket cost tends to be well worth it for our patients.</p>
-          <div class="answer-note"><p><strong>Important:</strong> Lab work is handled separately. Labs are ordered through Labcorp and Quest and billed directly to your insurance, meaning your labs may be covered even though your visits are not.</p></div>
+          <div class="answer-note"><p><strong>Important:</strong> Lab work and prescriptions are handled separately from visit fees. Labs are ordered through Labcorp and Quest and billed directly to your insurance. Prescriptions are sent to your pharmacy and billed through your insurance as they would be for any other provider — meaning both your labs and medications may be covered even though your visits are not.</p></div>
         </div>
       </div>
 
@@ -788,7 +945,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
         <div class="faq-answer">
           <p>Yes, we provide a <strong>superbill</strong> for every visit upon request. A superbill is an itemized receipt that includes all the information your insurance company needs to process a reimbursement claim: your provider's NPI, the date of service, procedure codes (CPT codes), and diagnosis codes (ICD-10 codes).</p>
           <p>You submit the superbill directly to your insurance company. Whether and how much they reimburse depends entirely on your individual plan, particularly whether you have out-of-network benefits. Plans with out-of-network coverage (common in PPO plans) may reimburse a portion of your visit cost. HMO plans typically do not cover out-of-network services.</p>
-          <p>We recommend calling the member services number on the back of your insurance card to ask about your out-of-network mental health or specialist benefits before your visit, so you know what to expect.</p>
+          <p>We recommend calling the member services number on the back of your insurance card to ask about your out-of-network specialist or women's health benefits before your visit, so you know what to expect.</p>
         </div>
       </div>
 
@@ -804,14 +961,28 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
         </div>
       </div>
 
+
+      <div class="faq-item" id="f-medicare">
+        <button class="faq-question" onclick="toggle(this)">
+          <span class="q-text">Do you accept Medicare or Medicaid?</span>
+          <span class="q-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>We are not able to accept patients who are enrolled in or entitled to Medicare, including Medicare Advantage plans. We're sorry we can't make exceptions.</p>
+          <p>Because our provider has not opted out of Medicare, federal law does not allow us to see Medicare patients in this cash-pay practice. This is a legal requirement, not a choice.</p>
+          <p>If you have Medicare and are looking for menopause care, we recommend speaking with your primary care provider or OB/GYN, or contacting your Medicare plan to ask about covered menopause services in your area.</p>
+          <div class="answer-note"><p><strong>Medicaid:</strong> You are welcome as a self-pay patient. We do not participate in or bill Michigan Medicaid, and Medicaid will not reimburse you for our visit fees. You will confirm this in your intake forms.</p></div>
+        </div>
+      </div>
+
       <div class="faq-item" id="f9">
         <button class="faq-question" onclick="toggle(this)">
           <span class="q-text">What is your cancellation policy?</span>
           <span class="q-icon">+</span>
         </button>
         <div class="faq-answer">
-          <p>We require <strong>24 hours notice</strong> for cancellations or rescheduling. Cancellations made with less than 24 hours notice may be subject to a cancellation fee. No-shows without notice will be charged the full visit fee.</p>
-          <p>We understand that life happens, if you have an emergency, please reach out through the patient portal and we will work with you. We ask for the same courtesy in return, as appointment slots are reserved specifically for you.</p>
+          <p>We require <strong>24 hours notice</strong> for appointment cancellations or rescheduling. Cancellations made within 24 hours of the appointment are subject to a <strong>$25 cancellation fee</strong>. No-shows without notice will be charged the full visit fee.</p><p>For <strong>membership cancellations</strong>: monthly members can cancel at any time and the membership ends at the close of the current billing month, with no additional fee. Prepaid 6 and 12-month plans are non-refundable, reflecting the discounted commitment rate.</p>
+          <p>We understand that life happens. If something unexpected keeps you from your visit, please reach out through the patient portal and we will work with you. Please note the portal is not monitored in real time — for any medical emergency, call 911 or go to your nearest emergency room. We ask for the same courtesy in return, as appointment slots are reserved specifically for you.</p>
         </div>
       </div>
     </section>
@@ -825,12 +996,12 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 
       <div class="faq-item" id="f10">
         <button class="faq-question" onclick="toggle(this)">
-          <span class="q-text">When are appointments available?</span>
+          <span class="q-text">How do I know when appointments are available?</span>
           <span class="q-icon">+</span>
         </button>
         <div class="faq-answer">
-          <p>Appointments are currently available on <strong>Tuesday and Wednesday (10am–3pm ET / 8am–1pm MT)</strong> and <strong>Sunday (10am–1pm ET / 8am–11am MT)</strong>. We intentionally offer weekend availability because we know most of our patients are working during the week and struggle to get away for appointments.</p>
-          <p>Booking is done online through our scheduling system, choose the time that works best for you and you'll receive a confirmation with your patient portal link to complete your intake forms.</p>
+          <p>Appointment availability varies week to week based on our schedule. When booking opens in early 2027, you will be able to see all available times directly through our online scheduling system and choose what works best for you.</p>
+          <p>We aim to offer a mix of weekday and weekend availability to accommodate working women. Booking is done entirely online — no phone calls needed.</p>
         </div>
       </div>
 
@@ -851,8 +1022,8 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
           <span class="q-icon">+</span>
         </button>
         <div class="faq-answer">
-          <p>Most patients follow up <strong>every 6–8 weeks after starting a new treatment</strong>, this allows us to assess how you're responding and make any early adjustments. Once your symptoms are well-managed and your treatment is stable, we typically move to <strong>quarterly (every 3 months) follow-ups</strong>.</p>
-          <p>For patients who are well-established and stable, we may extend to every 6 months. Between visits, you can always reach us through secure messaging in the patient portal for questions that don't require a full appointment.</p>
+          <p>A follow-up visit is required approximately <strong>6–8 weeks after any new medication or dose change</strong> to make sure your treatment is working safely and appropriately. Once your medications are stable, follow-up is recommended <strong>every 6–12 months</strong> depending on your treatment, or sooner if needed.</p>
+          <p>All patients can reach me directly through secure messaging in the patient portal. When you message, you are messaging <strong>me</strong>, not a call center or a phone tree.</p><p>For non-urgent questions, you can expect a reply within one to two business days. Because this is a solo practice, I do not offer 24/7 or after-hours coverage. Anything urgent or a medical emergency should go to 911 or your nearest emergency department.</p>
         </div>
       </div>
 
@@ -905,10 +1076,10 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
           <span class="q-icon">+</span>
         </button>
         <div class="faq-answer">
-          <p>Prescriptions are sent electronically to the pharmacy of your choice — any retail pharmacy like CVS, Walgreens, Costco, or your local independent pharmacy. You don't need to do anything special to set this up; just let us know your preferred pharmacy at your visit.</p>
+          <p>Prescriptions are sent electronically to the pharmacy of your choice, including any retail pharmacy like CVS, Walgreens, Costco, or your local independent pharmacy. You don't need to do anything special to set this up; just let us know your preferred pharmacy at your visit.</p>
           <p>Many of the medications we prescribe, including hormone therapy, are covered by insurance. At the pharmacy, you'll pay your standard copay or coinsurance just as you would for any other prescription. We use appropriate diagnosis codes on your clinical notes to support insurance coverage wherever possible.</p>
           <p>If cost is a concern, we can also suggest discount programs like <strong>GoodRx</strong> which often make hormone therapy very affordable even without insurance coverage. We'll walk you through your options at your visit.</p>
-          <div class="answer-note"><p>GLP-1 medications (Zepbound, Wegovy) are handled differently — see the GLP-1 section of this FAQ for details on those costs.</p></div>
+          <div class="answer-note"><p>GLP-1 medications (Zepbound, Wegovy) are handled differently. See the GLP-1 section of this FAQ for details on those costs.</p></div>
         </div>
       </div>
 
@@ -1043,7 +1214,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
         </button>
         <div class="faq-answer">
           <p>Results are sent directly to us and will appear in your patient portal. We review every result in full, not just the flagged values, and contact you with a summary and any recommended next steps.</p>
-          <p>If your labs are reviewed outside of a scheduled visit, a <strong>$75 lab review fee</strong> applies. This covers the time to thoroughly interpret your results, write a summary, and communicate findings and recommendations to you. If lab review happens as part of a scheduled follow-up visit, it's included in your visit fee.</p>
+          <p>Labs are reviewed promptly between visits — you will never wait weeks for results. Every review includes a written summary of findings, what they mean for your care, and clear next steps.</p><p>Lab review and results communication are included for all patients, both pay-as-you-go and membership. You will never be charged separately for receiving and understanding your lab results. Any new dose or medication change will be followed up at approximately 6–8 weeks to assess your response.</p>
           <div class="answer-note"><p>You will never receive a portal notification that just says "results normal" without context. Every lab review includes a written explanation of what your results mean for your care.</p></div>
         </div>
       </div>
@@ -1091,11 +1262,11 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 
       <div class="faq-item" id="f27">
         <button class="faq-question" onclick="toggle(this)">
-          <span class="q-text">Do I need to be physically located in Michigan, Colorado, or Arizona during my visit?</span>
+          <span class="q-text">Do I need to be physically located in a state where you are licensed?</span>
           <span class="q-icon">+</span>
         </button>
         <div class="faq-answer">
-          <p>Yes, you must be physically present in a state where we are licensed (Michigan, Colorado, or Arizona) at the time of your telehealth visit. This is a legal requirement tied to our clinical licensure, not a preference.</p>
+          <p>Yes, you must be physically present in a state where we hold an active license at the time of your telehealth visit. This is a legal requirement, not a preference. Please contact us before booking to confirm we serve your state.</p>
           <p>If you are traveling outside of these states on the day of your visit, please reschedule. We're happy to accommodate rescheduling requests with adequate notice.</p>
         </div>
       </div>
@@ -1126,41 +1297,41 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
           <span class="q-icon">+</span>
         </button>
         <div class="faq-answer">
-          <p>The medication cost is separate from your visit fee and depends entirely on your insurance situation. Here's a breakdown:</p>
+          <p>GLP-1 medication costs are separate from your visit fee. We prescribe both brand name and compounded options, and will help you identify what makes the most sense for your situation at your visit.</p>
           <ul>
-            <li><strong>Commercial insurance with savings card:</strong> Patients who enroll in the Eli Lilly savings card at zepbound.lilly.com/savings often pay as little as $25/month at a retail pharmacy</li>
-            <li><strong>No insurance — LillyDirect:</strong> Zepbound is available directly through Eli Lilly at lillydirect.com starting at $299/month for starter doses and $449/month for maintenance doses</li>
-            <li><strong>Medicare:</strong> The manufacturer savings card does not apply to Medicare. Starting July 2026, a $50/month cap under Medicare Part D applies for eligible GLP-1 medications</li>
+            <li><strong>Brand name medications:</strong> Zepbound (tirzepatide) and Wegovy (semaglutide) are available through standard pharmacies. LillyDirect offers Zepbound starting at $299/month for cash-pay patients.</li>
+            <li><strong>Compounded medications:</strong> Compounded tirzepatide and semaglutide are available through licensed compounding pharmacies at significantly lower cost than brand name options. These are a legitimate and commonly prescribed alternative.</li>
+            <li><strong>GoodRx:</strong> Can reduce costs on brand name medications at your local pharmacy.</li>
           </ul>
-          <div class="answer-note"><p>We will walk you through your specific options at your visit. We recommend calling your insurance member services before your appointment to ask whether Zepbound or Wegovy is covered under your plan.</p></div>
+          <div class="answer-note"><p>We do not process prior authorizations. We focus on helping you find the most affordable option so you can access your medication without insurance delays.</p></div>
         </div>
       </div>
 
       <div class="faq-item" id="f30">
         <button class="faq-question" onclick="toggle(this)">
-          <span class="q-text">Do you handle prior authorizations for GLP-1 medications?</span>
+          <span class="q-text">Do you help with the cost of GLP-1 medications?</span>
           <span class="q-icon">+</span>
         </button>
         <div class="faq-answer">
-          <p>Yes — if your insurance requires a prior authorization for your GLP-1 medication, we will complete and submit the documentation on your behalf for a <strong>$75 prior authorization processing fee</strong>. This covers preparing the PA form, writing any required letter of medical necessity, and submitting through your insurance.</p>
-          <p>A few things to know about the PA process:</p>
+          <p>We do not process prior authorizations for GLP-1 medications. Instead, we work with you to find the most affordable cash-pay options available so you can access your medication without the hassle and unpredictability of the insurance approval process.</p>
+          <p>Depending on your situation, this may include:</p>
           <ul>
-            <li>Processing typically takes 3–14 business days depending on your insurance</li>
-            <li>Approval is not guaranteed — coverage decisions are made entirely by your insurance company</li>
-            <li>If your PA is denied, you have the right to appeal. We can assist with an appeal letter for an additional $75</li>
-            <li>We cannot guarantee what your insurance will cover or how long the process will take</li>
+            <li><strong>GoodRx</strong> — often significantly reduces the cost of brand-name medications at your local pharmacy</li>
+            <li><strong>LillyDirect</strong> — Eli Lilly's direct program for Zepbound starting at $299/month for cash-pay patients</li>
+            <li><strong>Cost Plus Drugs (Mark Cuban)</strong> — costplusdrugs.com offers some medications at significantly reduced prices</li>
           </ul>
+          <p>We will walk you through your best options at your visit based on your insurance situation.</p>
         </div>
       </div>
 
       <div class="faq-item" id="f31">
         <button class="faq-question" onclick="toggle(this)">
-          <span class="q-text">Can I get compounded semaglutide or tirzepatide?</span>
+          <span class="q-text">Do you prescribe compounded GLP-1 medications?</span>
           <span class="q-icon">+</span>
         </button>
         <div class="faq-answer">
-          <p>No — we prescribe brand name GLP-1 medications only. The FDA resolved the semaglutide and tirzepatide shortages in early 2025, which ended the legal pathway that had allowed most compounding pharmacies to produce these medications at lower cost. Mass compounded GLP-1s are no longer legally available.</p>
-          <p>We know this is disappointing for patients who were accessing compounded versions at $150–$200/month. The manufacturer savings programs and LillyDirect are now the best options for keeping costs manageable, and for most patients with commercial insurance the savings card brings the cost to a very reasonable level.</p>
+          <p>Yes. We prescribe both brand name and compounded semaglutide and tirzepatide, depending on what makes the most sense for your situation. Compounded GLP-1 medications are available through licensed 503A compounding pharmacies and can be a significantly more affordable alternative to brand name options.</p>
+          <p>At your visit we will go through your options and help you decide between brand name medications through standard pharmacies or compounded versions through a compounding pharmacy, based on your preferences, budget, and clinical needs.</p>
         </div>
       </div>
 
@@ -1172,57 +1343,16 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
         <div class="faq-answer">
           <p>We follow a structured monitoring schedule to make sure your treatment is safe and effective:</p>
           <ul>
-            <li><strong>Before starting:</strong> Baseline labs including metabolic panel, liver function, HbA1c if relevant, and a full health history review</li>
-            <li><strong>First 3 months:</strong> Follow-up visits every 4–6 weeks to assess your response, manage any side effects, and titrate your dose</li>
-            <li><strong>Once stable:</strong> Quarterly follow-ups, with lab monitoring every 6–12 months</li>
+            <li><strong>Initial phase:</strong> A follow-up visit after your first 2–3 months to assess your response, manage any side effects, and adjust your dose as needed</li>
+            <li><strong>Once stable:</strong> Follow-up every 6 months</li>
           </ul>
-          <p>Because we're also managing your menopause care, your GLP-1 monitoring is integrated into your overall care plan rather than being a separate program. One provider, one complete picture.</p>
+          <p>Because we're already managing your menopause care, your GLP-1 monitoring is integrated into your overall care plan rather than being a separate program. One provider, one complete picture.</p>
         </div>
       </div>
 
     </section>
 
-    <!-- STILL HAVE QUESTIONS + CONTACT FORM -->
-    <div class="still-questions" id="contact">
-      <h3>Still have a question?</h3>
-      <p>Send us a message and we'll get back to you within 1–2 business days, no obligation to book.</p>
-      <form class="contact-form" onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="cf-name">Your Name</label>
-            <input type="text" id="cf-name" placeholder="Jane Smith" required>
-          </div>
-          <div class="form-group">
-            <label for="cf-email">Email Address</label>
-            <input type="email" id="cf-email" placeholder="jane@email.com" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="cf-state">Your State</label>
-          <select id="cf-state" required>
-            <option value="" disabled selected>Select your state</option>
-            <option value="MI">Michigan</option>
-            <option value="CO">Colorado</option>
-            <option value="AZ">Arizona</option>
-            <option value="other">Other, notify me when you expand</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="cf-message">Your Question</label>
-          <textarea id="cf-message" rows="4" placeholder="What would you like to know before booking?" required></textarea>
-        </div>
-        <div class="form-footer">
-          <p class="form-note">🔒 Your information is private and will never be shared or used for marketing.</p>
-          <button type="submit" class="btn-submit">Send My Question →</button>
-        </div>
-      </form>
-      <div class="form-success" id="form-success">
-        <div class="success-icon">✓</div>
-        <h4>Message received!</h4>
-        <p>Thank you for reaching out. We'll respond within 1–2 business days.</p>
-        <a href="index.html#book" class="btn-primary" style="margin-top:1rem;display:inline-block;">Ready to book? Schedule your visit →</a>
-      </div>
-    </div>
+
 
   </div>
 </div>
@@ -1231,20 +1361,21 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 <section class="cta-section">
   <h2>Ready to get real answers?</h2>
   <p>Book your first visit and leave with a care plan, not just more questions.</p>
-  <a href="index.html#book" class="btn-white">Book Your First Visit →</a>
+  <a href="contact.html" class="btn-white">Scheduling Opening early 2027 →</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div>
     <div class="footer-brand">The Next Chapter <span>Clinic</span></div>
-    <p>Telehealth menopause care for women across the country. Led by Megan Nelson, CNM, MSCP.</p>
+    <p>Led by Megan Nelson, CNM, MSCP — a Certified Nurse Midwife and menopause specialist. All clinical services are provided by Regional Medical Health Services, P.A. The Next Chapter Clinic is a registered name of Regional Medical Health Services, P.A.</p>
   </div>
   <div class="footer-col">
     <h5>Navigate</h5>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="right-for-me.html">Is This Right For Me?</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="faq.html">FAQ</a></li>
@@ -1258,13 +1389,14 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
       <li><a href="resources.html">Understanding Menopause</a></li>
       <li><a href="resources.html">Perimenopause Guide</a></li>
       <li><a href="resources.html">The Truth About HRT</a></li>
+      <li><a href="resources.html">Exercise, Sleep & Nutrition</a></li>
       <li><a href="faq.html">Patient FAQ</a></li>
     </ul>
   </div>
 </footer>
 <div class="footer-bottom">
   <p>© 2026 The Next Chapter Clinic · Telehealth Practice · HIPAA Compliant</p>
-  <p>Privacy Policy · Terms of Use · Accessibility</p>
+  <p><a href="privacy.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a> · <a href="terms.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Terms of Use</a> · <a href="accessibility.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Accessibility</a></p>
 </div>
 
 <script>
@@ -1299,13 +1431,10 @@ window.addEventListener('scroll', () => {
     window.scrollY > 20 ? '0 4px 24px rgba(26,26,46,0.08)' : 'none';
 });
 
-function handleSubmit(e) {
-  e.preventDefault();
-  document.querySelector('.contact-form').style.display = 'none';
-  document.getElementById('form-success').style.display = 'block';
-}
+// Form handled by Formspree — no preventDefault needed
 
-function toggleMenu() {
+function toggleMenu(e) {
+  if (e) { e.preventDefault(); }
   const menu = document.getElementById('mobile-menu');
   const btn = document.getElementById('hamburger');
   const isOpen = menu.classList.contains('open');
@@ -1326,6 +1455,22 @@ function closeMenu() {
   if (btn) btn.classList.remove('open');
   document.body.style.overflow = '';
 }
+
+// Mobile touch support for hamburger
+(function() {
+  var lastTouch = 0;
+  var btn = document.getElementById('hamburger');
+  if (btn) {
+    btn.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      var now = Date.now();
+      if (now - lastTouch > 300) {
+        lastTouch = now;
+        toggleMenu(e);
+      }
+    }, { passive: false });
+  }
+})();
 </script>
 </body>
 </html>
