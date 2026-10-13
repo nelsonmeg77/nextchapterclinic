@@ -64,12 +64,16 @@ nav {
 /* Services dropdown */
 .nav-dropdown { position: relative; }
 .nav-dropdown > a { cursor: pointer; }
+.nav-dropdown > a::after { content: ' ▾'; font-size: 0.7rem; }
 .dropdown-menu {
   display: none; position: absolute; top: 100%; left: 50%;
   transform: translateX(-50%); background: var(--cream);
   border: 1px solid rgba(122,158,135,0.2); border-radius: 12px;
   padding: 0.75rem 0; min-width: 200px; z-index: 9999;
   box-shadow: 0 8px 32px rgba(26,26,46,0.12); margin-top: 0.5rem;
+}
+.nav-dropdown::after {
+  content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 0.75rem;
 }
 .nav-dropdown:hover .dropdown-menu { display: block; }
 .dropdown-menu a {
@@ -284,14 +288,15 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
+    <li><a href="right-for-me.html">Is This Right For Me?</a></li>
     <li class="nav-dropdown">
       <a href="services.html">Services</a>
       <div class="dropdown-menu">
-        <a href="services.html#hormone-therapy">Hormone Therapy</a>
-        <a href="services.html#non-hormonal">Non-Hormonal Care</a>
-        <a href="services.html#glp1">GLP-1 Weight Care</a>
-        <a href="services.html#lifestyle">Lifestyle &amp; Wellness</a>
-        <a href="services.html#labs">Lab Work</a>
+        <a href="services.html#hrt">01 · Hormone Therapy</a>
+        <a href="services.html#nonhormonal">02 · Non-Hormonal Treatment</a>
+        <a href="services.html#glp1">03 · GLP-1 Weight Management</a>
+        <a href="services.html#holistic">04 · Lifestyle &amp; Wellness</a>
+        <a href="services.html#labs">05 · Lab Work</a>
       </div>
     </li>
     <li><a href="pricing.html">Pricing</a></li>
@@ -309,6 +314,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   <button class="menu-close" id="menu-close">&#x2715;</button>
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
+  <a href="right-for-me.html">Is This Right For Me?</a>
   <a href="services.html">Services</a>
   <a href="pricing.html">Pricing</a>
   <a href="faq.html">FAQ</a>
