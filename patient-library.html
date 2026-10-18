@@ -275,7 +275,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 }
 
 /* ── MOBILE RESOURCES ACCORDION ─── */
-.mobile-resources-toggle {
+.mobile-menu .mobile-resources-toggle {
   font-family: 'Cormorant Garamond', serif;
   font-size: 2rem; font-weight: 300;
   color: var(--ink); cursor: pointer;
@@ -283,27 +283,27 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   transition: color 0.2s;
   text-decoration: none;
 }
-.mobile-toggle-arrow {
+.mobile-menu .mobile-toggle-arrow {
   font-size: 1.2rem;
   transition: transform 0.25s;
   display: inline-block;
 }
-.mobile-resources-toggle.open .mobile-toggle-arrow { transform: rotate(180deg); }
-.mobile-resources-sub {
+.mobile-menu .mobile-resources-toggle.open .mobile-toggle-arrow { transform: rotate(180deg); }
+.mobile-menu .mobile-resources-sub {
   display: none;
   flex-direction: column;
   gap: 0.5rem;
   padding-left: 1.5rem;
   margin-top: -0.5rem;
 }
-.mobile-resources-toggle.open + .mobile-resources-sub { display: flex; }
-.mobile-resources-sub a {
+.mobile-menu .mobile-resources-toggle.open + .mobile-resources-sub { display: flex; }
+.mobile-menu .mobile-resources-sub a {
   font-family: 'DM Sans', sans-serif;
   font-size: 1.1rem; font-weight: 300;
   color: var(--muted);
   text-decoration: none;
 }
-.mobile-resources-sub a:hover { color: var(--sage); }
+.mobile-menu .mobile-resources-sub a:hover { color: var(--sage); }
 </style>
 </head>
 <body>
