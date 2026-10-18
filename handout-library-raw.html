@@ -1,0 +1,2018 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Next Chapter Handout Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
+<style>
+/* Layout: a clinic binder — tabbed index on the left, one handout open on the right as a paper sheet */
+:root {
+  --bg: #f5f2ea;          /* cream ground */
+  --sheet: #fffdf8;       /* handout paper */
+  --ink: #26332a;
+  --muted: #5c6a60;
+  --sage: #5f7d66;        /* brand accent */
+  --sage-soft: #e3ebe2;
+  --rule: #d8dfd5;
+  --zebra: #f8f6ef;
+  --display: "Cormorant Garamond", "Liberation Serif", Georgia, serif;
+  --body: "DM Sans", "Liberation Sans", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161b17; --sheet: #1e2520; --ink: #e5ebe3; --muted: #a3b0a5;
+    --sage: #9cbca2; --sage-soft: #2a352d; --rule: #334036; --zebra: #222a24;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161b17; --sheet: #1e2520; --ink: #e5ebe3; --muted: #a3b0a5;
+  --sage: #9cbca2; --sage-soft: #2a352d; --rule: #334036; --zebra: #222a24;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--body); font-size: 15px; line-height: 1.55;
+}
+.wrap {
+  max-width: 1180px; margin: 0 auto;
+  padding-inline: 20px; padding-block: 28px 48px;
+  display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 32px; align-items: start;
+}
+header.top { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; border-bottom: 1px solid var(--rule); padding-bottom: 14px; }
+.brand { font-family: var(--display); font-size: 30px; font-weight: 600; color: var(--sage); margin: 0; line-height: 1.1; }
+.brand small { display: block; font-family: var(--body); font-size: 12px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+.meta { color: var(--muted); font-size: 13px; }
+
+nav.index { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); max-height: calc(100vh - 32px); overflow-y: auto; display: flex; flex-direction: column; gap: 18px; padding-right: 4px; }
+.grp h2 { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; font-weight: 700; }
+.grp ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.grp a { display: flex; gap: 10px; align-items: baseline; padding: 6px 10px; border-radius: 6px; color: var(--ink); text-decoration: none; font-size: 14px; }
+.grp a .n { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 12px; min-width: 18px; }
+.grp a:hover { background: var(--sage-soft); }
+.grp a[aria-current="true"] { background: var(--sage); color: var(--sheet); }
+.grp a[aria-current="true"] .n { color: var(--sheet); opacity: .8; }
+.grp a:focus-visible, select:focus-visible, .pager button:focus-visible { outline: 2px solid var(--sage); outline-offset: 2px; }
+
+.picker { display: none; }
+.picker label { display: block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 6px; }
+.picker select { width: 100%; font: inherit; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 8px; background: var(--sheet); color: var(--ink); }
+
+main { min-width: 0; }
+article {
+  background: var(--sheet); border: 1px solid var(--rule); border-radius: 4px;
+  padding: 40px 48px 32px; box-shadow: 0 1px 2px rgba(38,51,42,.06), 0 8px 24px rgba(38,51,42,.05);
+}
+.eyebrow { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--sage); font-weight: 700; margin: 0 0 8px; }
+article h1 { font-family: var(--display); font-weight: 600; font-size: 38px; line-height: 1.1; margin: 0 0 14px; text-wrap: balance; color: var(--ink); }
+article h2 { font-family: var(--display); font-weight: 600; font-size: 24px; margin: 28px 0 8px; color: var(--sage); text-wrap: balance; }
+article h3 { font-size: 15px; font-weight: 700; margin: 18px 0 6px; }
+article p, article li { max-width: 68ch; }
+article p { margin: 0 0 10px; }
+article ul, article ol { margin: 0 0 12px; padding-left: 22px; }
+article li { margin-bottom: 4px; }
+article strong { font-weight: 700; }
+.tw { overflow-x: auto; margin: 8px 0 16px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th { text-align: left; background: var(--sage-soft); padding: 8px 10px; border: 1px solid var(--rule); font-weight: 700; }
+td { padding: 8px 10px; border: 1px solid var(--rule); vertical-align: top; }
+tbody tr:nth-child(even) td { background: var(--zebra); }
+td:empty::after { content: "\00a0"; }
+.foot { margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--muted); }
+.foot p { margin-bottom: 6px; }
+
+.pager { display: flex; justify-content: space-between; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+.pager button { font: inherit; font-size: 14px; background: transparent; color: var(--sage); border: 1px solid var(--rule); border-radius: 8px; padding: 8px 14px; cursor: pointer; max-width: 100%; }
+.pager button:hover { background: var(--sage-soft); }
+.pager button[hidden] { display: none; }
+
+@media (max-width: 820px) {
+  .wrap { grid-template-columns: minmax(0, 1fr); gap: 18px; padding-block: 20px 40px; }
+  nav.index { display: none; }
+  .picker { display: block; }
+  article { padding: 26px 20px 22px; }
+  article h1 { font-size: 30px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  article { animation: in .18s ease-out; }
+  @keyframes in { from { transform: translateY(4px); } to { transform: none; } }
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <p class="brand">The Next Chapter Clinic<small>Patient handout library</small></p>
+    <span class="meta">19 handouts</span>
+  </header>
+
+  <nav class="index" aria-label="Handouts"><div class="grp"><h2>Hormone therapy</h2><ul><li><a href="#estradiol" data-id="estradiol"><span class="n">01</span>Estradiol (Estrogen Therapy)</a></li><li><a href="#progesterone" data-id="progesterone"><span class="n">02</span>Progesterone</a></li><li><a href="#combination-hormone-products" data-id="combination-hormone-products"><span class="n">03</span>Combination Hormone Products</a></li><li><a href="#vaginal-estrogen" data-id="vaginal-estrogen"><span class="n">04</span>Vaginal Estrogen and Vaginal Health</a></li></ul></div><div class="grp"><h2>Non-hormonal &amp; testosterone</h2><ul><li><a href="#veozah" data-id="veozah"><span class="n">05</span>Veozah (Fezolinetant)</a></li><li><a href="#lynkuet" data-id="lynkuet"><span class="n">06</span>Lynkuet (Elinzanetant)</a></li><li><a href="#ssri-snri" data-id="ssri-snri"><span class="n">07</span>SSRIs and SNRIs for Hot Flashes and Mood</a></li><li><a href="#gabapentin" data-id="gabapentin"><span class="n">08</span>Gabapentin for Hot Flashes and Sleep</a></li><li><a href="#oxybutynin" data-id="oxybutynin"><span class="n">09</span>Oxybutynin for Hot Flashes</a></li><li><a href="#testosterone" data-id="testosterone"><span class="n">10</span>Testosterone Gel for Women</a></li></ul></div><div class="grp"><h2>Weight care (GLP-1)</h2><ul><li><a href="#glp1-wegovy-zepbound" data-id="glp1-wegovy-zepbound"><span class="n">11</span>GLP-1 Medications (Wegovy and Zepbound)</a></li><li><a href="#compounded-glp1" data-id="compounded-glp1"><span class="n">12</span>Compounded GLP-1 Medication</a></li></ul></div><div class="grp"><h2>Hair loss</h2><ul><li><a href="#minoxidil" data-id="minoxidil"><span class="n">13</span>Minoxidil for Hair Loss</a></li><li><a href="#spironolactone" data-id="spironolactone"><span class="n">14</span>Spironolactone</a></li><li><a href="#finasteride" data-id="finasteride"><span class="n">15</span>Finasteride for Hair Loss</a></li></ul></div><div class="grp"><h2>Lifestyle</h2><ul><li><a href="#nutrition-protein" data-id="nutrition-protein"><span class="n">16</span>Nutrition and Protein in Midlife</a></li><li><a href="#strength-bone-health" data-id="strength-bone-health"><span class="n">17</span>Strength Training and Bone Health</a></li><li><a href="#sleep-hot-flash-tips" data-id="sleep-hot-flash-tips"><span class="n">18</span>Sleep and Hot Flash Tips</a></li><li><a href="#mood-brain-fog-stress" data-id="mood-brain-fog-stress"><span class="n">19</span>Mood, Brain Fog, and Stress</a></li></ul></div></nav>
+
+  <main>
+    <div class="picker">
+      <label for="pick">Handout</label>
+      <select id="pick"><optgroup label="Hormone therapy"><option value="estradiol">01 · Estradiol (Estrogen Therapy)</option><option value="progesterone">02 · Progesterone</option><option value="combination-hormone-products">03 · Combination Hormone Products</option><option value="vaginal-estrogen">04 · Vaginal Estrogen and Vaginal Health</option></optgroup><optgroup label="Non-hormonal &amp; testosterone"><option value="veozah">05 · Veozah (Fezolinetant)</option><option value="lynkuet">06 · Lynkuet (Elinzanetant)</option><option value="ssri-snri">07 · SSRIs and SNRIs for Hot Flashes and Mood</option><option value="gabapentin">08 · Gabapentin for Hot Flashes and Sleep</option><option value="oxybutynin">09 · Oxybutynin for Hot Flashes</option><option value="testosterone">10 · Testosterone Gel for Women</option></optgroup><optgroup label="Weight care (GLP-1)"><option value="glp1-wegovy-zepbound">11 · GLP-1 Medications (Wegovy and Zepbound)</option><option value="compounded-glp1">12 · Compounded GLP-1 Medication</option></optgroup><optgroup label="Hair loss"><option value="minoxidil">13 · Minoxidil for Hair Loss</option><option value="spironolactone">14 · Spironolactone</option><option value="finasteride">15 · Finasteride for Hair Loss</option></optgroup><optgroup label="Lifestyle"><option value="nutrition-protein">16 · Nutrition and Protein in Midlife</option><option value="strength-bone-health">17 · Strength Training and Bone Health</option><option value="sleep-hot-flash-tips">18 · Sleep and Hot Flash Tips</option><option value="mood-brain-fog-stress">19 · Mood, Brain Fog, and Stress</option></optgroup></select>
+    </div>
+    <article id="h-estradiol" data-id="estradiol" hidden><p class="eyebrow">Handout 01 · The Next Chapter Clinic</p><h1>Estradiol (Estrogen Therapy)</h1>
+<p>Estradiol replaces the estrogen your ovaries make less of in
+perimenopause and menopause. It is the most effective treatment for hot
+flashes and night sweats, and it protects your bones.</p>
+<h2 id="what-it-can-help-with">What it can help with</h2>
+<ul>
+<li>Hot flashes and night sweats</li>
+<li>Sleep that is broken by night sweats</li>
+<li>Vaginal dryness and painful sex</li>
+<li>Bone loss (estrogen helps prevent osteoporosis)</li>
+<li>Many women also notice better mood, less joint aching, and clearer
+thinking</li>
+</ul>
+<h2 id="if-you-still-have-your-uterus">If you still have your
+uterus</h2>
+<p>You must also use progesterone (or have a hormonal IUD). Estrogen
+alone can thicken the lining of the uterus and raise the risk of uterine
+cancer. Progesterone prevents this. <strong>Never stop your progesterone
+while you are still using estrogen.</strong></p>
+<h2 id="how-to-use-it">How to use it</h2>
+<div class="tw"><table>
+
+<thead>
+<tr class="header">
+<th>Form</th>
+<th>How to use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Patch (Vivelle-Dot, Minivelle, Dotti, Lyllana, Climara,
+generics)</td>
+<td>Apply to clean, dry skin below the waist, such as the lower belly or
+upper buttock. Press firmly for 10 seconds. Change it on the same days
+each week (once or twice weekly, depending on your brand). Use a new
+spot each time.</td>
+</tr>
+<tr class="even">
+<td>Gel (Divigel, EstroGel, Elestrin)</td>
+<td>Apply once a day to the area on your package (thigh or arm). Let it
+dry for 5 minutes before dressing. Wash your hands. Do not shower or
+swim for 1 hour.</td>
+</tr>
+<tr class="odd">
+<td>Spray (Evamist)</td>
+<td>Spray on the inside of your forearm once a day. Let it dry for 2
+minutes and do not wash the area for 30 minutes.</td>
+</tr>
+<tr class="even">
+<td>Vaginal ring (Femring)</td>
+<td>Insert into the vagina like a tampon. It stays in for 90 days. You
+can leave it in during sex.</td>
+</tr>
+<tr class="odd">
+<td>Tablet (Estrace, generics)</td>
+<td>Take once a day at the same time, with or without food.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="if-you-miss-a-dose">If you miss a dose</h3>
+<ul>
+<li><strong>Patch:</strong> put on a new patch as soon as you remember,
+then go back to your usual change days.</li>
+<li><strong>Gel, spray, or tablet:</strong> use it when you remember the
+same day. If it’s already the next day, skip it. Don’t double up.</li>
+<li><strong>Patch fell off:</strong> put on a new one and keep your
+usual schedule.</li>
+</ul>
+<h2 id="when-youll-notice-a-difference">When you’ll notice a
+difference</h2>
+<div class="tw"><table>
+
+<thead>
+<tr class="header">
+<th>Symptom</th>
+<th>Typical timing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hot flashes and night sweats</td>
+<td>Better within 2–4 weeks; full effect by 8–12 weeks</td>
+</tr>
+<tr class="even">
+<td>Sleep</td>
+<td>Often better within a few weeks, as night sweats ease</td>
+</tr>
+<tr class="odd">
+<td>Mood, energy, joint aches</td>
+<td>Several weeks to 3 months</td>
+</tr>
+<tr class="even">
+<td>Vaginal dryness</td>
+<td>Up to 3 months</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="common-side-effects">Common side effects</h2>
+<p>These are most common in the first 1–3 months and usually settle on
+their own:</p>
+<ul>
+<li>Breast tenderness or swelling</li>
+<li>Bloating</li>
+<li>Headache</li>
+<li>Nausea (more common with tablets)</li>
+<li>Spotting or irregular bleeding</li>
+<li>Skin redness or itching under a patch</li>
+</ul>
+<p>If a side effect doesn’t improve after 2–3 months, let us know.
+Changing the dose or form often fixes it.</p>
+<h2 id="when-to-get-help">When to get help</h2>
+<p><strong>Call 911 for:</strong></p>
+<ul>
+<li>Chest pain or sudden shortness of breath</li>
+<li>Sudden weakness or numbness on one side, facial droop, trouble
+speaking, or vision loss</li>
+</ul>
+<p><strong>Go to the emergency department the same day for:</strong></p>
+<ul>
+<li>Pain, swelling, or warmth in one leg</li>
+<li>A sudden, severe headache</li>
+</ul>
+<p><strong>Message us in the portal for:</strong></p>
+<ul>
+<li>Bleeding heavier than a period, or bleeding that continues past 6
+months on daily progesterone</li>
+<li>Any bleeding after you had stopped having periods</li>
+<li>A new breast lump or nipple discharge</li>
+<li>Side effects that don’t settle after 2–3 months</li>
+</ul>
+<h2 id="tips">Tips</h2>
+<ul>
+<li>Avoid lotion or oil where you put your patch. Baby oil removes
+leftover adhesive.</li>
+<li>Hot tubs, saunas, and heating pads over a patch can increase how
+much medicine you absorb.</li>
+<li>Gel and spray can rub off onto children, partners, and pets. Let it
+dry fully and cover the area.</li>
+<li>Keep up with your yearly mammogram.</li>
+<li>Tell any surgeon or other doctor that you use estrogen.</li>
+</ul>
+
+<div class="foot">
+<p><strong>Questions?</strong> Message us through the patient portal. We reply within 2 business days. The portal is not monitored for emergencies; call 911. For a mental health crisis, call or text 988.</p>
+<p><em>The Next Chapter Clinic. Clinical services are provided by Regional Medical Health Services, P.A. Next Chapter Management LLC provides administrative support only. This handout is general education; always follow the instructions your provider gave you.</em></p>
+</div></article><article id="h-progesterone" data-id="progesterone" hidden><p class="eyebrow">Handout 02 · The Next Chapter Clinic</p><h1>Progesterone</h1>
+<p>If you still have your uterus and use estrogen, you also need
+progesterone. It keeps the lining of the uterus thin and protects you
+from uterine cancer. Many women find it also helps them sleep.</p>
+<h2 id="what-it-does">What it does</h2>
+<ul>
+<li>Protects the lining of your uterus while you use estrogen</li>
+<li>Micronized progesterone (Prometrium) often improves sleep and can
+ease anxiety</li>
+<li>Some forms (Slynd, hormonal IUD) also prevent pregnancy</li>
+</ul>
+<p><strong>Never stop your progesterone while you are still using
+estrogen</strong>, unless we have talked about it first.</p>
+<h2 id="your-options">Your options</h2>
+<div class="tw"><table>
+
+<thead>
+<tr class="header">
+<th>Medication</th>
+<th>How to take it</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Micronized progesterone (Prometrium, generics)</td>
+<td>At bedtime, either every night or 12 nights each month</td>
+<td>Body-identical. Can make you sleepy, so take only at bedtime.
+Contains peanut oil.</td>
+</tr>
+<tr class="even">
+<td>Medroxyprogesterone (Provera)</td>
+<td>Once a day, every day or 12–14 days a month</td>
+<td>Option if Prometrium isn’t tolerated</td>
+</tr>
+<tr class="odd">
+<td>Norethindrone acetate (Aygestin)</td>
+<td>Once a day for 12–14 days each month</td>
+<td>Synthetic progestin</td>
+</tr>
+<tr class="even">
+<td>Drospirenone (Slynd)</td>
+<td>1 tablet daily (24 active, 4 inactive)</td>
+<td>Also birth control during perimenopause</td>
+</tr>
+<tr class="odd">
+<td>Hormonal IUD (Mirena, Liletta)</td>
+<td>Placed in the office by an OB/GYN</td>
+<td>Protects the uterus for 5 years when used with estrogen; also birth
+control</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="what-to-expect-with-bleeding">What to expect with bleeding</h2>
+<ul>
+<li><strong>Monthly (cyclic) schedule:</strong> a period-like bleed
+usually comes a few days after your progesterone days end. This is
+expected.</li>
+<li><strong>Every-night (continuous) schedule:</strong> light, irregular
+spotting is common in the first 3–6 months, then usually stops.</li>
+</ul>
+<h2 id="when-youll-notice-a-difference">When you’ll notice a
+difference</h2>
+<ul>
+<li>Sleep often improves within the first 1–2 weeks with micronized
+progesterone.</li>
+<li>Bleeding patterns usually settle by 3–6 months.</li>
+</ul>
+<h2 id="common-side-effects">Common side effects</h2>
+<ul>
+<li>Drowsiness or dizziness (take at bedtime)</li>
+<li>Breast tenderness</li>
+<li>Bloating</li>
+<li>Mood changes in some women. Tell us if you feel low or irritable;
+another form often works better.</li>
+</ul>
+<h2 id="when-to-get-help">When to get help</h2>
+<p><strong>Call 911 for</strong> chest pain, sudden shortness of breath,
+or signs of stroke.</p>
+<p><strong>Message us in the portal for:</strong></p>
+<ul>
+<li>Bleeding heavier than a period</li>
+<li>Mood changes that worry you</li>
+</ul>
+<h2 id="tips">Tips</h2>
+<ul>
+<li>Take Prometrium at bedtime, not before driving.</li>
+<li>If you have a peanut allergy, tell us before starting
+Prometrium.</li>
+<li>Set a phone reminder, especially for a monthly schedule.</li>
+</ul>
+
+<div class="foot">
+<p><strong>Questions?</strong> Message us through the patient portal. We reply within 2 business days. The portal is not monitored for emergencies; call 911. For a mental health crisis, call or text 988.</p>
+<p><em>The Next Chapter Clinic. Clinical services are provided by Regional Medical Health Services, P.A. Next Chapter Management LLC provides administrative support only. This handout is general education; always follow the instructions your provider gave you.</em></p>
+</div></article><article id="h-combination-hormone-products" data-id="combination-hormone-products" hidden><p class="eyebrow">Handout 03 · The Next Chapter Clinic</p><h1>Combination Hormone Products</h1>
+<p>Combination products put estrogen and uterine protection in one pill
+or patch, so you only need one medication. They are for women who still
+have their uterus.</p>
+<h2 id="what-they-can-help-with">What they can help with</h2>
+<ul>
+<li>Hot flashes and night sweats</li>
+<li>Sleep, mood, and joint aches</li>
+<li>Vaginal dryness</li>
+<li>Bone loss</li>
+<li>Protection of the uterine lining is built in, so you do
+<strong>not</strong> need a separate progesterone</li>
+</ul>
+<h2 id="your-options">Your options</h2>
+<div class="tw"><table>
+
+<thead>
+<tr class="header">
+<th>Product</th>
+<th>What’s in it</th>
+<th>How to take it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Duavee</td>
+<td>Conjugated estrogens + bazedoxifene</td>
+<td>1 tablet daily. Uses bazedoxifene instead of a progestin, so it may
+cause less breast tenderness and bleeding.</td>
+</tr>
+<tr class="even">
+<td>Bijuva</td>
+<td>Estradiol + progesterone</td>
+<td>1 capsule nightly with food. The only combination with
+body-identical progesterone.</td>
+</tr>
+<tr class="odd">
+<td>Activella, Amabelz, Mimvey, Lopreeza</td>
+<td>Estradiol + norethindrone acetate</td>
+<td>1 tablet daily</td>
+</tr>
+<tr class="even">
+<td>Jinteli, Fyavolv</td>
+<td>Ethinyl estradiol + norethindrone acetate</td>
+<td>1 tablet daily</td>
+</tr>
+<tr class="odd">
+<td>Angeliq</td>
+<td>Estradiol + drospirenone</td>
+<td>1 tablet daily</td>
+</tr>
+<tr class="even">
+<td>Prempro / Premphase</td>
+<td>Conjugated estrogens + medroxyprogesterone</td>
+<td>1 tablet daily</td>
+</tr>
+<tr class="odd">
+<td>CombiPatch</td>
+<td>Estradiol + norethindrone acetate</td>
+<td>Patch changed twice a week</td>
+</tr>
+<tr class="even">
+<td>Climara Pro</td>
+<td>Estradiol + levonorgestrel</td>
+<td>Patch changed once a week</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="using-a-patch">Using a patch</h3>
+<p>Apply to clean, dry skin on the lower belly or upper buttock. Press
+for 10 seconds. Change it on the same days each week, and use a new spot
+each time.</p>
+<h3 id="if-you-miss-a-dose">If you miss a dose</h3>
+<ul>
+<li><strong>Tablet or capsule:</strong> take it when you remember the
+same day. If it’s already the next day, skip it. Don’t double up.</li>
+<li><strong>Patch:</strong> put on a new one as soon as you remember,
+then go back to your usual days.</li>
+</ul>
+<h2 id="when-youll-notice-a-difference">When you’ll notice a
+difference</h2>
+<div class="tw"><table>
+
+<thead>
+<tr class="header">
+<th>Symptom</th>
+<th>Typical timing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hot flashes and night sweats</td>
+<td>Better within 2–4 weeks; full effect by 8–12 weeks</td>
+</tr>
+<tr class="even">
+<td>Sleep and mood</td>
+<td>A few weeks to 3 months</td>
+</tr>
+<tr class="odd">
+<td>Vaginal dryness</td>
+<td>Up to 3 months</td>
+</tr>
+<tr class="even">
+<td>Irregular spotting</td>
+<td>Usually settles within 3–6 months</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="common-side-effects">Common side effects</h2>
+<p>Most common in the first 1–3 months and usually settle:</p>
+<ul>
+<li>Breast tenderness</li>
+<li>Bloating</li>
+<li>Headache or nausea</li>
+<li>Spotting or irregular bleeding</li>
+<li>Skin irritation under a patch</li>
+</ul>
+<h2 id="when-to-get-help">When to get help</h2>
+<p><strong>Call 911 for:</strong> chest pain, sudden shortness of
+breath, or sudden weakness, numbness, facial droop, trouble speaking, or
+vision loss.</p>
+<p><strong>Go to the emergency department the same day for:</strong>
+pain, swelling, or warmth in one leg, or a sudden severe headache.</p>
+<p><strong>Message us in the portal for:</strong></p>
+<ul>
+<li>Bleeding heavier than a period, or spotting that continues past 6
+months</li>
+<li>A new breast lump</li>
+<li>Side effects that don’t settle after 2–3 months</li>
+</ul>
+<h2 id="tips">Tips</h2>
+<ul>
+<li>Take your tablet at the same time each day. Bijuva works best taken
+with an evening meal.</li>
+<li>If you take Angeliq and a blood pressure medication, we may check
+your potassium.</li>
+<li>Keep up with your yearly mammogram.</li>
+</ul>
+
+<div class="foot">
+<p><strong>Questions?</strong> Message us through the patient portal. We reply within 2 business days. The portal is not monitored for emergencies; call 911. For a mental health crisis, call or text 988.</p>
+<p><em>The Next Chapter Clinic. Clinical services are provided by Regional Medical Health Services, P.A. Next Chapter Management LLC provides administrative support only. This handout is general education; always follow the instructions your provider gave you.</em></p>
+</div></article><article id="h-vaginal-estrogen" data-id="vaginal-estrogen" hidden><p class="eyebrow">Handout 04 · The Next Chapter Clinic</p><h1>Vaginal Estrogen and Vaginal Health</h1>
+<p>Low-dose vaginal estrogen treats dryness, burning, painful sex, and
+frequent urinary symptoms caused by low estrogen. This is called
+genitourinary syndrome of menopause (GSM). It works locally, so very
+little reaches the rest of your body.</p>
+<h2 id="what-it-can-help-with">What it can help with</h2>
+<ul>
+<li>Vaginal dryness, burning, or itching</li>
+<li>Pain or discomfort with sex</li>
+<li>Needing to urinate often or urgently</li>
+<li>Repeated urinary tract infections</li>
+</ul>
+<p>Unlike hot flashes, these symptoms usually don’t go away on their
+own. They tend to get worse over time without treatment. Vaginal
+estrogen is safe to use long term.</p>
+<h2 id="your-options">Your options</h2>
+<div class="tw"><table>
+
+<thead>
+<tr class="header">
+<th>Product</th>
+<th>How to use it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Estradiol cream (Estrace)</td>
+<td>Use the applicator or your finger to insert the prescribed amount at
+bedtime, nightly for 2 weeks, then 1–3 times a week</td>
+</tr>
+<tr class="even">
+<td>Conjugated estrogen cream (Premarin)</td>
+<td>Insert the prescribed amount at bedtime, usually twice a week</td>
+</tr>
+<tr class="odd">
+<td>Estradiol insert (Vagifem, Yuvafem)</td>
+<td>Insert 1 tablet with the applicator at bedtime, nightly for 2 weeks,
+then twice a week</td>
+</tr>
+<tr class="even">
+<td>Estradiol softgel (Imvexxy)</td>
+<td>Insert 1 softgel with your finger at bedtime, nightly for 2 weeks,
+then twice a week</td>
+</tr>
+<tr class="odd">
+<td>Estradiol ring (Estring)</td>
+<td>Insert like a tampon; it stays in for 90 days. Can stay in during
+sex.</td>
+</tr>
+<tr class="even">
+<td>Prasterone (Intrarosa)</td>
+<td>Insert 1 insert at bedtime every night. A non-estrogen option.</td>
+</tr>
+<tr class="odd">
+<td>Moisturizers and lubricants (Replens, Revaree, others)</td>
+<td>Moisturizer every 2–3 days; lubricant during sex. Can be used along
+with any option above.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="tips-for-using-cream">Tips for using cream</h3>
+<ul>
+<li>A small amount of cream can also be rubbed on the vulva (outer area)
+for burning or irritation.</li>
+<li>Use it at bedtime so it stays in place.</li>
+<li>Pick the same days each week, such as Monday and Thursday.</li>
+</ul>
+<h3 id="if-you-miss-a-dose">If you miss a dose</h3>
+<p>Use it the next night, then go back to your usual days. Don’t double
+up.</p>
+<h2 id="when-youll-notice-a-difference">When you’ll notice a
+difference</h2>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Symptom</th>
+<th>Typical timing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dryness and burning</td>
+<td>Starts improving in 2–4 weeks</td>
+</tr>
+<tr class="even">
+<td>Comfort with sex</td>
+<td>6–12 weeks</td>
+</tr>
+<tr class="odd">
+<td>Urinary urgency and fewer UTIs</td>
+<td>3 months or more</td>
+</tr>
+</tbody>
+</table></div>
+<p>Keep using it even after you feel better, because symptoms return if
+you stop.</p>
+<h2 id="common-side-effects">Common side effects</h2>
+<ul>
+<li>Mild vaginal irritation or discharge at first</li>
+<li>Light spotting (uncommon)</li>
+<li>Breast tenderness (rare at these low doses)</li>
+</ul>
+<h2 id="do-i-need-progesterone">Do I need progesterone?</h2>
+<p>No. At these low doses, vaginal estrogen doesn’t need progesterone,
+even if you have your uterus.</p>
+<h2 id="what-about-breast-cancer">What about breast cancer?</h2>
+<p>Vaginal estrogen at these doses has not been shown to raise breast
+cancer risk. If you’ve had breast cancer, we’ll talk with your
+oncologist before you start.</p>
+<h2 id="when-to-get-help">When to get help</h2>
+<p><strong>Message us in the portal for:</strong></p>
+<ul>
+<li>Any vaginal bleeding after menopause</li>
+<li>Symptoms that haven’t improved after 3 months</li>
+<li>Itching, sores, or skin changes on the vulva</li>
+<li>Burning with urination plus fever or back pain (this could be a
+kidney infection, so seek care the same day)</li>
+</ul>
+
+<div class="foot">
+<p><strong>Questions?</strong> Message us through the patient portal. We reply within 2 business days. The portal is not monitored for emergencies; call 911. For a mental health crisis, call or text 988.</p>
+<p><em>The Next Chapter Clinic. Clinical services are provided by Regional Medical Health Services, P.A. Next Chapter Management LLC provides administrative support only. This handout is general education; always follow the instructions your provider gave you.</em></p>
+</div></article><article id="h-veozah" data-id="veozah" hidden><p class="eyebrow">Handout 05 · The Next Chapter Clinic</p><h1>Veozah (Fezolinetant)</h1>
+<p>Veozah is a non-hormonal pill for moderate to severe hot flashes and
+night sweats. It works on the brain’s temperature-control center, which
+becomes overactive when estrogen drops.</p>
+<h2 id="what-it-can-help-with">What it can help with</h2>
+<ul>
+<li>Hot flashes and night sweats</li>
+<li>Sleep that is broken by night sweats</li>
+</ul>
+<p>Veozah does not treat vaginal dryness or protect your bones the way
+estrogen does.</p>
+<h2 id="how-to-take-it">How to take it</h2>
+<ul>
+<li>1 tablet once a day, at about the same time each day</li>
+<li>With or without food</li>
+<li>Swallow whole with water; don’t crush or chew</li>
+<li><strong>Missed dose:</strong> take it as soon as you remember the
+same day. If it’s already the next day, skip it. Don’t take two in one
+day.</li>
+</ul>
+<h2 id="liver-blood-tests-are-required">Liver blood tests are
+required</h2>
+<p>In rare cases, Veozah can cause serious liver injury. To catch
+problems early, you need blood tests:</p>
+<ul>
+<li>Before you start</li>
+<li>Every month for the first 3 months</li>
+<li>At 6 months and 9 months</li>
+</ul>
+<p>We’ll send the lab orders and remind you. If tests are not done on
+time, we can’t send your refill.</p>
+<h2 id="when-youll-notice-a-difference">When you’ll notice a
+difference</h2>
+<p>Many women notice fewer hot flashes within the first week. The full
+effect usually shows by 4–12 weeks.</p>
+<h2 id="common-side-effects">Common side effects</h2>
+<ul>
+<li>Stomach pain or diarrhea</li>
+<li>Trouble sleeping</li>
+<li>Back pain</li>
+</ul>
+<h2 id="medicines-to-check-first">Medicines to check first</h2>
+<p>Some medicines change how your body clears Veozah and can’t be taken
+with it. Tell us and your pharmacist before starting any new medicine,
+including antibiotics, acid reducers, and antidepressants.</p>
+<h2 id="when-to-get-help">When to get help</h2>
+<p><strong>Stop Veozah and message us right away, and get your labs
+within 1 business day, if you notice:</strong></p>
+<ul>
+<li>Yellow skin or eyes</li>
+<li>Dark urine or pale stools</li>
+<li>Itching all over</li>
+<li>Unusual tiredness, nausea, or loss of appetite</li>
+</ul>
+<p><strong>Go to the emergency department the same day for</strong> pain
+in the upper right side of your belly with fever or yellow skin.</p>
+
+<div class="foot">
+<p><strong>Questions?</strong> Message us through the patient portal. We reply within 2 business days. The portal is not monitored for emergencies; call 911. For a mental health crisis, call or text 988.</p>
+<p><em>The Next Chapter Clinic. Clinical services are provided by Regional Medical Health Services, P.A. Next Chapter Management LLC provides administrative support only. This handout is general education; always follow the instructions your provider gave you.</em></p>
+</div></article><article id="h-lynkuet" data-id="lynkuet" hidden><p class="eyebrow">Handout 06 · The Next Chapter Clinic</p><h1>Lynkuet (Elinzanetant)</h1>
+<p>Lynkuet is a non-hormonal capsule for moderate to severe hot flashes
+and night sweats. It calms the brain’s temperature-control center, and
+many women find it also helps them sleep.</p>
+<h2 id="what-it-can-help-with">What it can help with</h2>
+<ul>
+<li>Hot flashes and night sweats</li>
+<li>Sleep that is broken by night sweats</li>
+</ul>
+<p>Lynkuet does not treat vaginal dryness or protect your bones the way
+estrogen does.</p>
+<h2 id="how-to-take-it">How to take it</h2>
+<ul>
+<li>Take both capsules together once a day at bedtime</li>
+<li>With or without food</li>
+<li>Swallow whole with water</li>
+<li><strong>Missed dose:</strong> skip it and take your next dose at
+bedtime the following night. Don’t double up.</li>
+</ul>
+<h2 id="before-you-start">Before you start</h2>
+<ul>
+<li>We check a liver blood test before you begin.</li>
+<li>If there’s any chance you could become pregnant, you need reliable
+birth control while taking Lynkuet and for 2 weeks after stopping.</li>
+</ul>
+<h2 id="when-youll-notice-a-difference">When you’ll notice a
+difference</h2>
+<p>Many women notice fewer hot flashes and better sleep within the first
+1–2 weeks. The full effect usually shows by 12 weeks.</p>
+<h2 id="common-side-effects">Common side effects</h2>
+<ul>
+<li>Sleepiness or tiredness, which is why it’s taken at bedtime</li>
+<li>Headache</li>
+<li>Dizziness</li>
+<li>Diarrhea or stomach upset</li>
+</ul>
+<p>Don’t drive or do anything that needs you to be alert until you know
+how Lynkuet affects you.</p>
+<h2 id="foods-and-medicines-to-avoid">Foods and medicines to avoid</h2>
+<ul>
+<li><strong>Grapefruit and grapefruit juice</strong> can raise the level
+of Lynkuet in your blood.</li>
+<li>Some antibiotics, antifungals, seizure medicines, and St. John’s
+wort change how your body clears Lynkuet. Tell us and your pharmacist
+before starting any new medicine or supplement.</li>
+<li>Alcohol and sleep aids can add to the drowsiness.</li>
+</ul>
+<h2 id="when-to-get-help">When to get help</h2>
+<p><strong>Stop Lynkuet and message us right away if you
+notice:</strong></p>
+<ul>
+<li>Yellow skin or eyes, dark urine, or pale stools</li>
+<li>Unusual tiredness with nausea or loss of appetite</li>
+<li>A positive pregnancy test</li>
+</ul>
+<p><strong>Go to the emergency department the same day for</strong> pain
+in the upper right side of your belly with fever or yellow skin.</p>
+
+<div class="foot">
+<p><strong>Questions?</strong> Message us through the patient portal. We reply within 2 business days. The portal is not monitored for emergencies; call 911. For a mental health crisis, call or text 988.</p>
+<p><em>The Next Chapter Clinic. Clinical services are provided by Regional Medical Health Services, P.A. Next Chapter Management LLC provides administrative support only. This handout is general education; always follow the instructions your provider gave you.</em></p>
+</div></article><article id="h-ssri-snri" data-id="ssri-snri" hidden><p class="eyebrow">Handout 07 · The Next Chapter Clinic</p><h1>SSRIs and SNRIs for Hot Flashes and Mood</h1>
+<p>These medicines are best known for treating depression and anxiety,
+but at low doses they also reduce hot flashes. They’re a good choice if
+you can’t or prefer not to use hormones, or if you want help with mood
+and hot flashes at the same time.</p>
+<h2 id="what-it-can-help-with">What it can help with</h2>
+<ul>
+<li>Hot flashes and night sweats (usually a 50–65% reduction)</li>
+<li>Low mood, irritability, and anxiety</li>
+</ul>
+<h2 id="your-options">Your options</h2>
+<div class="tw"><table>
+
+<thead>
+<tr class="header">
+<th>Medication</th>
+<th>Usual dose</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Paroxetine (Brisdelle)</td>
+<td>7.5 mg at bedtime</td>
+<td>The only one FDA-approved for hot flashes. Not used with
+tamoxifen.</td>
+</tr>
+<tr class="even">
+<td>Escitalopram (Lexapro)</td>
+<td>10–20 mg once daily</td>
+<td>Often well tolerated</td>
+</tr>
+<tr class="odd">
+<td>Citalopram (Celexa)</td>
+<td>10–20 mg once daily</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Venlafaxine XR (Effexor XR)</td>
+<td>37.5–75 mg once daily</td>
+<td>Can raise blood pressure. Check it at home and share your readings
+with us.</td>
+</tr>
+<tr class="odd">
+<td>Desvenlafaxine (Pristiq)</td>
+<td>100–150 mg once daily</td>
+<td>Can raise blood pressure. Check it at home and share your readings
+with us.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="how-to-take-it">How to take it</h2>
+<ul>
+<li>Take it at the same time every day, with or without food.</li>
+<li>If it upsets your stomach, take it with food. If it makes you
+sleepy, take it at bedtime; if it keeps you awake, take it in the
+morning.</li>
+<li><strong>Missed dose:</strong> take it when you remember the same
+day. If it’s almost time for the next dose, skip it. Don’t double
+up.</li>
+<li><strong>Don’t stop suddenly.</strong> Stopping abruptly can cause
+dizziness, irritability, flu-like feelings, and “brain zaps.” We’ll
+taper the dose if you want to stop.</li>
+</ul>
+<h2 id="when-youll-notice-a-difference">When you’ll notice a
+difference</h2>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Symptom</th>
+<th>Typical timing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hot flashes</td>
+<td>Within 1–2 weeks</td>
+</tr>
+<tr class="even">
+<td>Mood and anxiety</td>
+<td>4–6 weeks; full effect may take up to 8–12 weeks</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="common-side-effects">Common side effects</h2>
+<p>Most improve within the first 2 weeks:</p>
+<ul>
+<li>Nausea or upset stomach</li>
+<li>Headache</li>
+<li>Trouble sleeping or feeling sleepy</li>
+<li>Dry mouth</li>
+<li>Lower sex drive or trouble reaching orgasm (tell us, because this
+can often be managed)</li>
+</ul>
+<h2 id="medicines-to-check-first">Medicines to check first</h2>
+<p>Tell us and your pharmacist about all your medicines, including
+over-the-counter and supplements. Some can interact, including tramadol,
+triptans for migraine, St. John’s wort, other antidepressants, blood
+thinners, and tamoxifen.</p>
+<h2 id="when-to-get-help">When to get help</h2>
+<p><strong>Call or text 988, or call 911 if you are in danger, if you
+have:</strong></p>
+<ul>
+<li>Thoughts of suicide or harming yourself</li>
+</ul>
+<p>Antidepressants can rarely cause new or worsening thoughts of
+suicide, especially in the first weeks or after a dose change.</p>
+<p><strong>Go to the emergency department for:</strong></p>
+<ul>
+<li>High fever, agitation, confusion, fast heartbeat, muscle twitching
+or stiffness, or heavy sweating (signs of serotonin syndrome)</li>
+</ul>
+<p><strong>Message us in the portal for:</strong></p>
+<ul>
+<li>Side effects that don’t settle after 2 weeks</li>
+<li>Mood getting worse, or new restlessness</li>
+<li>Easy bruising or unusual bleeding</li>
+</ul>
+
+<div class="foot">
+<p><strong>Questions?</strong> Message us through the patient portal. We reply within 2 business days. The portal is not monitored for emergencies; call 911. For a mental health crisis, call or text 988.</p>
+<p><em>The Next Chapter Clinic. Clinical services are provided by Regional Medical Health Services, P.A. Next Chapter Management LLC provides administrative support only. This handout is general education; always follow the instructions your provider gave you.</em></p>
+</div></article><article id="h-gabapentin" data-id="gabapentin" hidden><p class="eyebrow">Handout 08 · The Next Chapter Clinic</p><h1>Gabapentin for Hot Flashes and Sleep</h1>
+<p>Gabapentin is a non-hormonal medicine that reduces hot flashes and
+night sweats. Because it causes drowsiness, it’s especially helpful if
+night sweats are waking you up.</p>
+<h2 id="what-it-can-help-with">What it can help with</h2>
+<ul>
+<li>Night sweats and hot flashes</li>
+<li>Falling and staying asleep</li>
+</ul>
+<h2 id="how-to-take-it">How to take it</h2>
+<ul>
+<li>Most women start with a low dose at bedtime and increase slowly over
+1–2 weeks to reduce dizziness. Follow the schedule above.</li>
+<li>With or without food.</li>
+<li><strong>Missed dose:</strong> take it when you remember, unless it’s
+almost time for the next dose. Don’t double up.</li>
+<li><strong>Don’t stop suddenly</strong> after taking it regularly.
+We’ll lower the dose over about a week.</li>
+</ul>
+<h2 id="when-youll-notice-a-difference">When you’ll notice a
+difference</h2>
+<p>Sleep often improves within the first few nights. Hot flashes usually
+improve over 2–4 weeks as you reach your full dose.</p>
+<h2 id="common-side-effects">Common side effects</h2>
+<p>Most are strongest in the first 1–2 weeks:</p>
+<ul>
+<li>Drowsiness</li>
+<li>Dizziness or unsteadiness</li>
+<li>Swelling in the feet or ankles</li>
+<li>Weight gain (in some women)</li>
+</ul>
+<p>Don’t drive or do anything that needs you to be alert until you know
+how it affects you.</p>
+<h2 id="safety">Safety</h2>
+<ul>
+<li>Avoid alcohol, because it adds to the drowsiness.</li>
+<li>Don’t combine with opioid pain medicines, benzodiazepines, or sleep
+aids without talking to us. Together they can slow your breathing.</li>
+<li>Antacids with aluminum or magnesium (Maalox, Mylanta) lower how much
+gabapentin you absorb, so take gabapentin at least 2 hours after
+them.</li>
+</ul>
+<h2 id="when-to-get-help">When to get help</h2>
+<p><strong>Call 911 for</strong> slow or shallow breathing, or being
+very hard to wake up.</p>
+<p><strong>Call or text 988</strong> for thoughts of suicide or harming
+yourself.</p>
+<p><strong>Message us in the portal for:</strong></p>
+<ul>
+<li>Dizziness or sleepiness that doesn’t improve after 2 weeks</li>
+<li>New or worsening mood changes</li>
+<li>Swelling that bothers you</li>
+</ul>
+
+<div class="foot">
+<p><strong>Questions?</strong> Message us through the patient portal. We reply within 2 business days. The portal is not monitored for emergencies; call 911. For a mental health crisis, call or text 988.</p>
+<p><em>The Next Chapter Clinic. Clinical services are provided by Regional Medical Health Services, P.A. Next Chapter Management LLC provides administrative support only. This handout is general education; always follow the instructions your provider gave you.</em></p>
+</div></article><article id="h-oxybutynin" data-id="oxybutynin" hidden><p class="eyebrow">Handout 09 · The Next Chapter Clinic</p><h1>Oxybutynin for Hot Flashes</h1>
+<p>Oxybutynin is a bladder medicine that, at low doses, also reduces hot
+flashes and sweating. It’s a non-hormonal option, and it can help if you
+also have an overactive bladder.</p>
+<h2 id="what-it-can-help-with">What it can help with</h2>
+<ul>
+<li>Hot flashes and sweating</li>
+<li>Urinary urgency and needing to go often</li>
+</ul>
+<h2 id="how-to-take-it">How to take it</h2>
+<ul>
+<li>Usually 2.5–5 mg twice a day, or as prescribed.</li>
+<li>With or without food.</li>
+<li><strong>Missed dose:</strong> take it when you remember, unless it’s
+almost time for the next dose. Don’t double up.</li>
+</ul>
+<h2 id="when-youll-notice-a-difference">When you’ll notice a
+difference</h2>
+<p>Hot flashes usually improve within 1–2 weeks. The full effect may
+take up to 4–6 weeks.</p>
+<h2 id="common-side-effects">Common side effects</h2>
+<ul>
+<li>Dry mouth</li>
+<li>Constipation</li>
+<li>Dry eyes</li>
+<li>Drowsiness or blurry vision</li>
+<li>Trouble emptying your bladder (uncommon)</li>
+</ul>
+<p>Sugar-free gum or lozenges, plenty of water, and fiber help with dry
+mouth and constipation.</p>
+<h2 id="safety">Safety</h2>
+<ul>
+<li>Oxybutynin can affect memory and thinking, especially in women over
+65 or those taking other similar medicines. Tell us if you notice
+confusion or memory changes.</li>
+<li>It can reduce sweating, so take care in hot weather or during hard
+exercise to avoid overheating.</li>
+<li>Alcohol can add to drowsiness.</li>
+</ul>
+<h2 id="when-to-get-help">When to get help</h2>
+<p><strong>Seek care the same day for:</strong></p>
+<ul>
+<li>Unable to urinate</li>
+<li>Eye pain with blurred vision or seeing halos around lights</li>
+<li>Signs of overheating: confusion, very hot dry skin, or feeling faint
+in the heat</li>
+</ul>
+<p><strong>Message us in the portal for:</strong></p>
+<ul>
+<li>Confusion or memory changes</li>
+<li>Constipation that doesn’t improve</li>
+<li>Side effects that don’t settle after 2 weeks</li>
+</ul>
+
+<div class="foot">
+<p><strong>Questions?</strong> Message us through the patient portal. We reply within 2 business days. The portal is not monitored for emergencies; call 911. For a mental health crisis, call or text 988.</p>
+<p><em>The Next Chapter Clinic. Clinical services are provided by Regional Medical Health Services, P.A. Next Chapter Management LLC provides administrative support only. This handout is general education; always follow the instructions your provider gave you.</em></p>
+</div></article><article id="h-testosterone" data-id="testosterone" hidden><p class="eyebrow">Handout 10 · The Next Chapter Clinic</p><h1>Testosterone Gel for Women</h1>
+<p>Women make testosterone too, and levels fall with age and menopause.
+A small daily dose of testosterone gel can restore it to the normal
+range for women and may improve low libido and other symptoms.</p>
+<h2 id="what-it-can-help-with">What it can help with</h2>
+<ul>
+<li>Low sex drive, arousal, and satisfaction</li>
+<li>Some women also notice better energy, mood, and sense of
+well-being</li>
+</ul>
+<p>Testosterone for women is prescribed using a product made for men, at
+about one-tenth of the men’s dose. This is a common and accepted way to
+prescribe testosterone for women, because no product is FDA-approved for
+women in the U.S.</p>
+<h2 id="how-to-use-it">How to use it</h2>
+<ul>
+<li>Apply your measured dose once a day, at the same time, to clean, dry
+skin on your <strong>forearm, lower abdomen, thigh, or calf</strong>.
+Rotate spots.</li>
+<li>Rub it in and let it dry fully, about 5 minutes. Then cover the area
+with clothing.</li>
+<li>Wash your hands with soap and water right away.</li>
+<li>Don’t shower, swim, or sweat heavily for 2 hours after
+applying.</li>
+<li><strong>Missed dose:</strong> apply it when you remember the same
+day. If it’s already the next day, skip it. Don’t double up.</li>
+</ul>
+<p><strong>Your supply lasts about 10 months</strong>, because one tube
+holds many of your daily doses. Use it only as directed.</p>
+<h2 id="protect-others-from-contact">Protect others from contact</h2>
+<p>Testosterone gel can rub off onto children, partners, and pets
+through skin contact and cause unwanted effects in them.</p>
+<ul>
+<li>Always cover the area after it dries.</li>
+<li>Wash your hands after every application.</li>
+<li>Wash the skin before close skin-to-skin contact.</li>
+<li>Call us if a child shows early puberty signs (body hair, acne, voice
+changes) or a partner notices new acne or hair growth.</li>
+</ul>
+<h2 id="when-youll-notice-a-difference">When you’ll notice a
+difference</h2>
+<div class="tw"><table>
+
+<thead>
+<tr class="header">
+<th>Change</th>
+<th>Typical timing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Libido and arousal</td>
+<td>Often starts in 3–6 weeks; full effect by 3–6 months</td>
+</tr>
+<tr class="even">
+<td>Energy and mood</td>
+<td>Several weeks to 3 months</td>
+</tr>
+</tbody>
+</table></div>
+<p>We check a blood level 3–6 weeks after starting to make sure you’re
+in the normal range for women. If you notice no benefit by 6 months,
+we’ll stop it.</p>
+<h2 id="possible-side-effects">Possible side effects</h2>
+<p>Most are mild and go away when the dose is lowered:</p>
+<ul>
+<li>Acne or oily skin</li>
+<li>Increased hair growth where you apply it or on the face</li>
+</ul>
+<p><strong>Stop and message us right away if you notice:</strong></p>
+<ul>
+<li>Thinning hair on your scalp</li>
+<li>A deeper or hoarse voice</li>
+<li>Enlargement of the clitoris</li>
+</ul>
+<p>Voice changes may not reverse, so let us know promptly.</p>
+<h2 id="controlled-medication-rules">Controlled medication rules</h2>
+<p>Testosterone is a controlled substance, so a few rules apply:</p>
+<ul>
+<li>Store it out of reach of children, ideally locked.</li>
+<li>Early refills can’t be given. Tell us right away if your medication
+is lost or stolen.</li>
+<li>You need a visit at least every 6 months and a blood test at least
+every 12 months to keep getting refills.</li>
+<li>Don’t share it with anyone. Dispose of unused gel at a pharmacy
+take-back site.</li>
+</ul>
+<h2 id="other-safety-notes">Other safety notes</h2>
+<ul>
+<li>Testosterone must not be used during pregnancy. If there’s any
+chance you could become pregnant, use reliable birth control.</li>
+</ul>
+
+<div class="foot">
+<p><strong>Questions?</strong> Message us through the patient portal. We reply within 2 business days. The portal is not monitored for emergencies; call 911. For a mental health crisis, call or text 988.</p>
+<p><em>The Next Chapter Clinic. Clinical services are provided by Regional Medical Health Services, P.A. Next Chapter Management LLC provides administrative support only. This handout is general education; always follow the instructions your provider gave you.</em></p>
+</div></article><article id="h-glp1-wegovy-zepbound" data-id="glp1-wegovy-zepbound" hidden><p class="eyebrow">Handout 11 · The Next Chapter Clinic</p><h1>GLP-1 Medications (Wegovy and Zepbound)</h1>
+<p>Wegovy (semaglutide) and Zepbound (tirzepatide) are once-weekly
+injections that reduce appetite and help your body manage blood sugar.
+Along with protein-rich eating and strength training, they lead to
+meaningful, lasting weight loss for most women.</p>
+<h2 id="what-it-can-help-with">What it can help with</h2>
+<ul>
+<li>Weight loss and less “food noise”</li>
+<li>Blood sugar, blood pressure, and cholesterol</li>
+<li>Lower risk of heart attack and stroke (shown for Wegovy in people
+with heart disease)</li>
+</ul>
+<h2 id="how-to-take-it">How to take it</h2>
+<ul>
+<li>Inject once a week on the same day, any time of day, with or without
+food.</li>
+<li>Inject under the skin of your belly (at least 2 inches from your
+belly button), thigh, or the back of your upper arm. Use a new spot each
+week.</li>
+<li>We start at a low dose and increase every 4 weeks to help your body
+adjust. Don’t increase on your own.</li>
+</ul>
+<h3 id="if-you-miss-a-dose">If you miss a dose</h3>
+<div class="tw"><table>
+
+<thead>
+<tr class="header">
+<th>Medication</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Wegovy</td>
+<td>If your next dose is more than 2 days away, take it now. If it’s 2
+days or less, skip it.</td>
+</tr>
+<tr class="even">
+<td>Zepbound</td>
+<td>If it’s been 4 days or less since your missed day, take it now. If
+it’s been more than 4 days, skip it.</td>
+</tr>
+</tbody>
+</table></div>
+<p>If you miss 2 or more weeks in a row, message us before your next
+dose. You may need to restart at a lower dose.</p>
+<h3 id="storage">Storage</h3>
+<ul>
+<li>Keep unused pens or vials in the refrigerator. Don’t freeze.</li>
+<li>If needed, Wegovy pens can stay at room temperature up to 28 days;
+Zepbound pens and vials up to 21 days.</li>
+</ul>
+<h2 id="when-youll-notice-a-difference">When you’ll notice a
+difference</h2>
+<div class="tw"><table>
+
+<thead>
+<tr class="header">
+<th>Change</th>
+<th>Typical timing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Less hunger, fuller sooner</td>
+<td>First 1–2 weeks</td>
+</tr>
+<tr class="even">
+<td>Noticeable weight loss</td>
+<td>First 1–3 months</td>
+</tr>
+<tr class="odd">
+<td>Most of your weight loss</td>
+<td>12–18 months, once on your maintenance dose</td>
+</tr>
+</tbody>
+</table></div>
+<p>On average, women lose about 15% of body weight on Wegovy and about
+20% on Zepbound over a year and a half. Results vary.</p>
+<h2 id="common-side-effects">Common side effects</h2>
+<p>Most are mild and happen after starting or increasing a dose:</p>
+<ul>
+<li>Nausea</li>
+<li>Constipation or diarrhea</li>
+<li>Heartburn or burping</li>
+<li>Feeling full quickly</li>
+<li>Tiredness</li>
+<li>Hair shedding a few months in, from rapid weight loss (usually
+temporary)</li>
+</ul>
+<h3 id="tips-that-help">Tips that help</h3>
+<ul>
+<li>Eat smaller meals and stop when you feel satisfied, not full.</li>
+<li>Start each meal with protein. Aim for protein at every meal to
+protect your muscle.</li>
+<li>Limit greasy, fried, and very sugary foods, which worsen
+nausea.</li>
+<li>Drink plenty of water and eat fiber to prevent constipation.</li>
+<li>Avoid lying down right after eating.</li>
+<li>Do strength training 2–3 times a week.</li>
+</ul>
+<h2 id="important-safety-notes">Important safety notes</h2>
+<ul>
+<li><strong>Birth control:</strong> Zepbound can make birth control
+pills less effective. If you use the pill, switch to another method or
+add condoms for 4 weeks after starting and after each dose
+increase.</li>
+<li><strong>Pregnancy:</strong> stop at least 2 months before trying to
+conceive, and tell us right away if you become pregnant.</li>
+<li><strong>Surgery or procedures:</strong> tell your surgical team you
+take a GLP-1. Food can stay in your stomach longer, which matters for
+anesthesia.</li>
+<li><strong>Diabetes medicines:</strong> if you take insulin or a
+sulfonylurea, your blood sugar can go too low. Know the signs: shaking,
+sweating, confusion.</li>
+<li>Don’t use if you or a family member has had medullary thyroid cancer
+or MEN2.</li>
+</ul>
+<h2 id="when-to-get-help">When to get help</h2>
+<p><strong>Go to the emergency department the same day for:</strong></p>
+<ul>
+<li>Severe pain in the upper belly that may spread to your back, with or
+without vomiting (possible pancreatitis). Stop the medication.</li>
+<li>Pain in the upper right belly with fever or yellow skin or eyes
+(possible gallbladder problem)</li>
+<li>Vomiting for more than 24 hours, unable to keep fluids down, or very
+little urine</li>
+<li>Swelling of the face, lips, or throat, or trouble breathing (call
+911)</li>
+</ul>
+<p><strong>Message us in the portal for:</strong></p>
+<ul>
+<li>Nausea or constipation that keeps you from eating or drinking
+normally</li>
+<li>A lump or swelling in your neck, trouble swallowing, or a hoarse
+voice</li>
+<li>Low mood or thoughts of harming yourself (for a crisis, call or text
+988)</li>
+</ul>
+
+<div class="foot">
+<p><strong>Questions?</strong> Message us through the patient portal. We reply within 2 business days. The portal is not monitored for emergencies; call 911. For a mental health crisis, call or text 988.</p>
+<p><em>The Next Chapter Clinic. Clinical services are provided by Regional Medical Health Services, P.A. Next Chapter Management LLC provides administrative support only. This handout is general education; always follow the instructions your provider gave you.</em></p>
+</div></article><article id="h-compounded-glp1" data-id="compounded-glp1" hidden><p class="eyebrow">Handout 12 · The Next Chapter Clinic</p><h1>Compounded GLP-1 Medication</h1>
+<p>You chose a compounded form of semaglutide or tirzepatide, made by a
+licensed compounding pharmacy and drawn up from a vial with a syringe.
+It works the same way as the brand-name medicine. Because you measure
+each dose yourself, getting the amount right is the most important
+part.</p>
+<h2 id="your-dosing-schedule">Your dosing schedule</h2>
+<p>Your dose is measured in <strong>units</strong> on a U-100 insulin
+syringe. When drawing up your dose, always use the number of units on
+the dosing schedule we give you, not the number of mg.</p>
+<p><strong>If your new vial has a different strength than your last one,
+the number of units changes.</strong> Check the label every time, and
+message us before injecting if the strength doesn’t match your dosing
+schedule.</p>
+<h2 id="how-to-draw-up-and-inject-your-dose">How to draw up and inject
+your dose</h2>
+<ol type="1">
+<li>Wash your hands. Wipe the vial’s rubber top with an alcohol
+swab.</li>
+<li>Pull the syringe plunger back to the number of units you need, to
+fill it with air.</li>
+<li>Push the needle through the rubber top and inject the air into the
+vial.</li>
+<li>Turn the vial upside down and slowly pull the plunger back to your
+exact number of units.</li>
+<li>Tap out any air bubbles and adjust to the exact line.</li>
+<li>Clean your injection spot (belly, 2 inches from your belly button;
+thigh; or back of the upper arm) and let it dry.</li>
+<li>Pinch the skin, insert the needle straight in, and push the plunger
+slowly all the way down.</li>
+<li>Put the used syringe in a sharps container. Never reuse a
+syringe.</li>
+</ol>
+<h2 id="storage">Storage</h2>
+<ul>
+<li>Follow the storage directions on your pharmacy label. Most
+compounded vials are kept in the refrigerator.</li>
+<li>Note the date you opened the vial, and don’t use it past the
+beyond-use date on the label.</li>
+<li>Don’t use it if the liquid looks cloudy, discolored, or has
+particles.</li>
+</ul>
+<h2 id="what-you-should-know-about-compounded-medicines">What you should
+know about compounded medicines</h2>
+<ul>
+<li>Compounded medicines are <strong>not FDA-approved</strong>. The FDA
+does not review them for safety, effectiveness, or quality before they
+are sold.</li>
+<li>They’re made by a state-licensed pharmacy for you specifically,
+based on your prescription.</li>
+<li>Your formula also contains vitamin B6 or B12 as an added
+ingredient.</li>
+</ul>
+<h2 id="if-you-miss-a-dose">If you miss a dose</h2>
+<p>If it’s been 4 days or less, take it now. If it’s been more than 4
+days, skip it and take your next dose on your usual day. If you miss 2
+or more weeks in a row, message us before your next dose.</p>
+<h2 id="side-effects-and-safety">Side effects and safety</h2>
+<p>Side effects, timing of results, and warning signs are the same as
+for the brand-name medicines. See the <strong>GLP-1 Medications</strong>
+handout in your packet.</p>
+<p><strong>Go to the emergency department or call us if you think you
+took too much</strong>, especially if you have severe nausea, vomiting,
+dizziness, or can’t keep fluids down.</p>
+
+<div class="foot">
+<p><strong>Questions?</strong> Message us through the patient portal. We reply within 2 business days. The portal is not monitored for emergencies; call 911. For a mental health crisis, call or text 988.</p>
+<p><em>The Next Chapter Clinic. Clinical services are provided by Regional Medical Health Services, P.A. Next Chapter Management LLC provides administrative support only. This handout is general education; always follow the instructions your provider gave you.</em></p>
+</div></article><article id="h-minoxidil" data-id="minoxidil" hidden><p class="eyebrow">Handout 13 · The Next Chapter Clinic</p><h1>Minoxidil for Hair Loss</h1>
+<p>Minoxidil lengthens the growth phase of your hair and is the most
+proven treatment for female pattern hair loss. It comes as a foam or
+liquid you apply to your scalp, or as a low-dose pill.</p>
+<h2 id="what-it-can-help-with">What it can help with</h2>
+<ul>
+<li>Slowing hair loss</li>
+<li>Thicker, fuller hair over time, especially along the part and
+crown</li>
+</ul>
+<h2 id="how-to-use-it">How to use it</h2>
+<h3 id="topical-womens-rogaine-and-generics">Topical (Women’s Rogaine
+and generics)</h3>
+<ul>
+<li><strong>5% foam:</strong> apply half a capful once a day to a dry
+scalp, along the thinning areas.</li>
+<li><strong>2% solution:</strong> apply 1 mL twice a day to a dry
+scalp.</li>
+<li>Massage it in and let it dry fully before styling or lying down.
+Wash your hands afterward.</li>
+<li>Wait at least 4 hours before washing your hair or swimming.</li>
+<li>Hold off for 24 hours before and after hair coloring or chemical
+treatments.</li>
+</ul>
+<h3 id="oral-low-dose-tablet">Oral (low-dose tablet)</h3>
+<ul>
+<li>Take your tablet once a day at about the same time, with or without
+food.</li>
+<li>Your tablet may need to be cut in half or quarters. A pill cutter
+from the pharmacy makes this easy.</li>
+<li><strong>Missed dose:</strong> take it when you remember the same
+day. If it’s the next day, skip it. Don’t double up.</li>
+</ul>
+<h2 id="when-youll-notice-a-difference">When you’ll notice a
+difference</h2>
+<div class="tw"><table>
+
+<thead>
+<tr class="header">
+<th>Change</th>
+<th>Typical timing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Temporary increase in shedding</td>
+<td>First 2–8 weeks. This is a sign it’s working, as old hairs make room
+for new ones.</td>
+</tr>
+<tr class="even">
+<td>Less shedding</td>
+<td>2–4 months</td>
+</tr>
+<tr class="odd">
+<td>Visible regrowth</td>
+<td>6–9 months</td>
+</tr>
+<tr class="even">
+<td>Full effect</td>
+<td>About 12 months</td>
+</tr>
+</tbody>
+</table></div>
+<p>Keep going for at least 6 months before judging results. If you stop,
+the hair you gained will gradually shed within a few months.</p>
+<h2 id="common-side-effects">Common side effects</h2>
+<p><strong>Topical:</strong></p>
+<ul>
+<li>Scalp itching, dryness, or flaking (the foam is usually gentler than
+the solution)</li>
+<li>Unwanted hair on the forehead or face if the product drips, so apply
+carefully</li>
+</ul>
+<p><strong>Oral:</strong></p>
+<ul>
+<li>Unwanted hair growth on the face or body (about 1 in 5 women;
+reverses if the dose is lowered)</li>
+<li>Mild ankle swelling</li>
+<li>Feeling your heart beat faster, or lightheadedness when standing
+up</li>
+</ul>
+<h2 id="keep-pets-safe">Keep pets safe</h2>
+<p>Topical minoxidil is <strong>highly toxic to pets, especially
+cats</strong>, even in tiny amounts. Don’t let pets lick your scalp,
+hands, pillow, or bedding, and store it out of their reach.</p>
+<h2 id="when-to-get-help">When to get help</h2>
+<p><strong>Call 911 for</strong> chest pain, fainting, or trouble
+breathing.</p>
+<p><strong>Message us in the portal for:</strong></p>
+<ul>
+<li>Swelling in your feet or legs that doesn’t go away, or sudden weight
+gain</li>
+<li>A racing or pounding heartbeat</li>
+<li>Dizziness or lightheadedness</li>
+<li>Unwanted hair growth that bothers you</li>
+</ul>
+
+<div class="foot">
+<p><strong>Questions?</strong> Message us through the patient portal. We reply within 2 business days. The portal is not monitored for emergencies; call 911. For a mental health crisis, call or text 988.</p>
+<p><em>The Next Chapter Clinic. Clinical services are provided by Regional Medical Health Services, P.A. Next Chapter Management LLC provides administrative support only. This handout is general education; always follow the instructions your provider gave you.</em></p>
+</div></article><article id="h-spironolactone" data-id="spironolactone" hidden><p class="eyebrow">Handout 14 · The Next Chapter Clinic</p><h1>Spironolactone</h1>
+<p>Spironolactone blocks the effects of androgens (hormones like
+testosterone) on your hair follicles and skin. It’s used for female
+pattern hair loss, adult acne, and unwanted facial hair, and it pairs
+well with minoxidil.</p>
+<h2 id="what-it-can-help-with">What it can help with</h2>
+<ul>
+<li>Slowing hair thinning and supporting regrowth</li>
+<li>Adult acne</li>
+<li>Unwanted facial or body hair</li>
+<li>Reducing ankle swelling from oral minoxidil</li>
+</ul>
+<h2 id="how-to-take-it">How to take it</h2>
+<ul>
+<li>Take it once a day (or split into two doses if prescribed), with
+food to avoid stomach upset.</li>
+<li>Take it in the morning if it makes you urinate more.</li>
+<li>We usually start at 50 mg and increase every 4–8 weeks to your goal
+dose.</li>
+<li><strong>Missed dose:</strong> take it when you remember the same
+day. If it’s the next day, skip it. Don’t double up.</li>
+</ul>
+<h2 id="blood-tests">Blood tests</h2>
+<p>Spironolactone can raise potassium. We check a blood test before you
+start, and may recheck 2–4 weeks after a dose increase, especially if
+you’re over 45 or take blood pressure medicines.</p>
+<h2 id="when-youll-notice-a-difference">When you’ll notice a
+difference</h2>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Change</th>
+<th>Typical timing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Acne</td>
+<td>2–3 months</td>
+</tr>
+<tr class="even">
+<td>Less hair shedding</td>
+<td>3–6 months</td>
+</tr>
+<tr class="odd">
+<td>Regrowth or less facial hair</td>
+<td>6–12 months</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="common-side-effects">Common side effects</h2>
+<ul>
+<li>Urinating more often</li>
+<li>Dizziness or lightheadedness when standing, so stand up slowly</li>
+<li>Breast tenderness</li>
+<li>Irregular spotting or period changes (if you still have
+periods)</li>
+<li>Tiredness</li>
+</ul>
+<h2 id="important-safety-notes">Important safety notes</h2>
+<ul>
+<li><strong>Pregnancy:</strong> spironolactone can harm a developing
+baby. If there’s any chance you could become pregnant, use reliable
+birth control.</li>
+<li><strong>Potassium:</strong> avoid potassium supplements and salt
+substitutes (such as NoSalt or Nu-Salt) unless we approve them.</li>
+<li>Tell us before starting blood pressure medicines (especially ACE
+inhibitors or ARBs), NSAIDs taken daily (ibuprofen, naproxen), or birth
+control with drospirenone (Yaz, Slynd).</li>
+<li>Stay hydrated. If you have vomiting or diarrhea and can’t keep
+fluids down, skip your dose that day.</li>
+</ul>
+<h2 id="when-to-get-help">When to get help</h2>
+<p><strong>Go to the emergency department for:</strong></p>
+<ul>
+<li>Muscle weakness, an irregular or very slow heartbeat, or tingling
+(possible high potassium)</li>
+<li>Fainting</li>
+</ul>
+<p><strong>Message us in the portal for:</strong></p>
+<ul>
+<li>Ongoing dizziness</li>
+<li>Spotting or bleeding that bothers you</li>
+<li>A positive pregnancy test (stop taking it)</li>
+</ul>
+
+<div class="foot">
+<p><strong>Questions?</strong> Message us through the patient portal. We reply within 2 business days. The portal is not monitored for emergencies; call 911. For a mental health crisis, call or text 988.</p>
+<p><em>The Next Chapter Clinic. Clinical services are provided by Regional Medical Health Services, P.A. Next Chapter Management LLC provides administrative support only. This handout is general education; always follow the instructions your provider gave you.</em></p>
+</div></article><article id="h-finasteride" data-id="finasteride" hidden><p class="eyebrow">Handout 15 · The Next Chapter Clinic</p><h1>Finasteride for Hair Loss</h1>
+<p>Finasteride lowers DHT, the form of testosterone that shrinks hair
+follicles. For women after menopause, it can slow thinning and improve
+hair density, especially combined with minoxidil.</p>
+<h2 id="what-it-can-help-with">What it can help with</h2>
+<ul>
+<li>Slowing female pattern hair loss</li>
+<li>Thicker hair along the part and crown over time</li>
+</ul>
+<p>Finasteride is FDA-approved for men’s hair loss and used off-label
+for women. It’s prescribed for women who are past menopause or who can’t
+become pregnant.</p>
+<h2 id="how-to-take-it">How to take it</h2>
+<ul>
+<li>1 tablet once a day, with or without food, at about the same time
+each day.</li>
+<li><strong>Missed dose:</strong> skip it and take your next dose as
+usual. Don’t double up.</li>
+</ul>
+<h2 id="when-youll-notice-a-difference">When you’ll notice a
+difference</h2>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Change</th>
+<th>Typical timing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Less shedding</td>
+<td>3–6 months</td>
+</tr>
+<tr class="even">
+<td>Visible improvement</td>
+<td>6–12 months</td>
+</tr>
+</tbody>
+</table></div>
+<p>If you stop, any improvement gradually reverses over the following
+months.</p>
+<h2 id="possible-side-effects">Possible side effects</h2>
+<p>Most women have few side effects. Some notice:</p>
+<ul>
+<li>Lower sex drive</li>
+<li>Low mood</li>
+<li>Breast tenderness</li>
+<li>Headache</li>
+</ul>
+<h2 id="important-safety-notes">Important safety notes</h2>
+<ul>
+<li><strong>Pregnancy:</strong> finasteride can cause birth defects in a
+male baby. It must never be taken, or even handled as a crushed or
+broken tablet, by anyone who is or could become pregnant.</li>
+<li><strong>Mood:</strong> depression and, rarely, thoughts of suicide
+have been reported. Tell us right away about any change in mood.</li>
+<li>Don’t donate blood while taking finasteride or for 1 month after
+stopping.</li>
+</ul>
+<h2 id="when-to-get-help">When to get help</h2>
+<p><strong>Call or text 988, or call 911 if you are in danger,</strong>
+for thoughts of suicide or harming yourself.</p>
+<p><strong>Message us in the portal for:</strong></p>
+<ul>
+<li>Low mood, anxiety, or loss of interest in things you enjoy</li>
+<li>Changes in sex drive that bother you</li>
+<li>A breast lump or nipple discharge</li>
+</ul>
+
+<div class="foot">
+<p><strong>Questions?</strong> Message us through the patient portal. We reply within 2 business days. The portal is not monitored for emergencies; call 911. For a mental health crisis, call or text 988.</p>
+<p><em>The Next Chapter Clinic. Clinical services are provided by Regional Medical Health Services, P.A. Next Chapter Management LLC provides administrative support only. This handout is general education; always follow the instructions your provider gave you.</em></p>
+</div></article><article id="h-nutrition-protein" data-id="nutrition-protein" hidden><p class="eyebrow">Handout 16 · The Next Chapter Clinic</p><h1>Nutrition and Protein in Midlife</h1>
+<p>As estrogen falls, your body loses muscle more easily, stores more
+fat around the middle, and becomes less sensitive to insulin. Eating
+enough protein and fiber, and limiting alcohol, are the changes that
+make the biggest difference.</p>
+<h2 id="protein-the-foundation">Protein: the foundation</h2>
+<p>Protein protects your muscle, bones, hair, and metabolism, and it
+keeps you full longer.</p>
+<ul>
+<li>Spread it out: aim for <strong>25–40 grams at each meal</strong>,
+since your body uses protein best in smaller amounts through the
+day.</li>
+<li>Start each meal with your protein.</li>
+<li>If you have kidney disease, check with us before increasing
+protein.</li>
+</ul>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Food</th>
+<th>Protein (approx.)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Chicken breast, 4 oz cooked</td>
+<td>35 g</td>
+</tr>
+<tr class="even">
+<td>Salmon or other fish, 4 oz cooked</td>
+<td>25 g</td>
+</tr>
+<tr class="odd">
+<td>Lean ground beef or turkey, 4 oz cooked</td>
+<td>28 g</td>
+</tr>
+<tr class="even">
+<td>Greek yogurt, 1 cup plain</td>
+<td>20–23 g</td>
+</tr>
+<tr class="odd">
+<td>Cottage cheese, 1 cup</td>
+<td>25 g</td>
+</tr>
+<tr class="even">
+<td>Eggs, 2 large</td>
+<td>12 g</td>
+</tr>
+<tr class="odd">
+<td>Lentils or beans, 1 cup cooked</td>
+<td>15–18 g</td>
+</tr>
+<tr class="even">
+<td>Tofu, firm, ½ cup</td>
+<td>20 g</td>
+</tr>
+<tr class="odd">
+<td>Protein shake</td>
+<td>20–30 g (check the label)</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="fiber-for-gut-health-blood-sugar-and-cholesterol">Fiber: for gut
+health, blood sugar, and cholesterol</h2>
+<ul>
+<li>Fill half your plate with vegetables.</li>
+<li>Choose beans, lentils, berries, oats, chia or flax seeds, and whole
+grains.</li>
+<li>Increase fiber slowly and drink more water to avoid bloating.</li>
+</ul>
+<h2 id="build-a-balanced-plate">Build a balanced plate</h2>
+<ul>
+<li><strong>¼ plate:</strong> protein</li>
+<li><strong>½ plate:</strong> vegetables and fruit</li>
+<li><strong>¼ plate:</strong> whole grains or starchy vegetables</li>
+<li><strong>Plus:</strong> a small amount of healthy fat (olive oil,
+avocado, nuts, seeds)</li>
+</ul>
+<p>A Mediterranean-style eating pattern (fish, olive oil, vegetables,
+beans, nuts, and whole grains) has the strongest evidence for heart and
+brain health.</p>
+<h2 id="alcohol">Alcohol</h2>
+<ul>
+<li>Alcohol can trigger hot flashes, disrupt sleep, and raise breast
+cancer risk.</li>
+<li>Less is better. If you drink, keep it to no more than 1 drink a day,
+and have several alcohol-free days each week.</li>
+</ul>
+<h2 id="if-youre-taking-a-glp-1-medication">If you’re taking a GLP-1
+medication</h2>
+<ul>
+<li>Eat protein first at every meal. Your smaller appetite makes this
+even more important to protect your muscle.</li>
+<li>Eat smaller meals and stop when you feel satisfied.</li>
+<li>A protein shake can help on days your appetite is very low.</li>
+<li>Drink plenty of water; dehydration is common.</li>
+<li>Limit greasy and fried foods, which worsen nausea.</li>
+</ul>
+<h2 id="simple-swaps">Simple swaps</h2>
+<div class="tw"><table>
+
+<thead>
+<tr class="header">
+<th>Instead of</th>
+<th>Try</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cereal or a bagel</td>
+<td>Greek yogurt with berries and chia seeds, or eggs with
+vegetables</td>
+</tr>
+<tr class="even">
+<td>Chips</td>
+<td>A handful of nuts, or cottage cheese with fruit</td>
+</tr>
+<tr class="odd">
+<td>Sugary coffee drinks</td>
+<td>Coffee or tea with milk or a protein-rich latte</td>
+</tr>
+<tr class="even">
+<td>White pasta or rice</td>
+<td>Lentil or chickpea pasta, or brown rice with beans</td>
+</tr>
+<tr class="odd">
+<td>A glass of wine every night</td>
+<td>Sparkling water with citrus on most nights</td>
+</tr>
+</tbody>
+</table></div>
+
+<div class="foot">
+<p><strong>Questions?</strong> Message us through the patient portal. We reply within 2 business days. The portal is not monitored for emergencies; call 911. For a mental health crisis, call or text 988.</p>
+<p><em>The Next Chapter Clinic. Clinical services are provided by Regional Medical Health Services, P.A. Next Chapter Management LLC provides administrative support only. This handout is general education; always follow the instructions your provider gave you.</em></p>
+</div></article><article id="h-strength-bone-health" data-id="strength-bone-health" hidden><p class="eyebrow">Handout 17 · The Next Chapter Clinic</p><h1>Strength Training and Bone Health</h1>
+<p>Women can lose up to 10% of their bone density in the first 5–7 years
+after menopause, and muscle declines too. Strength training is the
+single best thing you can do to protect both, along with enough calcium,
+vitamin D, and protein.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<ul>
+<li>Strength training builds muscle, which keeps your metabolism up and
+protects your joints.</li>
+<li>Loading your bones with weight signals them to stay strong.</li>
+<li>Stronger muscles and better balance prevent falls, the main cause of
+fractures.</li>
+<li>It also improves blood sugar, mood, and sleep.</li>
+</ul>
+<h2 id="getting-started">Getting started</h2>
+<p>Aim for <strong>2–3 strength sessions a week</strong>, working all
+major muscle groups, plus regular walking or other activity on most
+days.</p>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Movement</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Legs</td>
+<td>Squats or sit-to-stands, lunges, step-ups, deadlifts</td>
+</tr>
+<tr class="even">
+<td>Push</td>
+<td>Push-ups (wall, counter, or floor), chest or shoulder press</td>
+</tr>
+<tr class="odd">
+<td>Pull</td>
+<td>Rows with bands or dumbbells, lat pulldown</td>
+</tr>
+<tr class="even">
+<td>Core</td>
+<td>Planks, dead bugs, bird dogs</td>
+</tr>
+<tr class="odd">
+<td>Balance</td>
+<td>Standing on one foot, heel-to-toe walking</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="how-heavy">How heavy?</h3>
+<ul>
+<li>Choose a weight you can lift 8–12 times with good form, where the
+last 2 reps feel hard.</li>
+<li>When it gets easy, increase the weight a little. Steadily lifting
+heavier over time is what builds bone.</li>
+<li>Bodyweight and resistance bands count when you’re starting out.</li>
+</ul>
+<h3 id="impact-helps-bones-too">Impact helps bones too</h3>
+<p>If your joints allow, add short bursts of impact a few times a week,
+such as brisk walking with a few jogging intervals, stair climbing, or
+small jumps.</p>
+<h3 id="safety">Safety</h3>
+<ul>
+<li>Start light and learn good form. A trainer or physical therapist can
+help, especially at first.</li>
+<li>If you have osteoporosis, avoid deep forward bending and twisting
+with weight, and ask us about a supervised program.</li>
+<li>Stop if you feel sharp pain, chest pain, or shortness of
+breath.</li>
+</ul>
+<h2 id="calcium">Calcium</h2>
+<ul>
+<li>Aim for about <strong>1,200 mg a day</strong>, mostly from food. Too
+much from supplements can raise the risk of kidney stones.</li>
+<li>Good sources: milk or fortified plant milk (300 mg per cup), yogurt
+(300–400 mg per cup), cheese (200 mg per ounce), canned salmon or
+sardines with bones, tofu made with calcium, leafy greens.</li>
+<li>If you take a supplement to fill the gap, take no more than 500 mg
+at a time, with food.</li>
+</ul>
+<h2 id="vitamin-d">Vitamin D</h2>
+<ul>
+<li>Helps your body absorb calcium. Most adults need 600–800 IU a day,
+and more if your level is low.</li>
+<li>We’ll check your level and tell you if you need a supplement.</li>
+</ul>
+<h2 id="bone-density-testing">Bone density testing</h2>
+<ul>
+<li>A DXA scan is recommended at age 65, or earlier if you have risk
+factors such as early menopause, a past fracture, low body weight,
+smoking, or long-term steroid use.</li>
+<li>Hormone therapy helps prevent bone loss while you take it.</li>
+</ul>
+<h2 id="other-ways-to-protect-your-bones">Other ways to protect your
+bones</h2>
+<ul>
+<li>Don’t smoke.</li>
+<li>Limit alcohol.</li>
+<li>Get enough protein.</li>
+<li>Make your home safer: good lighting, no loose rugs, grab bars in the
+bathroom.</li>
+</ul>
+
+<div class="foot">
+<p><strong>Questions?</strong> Message us through the patient portal. We reply within 2 business days. The portal is not monitored for emergencies; call 911. For a mental health crisis, call or text 988.</p>
+<p><em>The Next Chapter Clinic. Clinical services are provided by Regional Medical Health Services, P.A. Next Chapter Management LLC provides administrative support only. This handout is general education; always follow the instructions your provider gave you.</em></p>
+</div></article><article id="h-sleep-hot-flash-tips" data-id="sleep-hot-flash-tips" hidden><p class="eyebrow">Handout 18 · The Next Chapter Clinic</p><h1>Sleep and Hot Flash Tips</h1>
+<p>Sleep problems are one of the most common complaints in perimenopause
+and menopause, often driven by night sweats, anxiety, or changing
+hormones. These everyday strategies work alongside any treatment we’ve
+started.</p>
+<h2 id="cool-down-hot-flashes">Cool down hot flashes</h2>
+<ul>
+<li><strong>Dress in layers</strong> you can take off quickly; choose
+breathable cotton or moisture-wicking fabrics.</li>
+<li><strong>Keep your bedroom cool</strong>, around 65°F (18°C). Use a
+fan, cooling pillow, or moisture-wicking sheets.</li>
+<li><strong>Keep ice water by your bed</strong> and sip at the start of
+a hot flash.</li>
+<li><strong>Notice your triggers.</strong> Common ones include alcohol,
+spicy food, caffeine, hot drinks, stress, and warm rooms.</li>
+<li><strong>Try paced breathing</strong> when a flash starts: breathe in
+slowly for 5 seconds, out for 5 seconds, for a few minutes.</li>
+<li><strong>Don’t smoke.</strong> Smoking makes hot flashes worse.</li>
+</ul>
+<p><strong>Approaches with good evidence:</strong> cognitive behavioral
+therapy (CBT) and clinical hypnosis both reduce how much hot flashes
+bother you. Ask us for a referral or app suggestions.</p>
+<p><strong>Skip:</strong> black cohosh, soy supplements, and evening
+primrose oil haven’t been shown to work better than placebo.</p>
+<h2 id="build-better-sleep">Build better sleep</h2>
+<div class="tw"><table>
+
+<thead>
+<tr class="header">
+<th>Habit</th>
+<th>Why it helps</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Same wake-up time every day, even weekends</td>
+<td>Sets your body clock</td>
+</tr>
+<tr class="even">
+<td>Morning daylight for 10–30 minutes</td>
+<td>Strengthens your sleep-wake rhythm</td>
+</tr>
+<tr class="odd">
+<td>No caffeine after noon</td>
+<td>Caffeine lasts 6–8 hours in your body</td>
+</tr>
+<tr class="even">
+<td>Limit alcohol, especially in the evening</td>
+<td>It causes waking in the second half of the night</td>
+</tr>
+<tr class="odd">
+<td>Exercise most days, ideally not right before bed</td>
+<td>Deepens sleep</td>
+</tr>
+<tr class="even">
+<td>A wind-down routine for 30–60 minutes</td>
+<td>Signals your brain it’s time to sleep</td>
+</tr>
+<tr class="odd">
+<td>Screens off or dimmed an hour before bed</td>
+<td>Bright light delays sleep</td>
+</tr>
+<tr class="even">
+<td>Bed for sleep and sex only</td>
+<td>Trains your brain to link bed with sleep</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="if-you-cant-fall-back-asleep">If you can’t fall back asleep</h2>
+<ul>
+<li>If you’re awake for more than about 20 minutes, get up and do
+something calm in dim light, like reading or listening to something
+quiet. Go back to bed when you feel sleepy.</li>
+<li>Don’t watch the clock. Turn it away from you.</li>
+<li>Keep a notepad by your bed to write down worries.</li>
+</ul>
+<h2 id="cbt-for-insomnia-cbt-i">CBT for insomnia (CBT-I)</h2>
+<p>CBT-I is the most effective long-term treatment for insomnia, more
+effective than sleeping pills. It’s available through therapists and
+digital programs. Ask us for options.</p>
+<h2 id="when-to-tell-us">When to tell us</h2>
+<p>Message us in the portal if:</p>
+<ul>
+<li>You snore loudly, gasp or stop breathing during sleep, or feel very
+sleepy during the day. These can be signs of sleep apnea, which becomes
+more common after menopause</li>
+<li>Your legs feel restless or jumpy in the evening</li>
+<li>Poor sleep is affecting your mood, work, or safety</li>
+<li>You’re using sleep aids or alcohol most nights to fall asleep</li>
+</ul>
+
+<div class="foot">
+<p><strong>Questions?</strong> Message us through the patient portal. We reply within 2 business days. The portal is not monitored for emergencies; call 911. For a mental health crisis, call or text 988.</p>
+<p><em>The Next Chapter Clinic. Clinical services are provided by Regional Medical Health Services, P.A. Next Chapter Management LLC provides administrative support only. This handout is general education; always follow the instructions your provider gave you.</em></p>
+</div></article><article id="h-mood-brain-fog-stress" data-id="mood-brain-fog-stress" hidden><p class="eyebrow">Handout 19 · The Next Chapter Clinic</p><h1>Mood, Brain Fog, and Stress</h1>
+<p>Irritability, anxiety, low mood, and trouble concentrating are common
+in perimenopause, often before hot flashes start. They’re real, they’re
+linked to changing hormones and poor sleep, and they’re treatable.</p>
+<h2 id="whats-normal">What’s normal</h2>
+<ul>
+<li>Mood swings, irritability, or feeling “not like yourself”</li>
+<li>New or worse anxiety, sometimes with a racing heart</li>
+<li>Forgetting words or names, losing your train of thought, trouble
+focusing</li>
+<li>Feeling overwhelmed by things you used to handle easily</li>
+</ul>
+<p>Brain fog in menopause is common and, for most women, improves after
+the transition. It is not a sign of dementia.</p>
+<h2 id="what-helps">What helps</h2>
+<div class="tw"><table>
+
+<thead>
+<tr class="header">
+<th>Strategy</th>
+<th>How it helps</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Treating hot flashes and night sweats</td>
+<td>Better sleep often improves mood and focus within weeks</td>
+</tr>
+<tr class="even">
+<td>Hormone therapy</td>
+<td>Can ease mood swings and irritability in perimenopause</td>
+</tr>
+<tr class="odd">
+<td>Exercise, especially strength training and brisk walking</td>
+<td>Lifts mood and sharpens thinking as well as some medicines do for
+mild symptoms</td>
+</tr>
+<tr class="even">
+<td>Consistent sleep</td>
+<td>Memory and mood depend on it</td>
+</tr>
+<tr class="odd">
+<td>Limiting alcohol</td>
+<td>Alcohol worsens anxiety, mood, and sleep</td>
+</tr>
+<tr class="even">
+<td>Connection</td>
+<td>Time with friends and community protects mood and brain health</td>
+</tr>
+<tr class="odd">
+<td>Therapy (especially CBT)</td>
+<td>Helps with anxiety, low mood, and coping with change</td>
+</tr>
+<tr class="even">
+<td>Antidepressants (SSRIs or SNRIs)</td>
+<td>Treat depression and anxiety, and also reduce hot flashes</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="everyday-brain-fog-tips">Everyday brain fog tips</h2>
+<ul>
+<li>Write things down using lists, calendars, and phone reminders.</li>
+<li>Do one thing at a time instead of multitasking.</li>
+<li>Keep keys, phone, and glasses in the same place every day.</li>
+<li>Take short breaks during long tasks.</li>
+<li>Keep learning. A new skill, language, or hobby builds brain
+reserve.</li>
+</ul>
+<h2 id="managing-stress">Managing stress</h2>
+<ul>
+<li><strong>Breathe:</strong> slow breathing (in for 5 seconds, out for
+5 seconds) calms your nervous system within minutes.</li>
+<li><strong>Move:</strong> a 10-minute walk can reset a stressful
+day.</li>
+<li><strong>Say no</strong> to what you can, and ask for help with the
+rest.</li>
+<li><strong>Protect downtime:</strong> schedule something restful the
+way you schedule appointments.</li>
+<li><strong>Try mindfulness:</strong> free apps and short guided
+practices can help.</li>
+</ul>
+<h2 id="when-to-reach-out">When to reach out</h2>
+<p><strong>Call or text 988 right away, or call 911 if you are in
+danger,</strong> if you have thoughts of suicide or harming
+yourself.</p>
+<p><strong>Message us in the portal if:</strong></p>
+<ul>
+<li>You feel down, hopeless, or anxious most days for 2 weeks or
+more</li>
+<li>You’ve lost interest in things you usually enjoy</li>
+<li>Mood changes are affecting your relationships or work</li>
+<li>Memory problems are getting worse, or others have noticed them</li>
+</ul>
+<p>You don’t have to wait for your next visit. Depression and anxiety in
+midlife are common and very treatable.</p>
+
+<div class="foot">
+<p><strong>Questions?</strong> Message us through the patient portal. We reply within 2 business days. The portal is not monitored for emergencies; call 911. For a mental health crisis, call or text 988.</p>
+<p><em>The Next Chapter Clinic. Clinical services are provided by Regional Medical Health Services, P.A. Next Chapter Management LLC provides administrative support only. This handout is general education; always follow the instructions your provider gave you.</em></p>
+</div></article>
+    <div class="pager">
+      <button type="button" id="prev"></button>
+      <button type="button" id="next"></button>
+    </div>
+  </main>
+</div>
+
+<script>
+(function () {
+  var arts = Array.prototype.slice.call(document.querySelectorAll("article"));
+  var ids = arts.map(function (a) { return a.dataset.id; });
+  var links = document.querySelectorAll(".grp a");
+  var pick = document.getElementById("pick");
+  var prev = document.getElementById("prev"), next = document.getElementById("next");
+  function titleOf(id) { var a = document.getElementById("h-" + id); return a ? a.querySelector("h1").textContent.replace(/\s+—\s+Your Guide$/, "") : ""; }
+  function show(id, scroll) {
+    if (ids.indexOf(id) < 0) id = "estradiol";
+    arts.forEach(function (a) { a.hidden = a.dataset.id !== id; });
+    links.forEach(function (l) { l.setAttribute("aria-current", l.dataset.id === id ? "true" : "false"); });
+    pick.value = id;
+    var i = ids.indexOf(id);
+    prev.hidden = i === 0; next.hidden = i === ids.length - 1;
+    if (i > 0) prev.textContent = "← " + titleOf(ids[i - 1]);
+    if (i < ids.length - 1) next.textContent = titleOf(ids[i + 1]) + " →";
+    prev.dataset.id = ids[i - 1] || ""; next.dataset.id = ids[i + 1] || "";
+    try { localStorage.setItem("ncc-handout", id); } catch (e) {}
+    if (scroll) window.scrollTo({ top: 0 });
+  }
+  function go(id) { if (location.hash !== "#" + id) { history.replaceState(null, "", "#" + id); } show(id, true); }
+  links.forEach(function (l) { l.addEventListener("click", function (e) { e.preventDefault(); go(l.dataset.id); }); });
+  pick.addEventListener("change", function () { go(pick.value); });
+  prev.addEventListener("click", function () { if (prev.dataset.id) go(prev.dataset.id); });
+  next.addEventListener("click", function () { if (next.dataset.id) go(next.dataset.id); });
+  window.addEventListener("hashchange", function () { show(location.hash.slice(1), true); });
+  var start = location.hash.slice(1);
+  if (!start) { try { start = localStorage.getItem("ncc-handout") || ""; } catch (e) {} }
+  show(start || "estradiol", false);
+})();
+</script>
+
+</body></html>
