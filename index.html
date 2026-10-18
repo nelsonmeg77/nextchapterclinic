@@ -126,22 +126,27 @@ nav {
   padding: 4rem 5rem 6rem 4rem; gap: 1.25rem;
 }
 .hero-photo-bubble {
-  display: flex; align-items: center; gap: 1rem;
-  margin-bottom: 0.5rem;
+  display: flex; align-items: center; gap: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 .hero-photo-bubble img {
-  width: 72px; height: 72px; border-radius: 50%;
+  width: 96px; height: 96px; border-radius: 50%;
   object-fit: cover; object-position: center top;
   border: 3px solid white;
   box-shadow: 0 4px 20px rgba(26,26,46,0.12);
+  flex-shrink: 0;
 }
 .hero-photo-bubble-text strong {
-  display: block; font-size: 0.9rem; font-weight: 500;
+  display: block; font-weight: 500;
   color: var(--ink); font-family: 'Cormorant Garamond', serif;
-  font-size: 1.05rem;
+  font-size: 1.25rem;
 }
 .hero-photo-bubble-text span {
-  font-size: 0.75rem; color: var(--muted); letter-spacing: 0.04em;
+  font-size: 0.82rem; color: var(--muted); letter-spacing: 0.04em;
+}
+.hero-photo-bubble-text .bubble-creds {
+  display: block; font-size: 0.78rem; color: var(--sage-dark);
+  font-weight: 500; margin-top: 0.2rem; letter-spacing: 0.03em;
 }
 .hero-stat {
   background: white;
@@ -927,15 +932,9 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
     <div class="hero-photo-bubble">
       <img src="megan-hero.jpg" alt="Megan Nelson, CNM, MSCP">
       <div class="hero-photo-bubble-text">
-        <strong>Megan Nelson, CNM, MSCP</strong>
+        <strong>Megan Nelson</strong>
+        <span class="bubble-creds">CNM, MSCP</span>
         <span>Founder · Menopause Specialist</span>
-      </div>
-    </div>
-    <div class="hero-stat" id="hs1">
-      <div class="stat-icon">🩺</div>
-      <div class="stat-text">
-        <strong>CNM, MSCP</strong>
-        <span>Certified Nurse Midwife & Menopause Specialist</span>
       </div>
     </div>
     <div class="hero-stat" id="hs2">
@@ -955,8 +954,8 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
     <div class="hero-stat" id="hs4">
       <div class="stat-icon">💳</div>
       <div class="stat-text">
-        <strong>HSA / FSA Accepted</strong>
-        <span>Pay-as-you-go or monthly membership — transparent pricing, no surprises</span>
+        <strong>Transparent Pricing</strong>
+        <span>HSA/FSA accepted · Pay-as-you-go or monthly membership, no surprises</span>
       </div>
     </div>
   </div>
