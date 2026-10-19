@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personalized menopause and perimenopause telehealth care by Megan Nelson, CNM, MSCP. Hormone therapy, GLP-1 management, and non-hormonal treatments for Michigan women.">
 <link rel="canonical" href="https://nextchapterclinic.com/">
 <title>The Next Chapter Clinic, Menopause Telehealth for Women</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -47,7 +48,7 @@ nav {
   font-size: 1.3rem; font-weight: 600;
   color: var(--ink); letter-spacing: 0.02em;
 }
-.nav-logo span { color: var(--sage); }
+.nav-logo span { color: var(--sage-dark); }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 .nav-links a {
   text-decoration: none; color: var(--muted);
@@ -147,7 +148,7 @@ nav {
 .hero-photo-bubble-text span {
   font-size: 0.85rem; color: var(--muted); letter-spacing: 0.03em;
 }
-.hero-photo-bubble-text .bubble-creds {
+.hero-photo-bubble-text .bubble-creds { color: rgba(255,255,255,0.85) !important;
   display: block; font-size: 0.82rem; color: var(--sage-dark);
   font-weight: 500; margin-top: 0.25rem; letter-spacing: 0.03em;
 }
@@ -416,7 +417,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 .footer-col ul a:hover { color: var(--sage-light); }
 .footer-bottom {
   background: #111827; padding: 1.5rem 5rem;
-  display: flex; justify-content: space-between; align-items: center; position: relative;
+  display: flex; justify-content: space-between; align-items: center;
 }
 .footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
 
@@ -888,6 +889,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   text-decoration: none;
 }
 .mobile-menu .mobile-resources-sub a:hover { color: var(--sage); }
+.footer-heading { color: rgba(255,255,255,0.5); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; margin-bottom: 1rem; }
 </style>
 </head>
 <body>
@@ -930,11 +932,11 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   </ul>
 
   <!-- Mobile Menu Button -->
-  <label for="menu-toggle" class="hamburger" aria-label="Menu">
+  <label for="menu-toggle" class="hamburger" role="button" aria-label="Open navigation menu">
     <span></span><span></span><span></span>
   </label>
 </nav>
-
+<main id="main-content">
 <!-- Mobile Menu Overlay (outside nav so it covers full screen) -->
 <div class="mobile-menu" id="mobile-menu">
   <label for="menu-toggle" class="menu-close">✕</label>
@@ -1032,13 +1034,14 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 </section>
 
 <!-- FOOTER -->
+</main>
 <footer>
   <div>
     <div class="footer-brand">The Next Chapter <span>Clinic</span></div>
     <p>Led by Megan Nelson, CNM, MSCP, a Certified Nurse Midwife and menopause specialist. All clinical services are provided by Regional Medical Health Services, P.A. The Next Chapter Clinic is a registered name of Regional Medical Health Services, P.A.</p>
   </div>
     <div class="footer-col">
-    <h5>Quick Links</h5>
+    <p class="footer-heading">Quick Links</p>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
