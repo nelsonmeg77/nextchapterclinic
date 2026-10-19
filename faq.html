@@ -34,9 +34,9 @@ body {
 
 /* ── NAV ─────────────────────────── */
 nav {
-  position: fixed; top: 0; width: 100%; z-index: 1500;
+  position: sticky; top: 0; width: 100%; z-index: 1500;
   padding: 1.25rem 3rem;
-  display: flex; justify-content: space-between; align-items: center; position: relative;
+  display: flex; justify-content: space-between; align-items: center;
   background: rgba(250,247,242,0.93);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(122,158,135,0.15);
@@ -67,7 +67,7 @@ nav {
 /* ── PAGE HERO ───────────────────── */
 .page-hero {
   background: var(--ink);
-  padding: 10rem 5rem 6rem;
+  padding: 3.5rem 5rem 3rem;
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 5rem; align-items: end;
   position: relative; overflow: hidden;
@@ -176,7 +176,7 @@ nav {
 .faq-question {
   width: 100%; background: none; border: none;
   padding: 1.25rem 1.5rem; cursor: pointer;
-  display: flex; justify-content: space-between; align-items: center; position: relative;
+  display: flex; justify-content: space-between; align-items: center;
   gap: 1rem; text-align: left;
 }
 .faq-question:hover { background: rgba(122,158,135,0.04); }
@@ -321,7 +321,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   padding-right: 2.5rem;
 }
 .form-footer {
-  display: flex; justify-content: space-between; align-items: center; position: relative;
+  display: flex; justify-content: space-between; align-items: center;
   gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem;
 }
 .form-note { font-size: 0.8rem; color: var(--muted); }
