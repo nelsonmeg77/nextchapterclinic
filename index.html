@@ -34,7 +34,7 @@ body {
 
 /* ── NAV ─────────────────────────── */
 nav {
-  position: fixed; top: 38px; width: 100%; z-index: 1500;
+  position: fixed; top: 0; width: 100%; z-index: 1500;
   padding: 1.25rem 3rem;
   display: flex; justify-content: space-between; align-items: center;
   background: rgba(250,247,242,0.93);
@@ -68,7 +68,7 @@ nav {
 .hero {
   min-height: 100vh;
   display: grid; grid-template-columns: 1fr 1fr;
-  padding-top: 116px;
+  padding-top: 78px;
 }
 .hero-left {
   background: var(--ink);
@@ -438,7 +438,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
     grid-template-columns: 1fr;
     min-height: auto;
   }
-  .hero-left { padding: 7.5rem 1.5rem 3rem; }
+  .hero-left { padding: 6rem 1.5rem 3rem; }
   .hero-right { padding: 2rem 1.5rem; gap: 1rem; }
   .hero-h1 { font-size: 2.2rem; }
   .hero-btns { flex-direction: column; }
@@ -752,7 +752,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   .page-hero h1 { font-size: 1.9rem; line-height: 1.15; }
   .hero-right-text { display: none; }
   .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left { padding: 7rem 1.25rem 2.5rem; }
+  .hero-left { padding: 5.5rem 1.25rem 2.5rem; }
   .hero-right { padding: 1.5rem 1.25rem; }
   .hero-h1 { font-size: 1.9rem; }
 
@@ -894,7 +894,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
 
 
 <!-- COMING SOON BANNER -->
-<div style="background:var(--ink); color:white; text-align:center; padding:0.65rem 1.5rem; font-size:0.82rem; letter-spacing:0.06em; position:fixed; top:0; width:100%; z-index:2000;">
+<div style="background:var(--ink); color:white; text-align:center; padding:0.65rem 1.5rem; font-size:0.82rem; letter-spacing:0.06em; position:relative; z-index:900;">
   🌿 <strong style="color:var(--sage-light);">Coming early 2027</strong>: We're building something exciting. Stay tuned.
 </div>
 
