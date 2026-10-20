@@ -544,7 +544,7 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   gap: 0;
   pointer-events: none;
 }
-.mobile-menu.open { display: flex; }
+.mobile-menu.open { display: flex; pointer-events: all; }
 .mobile-menu a {
   font-family: 'Cormorant Garamond', serif;
   font-size: 2rem; font-weight: 300;
@@ -839,14 +839,14 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
   </ul>
 
   <!-- Mobile Menu Button -->
-  <label for="menu-toggle" class="hamburger" role="button" aria-label="Open navigation menu">
+  <button id="hamburger" class="hamburger" aria-label="Open navigation menu" onclick="toggleMenu(event)">
     <span></span><span></span><span></span>
-  </label>
+  </button>
 </nav>
 <main id="main-content">
 <!-- Mobile Menu Overlay (outside nav so it covers full screen) -->
 <div class="mobile-menu" id="mobile-menu">
-  <label for="menu-toggle" class="menu-close">✕</label>
+  <button class="menu-close" onclick="closeMenu()">✕</button>
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
   <div class="mobile-resources-toggle" onclick="this.classList.toggle('open')">

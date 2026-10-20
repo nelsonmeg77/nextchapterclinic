@@ -215,13 +215,13 @@ footer > div > p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height
     </li>
     <li><a href="contact.html" class="nav-cta">Join Waitlist</a></li>
   </ul>
-  <label for="menu-toggle" class="hamburger" role="button" aria-label="Open navigation menu">
+  <button id="hamburger" class="hamburger" aria-label="Open navigation menu" onclick="toggleMenu(event)">
     <span></span><span></span><span></span>
-  </label>
+  </button>
 </nav>
 <main id="main-content">
 <div class="mobile-menu" id="mobile-menu">
-  <label for="menu-toggle" class="menu-close">✕</label>
+  <button class="menu-close" onclick="closeMenu()">✕</button>
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
   <div class="mobile-resources-toggle" onclick="this.classList.toggle('open')">
