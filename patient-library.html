@@ -46,6 +46,8 @@ header.top { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: b
 .brand { font-family: var(--display); font-size: 30px; font-weight: 600; color: var(--sage); margin: 0; line-height: 1.1; }
 .brand small { display: block; font-family: var(--body); font-size: 12px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
 .meta { color: var(--muted); font-size: 13px; }
+.back-link { font-family: var(--body); font-size: 13px; color: var(--sage); text-decoration: none; white-space: nowrap; }
+.back-link:hover { text-decoration: underline; }
 
 nav.index { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); max-height: calc(100vh - 32px); overflow-y: auto; display: flex; flex-direction: column; gap: 18px; padding-right: 4px; }
 .grp h2 { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; font-weight: 700; }
@@ -105,6 +107,7 @@ td:empty::after { content: "\00a0"; }
 <div class="wrap">
   <header class="top">
     <p class="brand">The Next Chapter Clinic<small>Patient handout library</small></p>
+    <a href="https://nextchapterclinic.com" class="back-link">← Back to website</a>
     <span class="meta">22 handouts</span>
   </header>
 
